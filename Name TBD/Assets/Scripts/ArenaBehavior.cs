@@ -10,14 +10,14 @@ public class ArenaBehavior : MonoBehaviour {
     [SerializeField]
     List<GameObject> arenaRings;
 
-    Color aboutToDrop = Color.red;
-
     int ringToDrop;
     float timer;
 
-    void Start () {
+    private void Awake()
+    {
         timer = 0;
         ringToDrop = arenaRings.Count - 1;
+        SetArenaBounds();
     }
 
     void Update()
@@ -33,6 +33,7 @@ public class ArenaBehavior : MonoBehaviour {
                 arenaRings[ringToDrop].GetComponent<ArenaFall>().Fall();
                 StartCoroutine(Wait(ringToDrop));
                 ringToDrop--;
+                SetArenaBounds();
             }
         }
     }
@@ -40,7 +41,15 @@ public class ArenaBehavior : MonoBehaviour {
     private IEnumerator Wait(int ringToDrop)
     {
         yield return new WaitForSeconds(ringFlashTime);
+        arenaRings[ringToDrop - 1].tag = "ArenaEdge";
+        GameManager.getInstance().SetArenaFell(true);
         arenaRings[ringToDrop].SetActive(false);
         arenaRings.Remove(arenaRings[ringToDrop]);
+    }
+
+
+    public void SetArenaBounds()
+    {
+        GameManager.getInstance().SetCurrentEdge(arenaRings[ringToDrop]);
     }
 }
