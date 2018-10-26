@@ -5,59 +5,42 @@ using UnityEngine;
 public class ArenaBehavior : MonoBehaviour {
 
     [SerializeField]
-    GameObject[] arenaRings;
-    Color[] arenaColors;
-    bool[] dropList;
+    float ringFlashTime, timeToDrop;
+
+    [SerializeField]
+    List<GameObject> arenaRings;
 
     Color aboutToDrop = Color.red;
 
     int ringToDrop;
     float timer;
-    float dropTime = 5, flashTime;
-    int timesToFlash = 3;
 
-    bool shouldDrop, colorChange;
-
-	void Start () {
+    void Start () {
         timer = 0;
-        dropList = new bool[arenaRings.Length];
-        ringToDrop = arenaRings.Length - 1;
-	}
-	
-	void Update ()
+        ringToDrop = arenaRings.Count - 1;
+    }
+
+    void Update()
     {
-        if (arenaRings.Length > 1)
+        if (arenaRings.Count > 1)
         {
             timer += Time.deltaTime;
-            if (timer > dropTime) //timer for rings falling
+
+            if (timer > timeToDrop && ringToDrop >= 0) //timer for rings falling
             {
                 timer = 0;
-                dropList[ringToDrop] = true;
-                --ringToDrop;
-            }
 
-
-            for(int i = arenaRings.Length; i > 0; i--) //begin to flash color
-            {
-                if(dropList[i])
-                {
-                    arenaColors[i] = arenaRings[i].GetComponent<SpriteRenderer>().color;
-                    arenaRings[i].GetComponent<SpriteRenderer>().color = aboutToDrop;
-                }
-            }
-
-            if(colorChange)
-            {
-                timer += Time.deltaTime;
-                if(timer > flashTime)
-                {
-                    timesToFlash++;
-                    arenaRings[i].GetComponent<SpriteRenderer>().color = aboutToDrop;
-
-                }
+                arenaRings[ringToDrop].GetComponent<ArenaFall>().Fall();
+                StartCoroutine(Wait(ringToDrop));
+                ringToDrop--;
             }
         }
+    }
 
-
-	}
+    private IEnumerator Wait(int ringToDrop)
+    {
+        yield return new WaitForSeconds(ringFlashTime);
+        arenaRings[ringToDrop].SetActive(false);
+        arenaRings.Remove(arenaRings[ringToDrop]);
+    }
 }
