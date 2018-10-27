@@ -12,6 +12,9 @@ public class PeaShooterScript : MonoBehaviour
     [SerializeField]
     float fireTime = 0.1f;
 
+    [SerializeField]
+    float peaBoopForce = 100.0f;
+
     bool canFire;
 
     // Use this for initialization
@@ -41,6 +44,8 @@ public class PeaShooterScript : MonoBehaviour
             newBullet.transform.eulerAngles = gameObject.transform.eulerAngles;
 
             newBullet.transform.position = gameObject.transform.position + gameObject.transform.up;
+
+            newBullet.GetComponent<PeaScript>().SetBoopForce(peaBoopForce);
 
             canFire = false;
         }

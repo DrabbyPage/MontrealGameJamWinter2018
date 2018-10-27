@@ -170,7 +170,7 @@ Prefab:
     - target: {fileID: 50270452324214672, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
       propertyPath: m_LinearDrag
-      value: 16
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4875307612205552, guid: 0590152534344534d8bb22c995d7800f, type: 2}
       propertyPath: m_RootOrder
@@ -269,6 +269,7 @@ MonoBehaviour:
     dashDistance: 0
     dashCoolDownTime: 0
   charType: 2
+  moveSpeed: 80
   rotationSpeed: 15
   canAct: 1
   heldItem: {fileID: 0}
@@ -396,7 +397,7 @@ Prefab:
     - target: {fileID: 50270452324214672, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
       propertyPath: m_LinearDrag
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114063223950796708, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
@@ -467,6 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireTime: 0.3
+  peaBoopForce: 100
 --- !u!1 &2079162148
 GameObject:
   m_ObjectHideFlags: 0

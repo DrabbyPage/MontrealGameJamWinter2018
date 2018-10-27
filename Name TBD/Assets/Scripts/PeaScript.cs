@@ -60,4 +60,9 @@ public class PeaScript : MonoBehaviour
         parObj = newPar;
     }
 
+    public void SetBoopForce(float newBoop)
+    {
+        boopForce = newBoop;
+    }
+
 }

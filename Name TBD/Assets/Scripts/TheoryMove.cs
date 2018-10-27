@@ -47,6 +47,7 @@ public class TheoryMove : MonoBehaviour
 
     float deadStick = 0.5f;
 
+    [SerializeField]
     float moveSpeed = 120.0f;
 
     [SerializeField]
