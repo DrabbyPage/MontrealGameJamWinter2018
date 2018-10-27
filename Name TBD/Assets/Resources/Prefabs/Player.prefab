@@ -819,6 +819,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c673a1908137948408f208d7fc977a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meltTime: 1.5
+  slipTime: 2
+  originalPlayerDrag: 10
+  slipDrag: 3
+  puddleCooldown: 2
+  puddleSize: 0
 --- !u!114 &114372515864150826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -876,7 +882,7 @@ MonoBehaviour:
     dashStopSpeed: 0
     dashDistance: 0
     dashCoolDownTime: 0
-  charType: 7
+  charType: 8
   moveSpeed: 80
   rotationSpeed: 15
   canAct: 1
