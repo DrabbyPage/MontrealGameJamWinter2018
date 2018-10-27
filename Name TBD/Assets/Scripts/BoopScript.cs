@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoopScript : MonoBehaviour {
+public class BoopScript : MonoBehaviour
+{
 
     bool isBooped;
     float boopForce = 100f;
@@ -27,17 +28,18 @@ public class BoopScript : MonoBehaviour {
         }
 	}
 
+    // sets the values to boop THIS object in a direction
     public void Booped(Vector2 dir, float boopEnergy)
     {
-        Debug.Log(boopForce);
         boopForce = boopEnergy;
-        Debug.Log(boopForce);
         boopDir = dir;
         isBooped = true;
     }
 
+    // forces teh character into a direction previously set
     void ForceAway()
     {
+        // will push the obj if time hasnt ended
         if(time > 0)
         {
             time = time - Time.deltaTime;

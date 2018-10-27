@@ -107,8 +107,6 @@ public class TheoryMove : MonoBehaviour
     // checking for movement input
     void CheckForInput()
     {
-        Vector2 worldUp = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 1);
-        Vector2 worldRight = new Vector2(gameObject.transform.position.x + 1, gameObject.transform.position.y );
         if(Input.GetAxis(p1_LSH_Name) > deadStick)
         {
             // right side on left stick
