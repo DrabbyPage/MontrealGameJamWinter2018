@@ -77,8 +77,6 @@ public class PlayerMovementScript : MonoBehaviour
         p1_RSH_Name = currentPlayer + "_RJS_H";
         p1_RSV_Name = currentPlayer + "_RJS_V";
 
-        Debug.Log(p1_LSH_Name);
-
         rb = GetComponent<Rigidbody2D>();
         CheckHeldObject();
     }
@@ -93,7 +91,6 @@ public class PlayerMovementScript : MonoBehaviour
 	
     void Update()
     {
-        ArenaUpdate();
         PerformAction();
     }
 
@@ -148,7 +145,7 @@ public class PlayerMovementScript : MonoBehaviour
         // If the player can act and they input the action key
         if (canAct && Input.GetAxis(p1_RT_Name) == 1)
         {
-            Debug.Log(charType);
+         //   Debug.Log(charType);
 
             switch (charType)
             {
@@ -182,34 +179,4 @@ public class PlayerMovementScript : MonoBehaviour
 
         }
     }
-
-    private void ArenaUpdate()
-    {
-        //update arena bounds
-        if (managerHandle.GetArenaFell())
-        {
-            currentArena = managerHandle.GetCurrentEdge();
-            managerHandle.SetArenaFell(false);
-        }
-
-        //Check if player is still in arena
-        if (!InsideArena())
-        {
-            //Debug.Log("DEAD");
-            rb.velocity = Vector3.zero;
-            StartCoroutine(TurnAroundAndDie(1.0f));
-        }
-    }
-
-    private bool InsideArena()
-    {
-        return currentArena.GetComponent<CircleCollider2D>().bounds.Contains(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, currentArena.transform.position.z));
-    }
-
-    private IEnumerator TurnAroundAndDie(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        rb.AddForce(-gameObject.transform.up * 1000.0f); //go die pls
-    }
-
 }
