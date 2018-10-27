@@ -38,7 +38,9 @@ public class TheoryMove : MonoBehaviour
         TELEFRAG = 5,
         BIG_POLE = 6,
         SMALL_KNIFE = 7,
-        ICE_DA_ICEMANE = 8
+        ICE_DA_ICEMANE = 8,
+        MAGNET = 9
+        
         // ETC.
     };
 
@@ -184,10 +186,6 @@ public class TheoryMove : MonoBehaviour
                 transform.GetChild(7).gameObject.SetActive(true);
                 heldItem = transform.GetChild(7).gameObject;
                 break;
-            case PLAYER_TYPE.ICE_DA_ICEMANE:
-                transform.GetChild(8).gameObject.SetActive(true);
-                heldItem = transform.GetChild(8).gameObject;
-                break;
         }
     }
 
@@ -225,9 +223,6 @@ public class TheoryMove : MonoBehaviour
                     break;
                 case PLAYER_TYPE.SMALL_KNIFE:
                     heldItem.GetComponent<HammerScript>().SpinHeldObject();
-                    break;
-                case PLAYER_TYPE.ICE_DA_ICEMANE:
-                    heldItem.GetComponent<IcePlacerScirpt>().PeformAction();
                     break;
             }
         }
