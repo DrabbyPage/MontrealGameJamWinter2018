@@ -36,7 +36,8 @@ public class TheoryMove : MonoBehaviour
         SPEAR = 3,
         MINER = 4,
         TELEFRAG = 5,
-        BIG_POLE = 6
+        BIG_POLE = 6,
+        SMALL_KNIFE = 7
         // ETC.
     };
 
@@ -172,9 +173,15 @@ public class TheoryMove : MonoBehaviour
                 heldItem.GetComponent<BullHornsScript>().SetPlayerValues(this.gameObject, rb);
                 break;
             case PLAYER_TYPE.BIG_POLE:
-                moveSpeed /= 2;
+                moveSpeed /= 4;
                 transform.GetChild(6).gameObject.SetActive(true);
                 heldItem = transform.GetChild(6).gameObject;
+                break;
+            case PLAYER_TYPE.SMALL_KNIFE:
+                transform.localScale += new Vector3(1, 1, 0);
+                moveSpeed *= 1.25f;
+                transform.GetChild(7).gameObject.SetActive(true);
+                heldItem = transform.GetChild(7).gameObject;
                 break;
         }
     }
@@ -211,7 +218,9 @@ public class TheoryMove : MonoBehaviour
                 case PLAYER_TYPE.BIG_POLE:
                     heldItem.GetComponent<HammerScript>().SpinHeldObject();
                     break;
-
+                case PLAYER_TYPE.SMALL_KNIFE:
+                    heldItem.GetComponent<HammerScript>().SpinHeldObject();
+                    break;
             }
         }
     }
