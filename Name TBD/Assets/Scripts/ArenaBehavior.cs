@@ -22,7 +22,12 @@ public class ArenaBehavior : MonoBehaviour {
 
     void Update()
     {
-        if (arenaRings.Count > 1)
+        if (GameManager.getInstance().IsNewRound())
+        {
+            ResetArena();
+        }
+
+        if (ringToDrop > 0)
         {
             timer += Time.deltaTime;
 
@@ -36,20 +41,36 @@ public class ArenaBehavior : MonoBehaviour {
                 SetArenaBounds();
             }
         }
+
     }
 
     private IEnumerator Wait(int ringToDrop)
     {
         yield return new WaitForSeconds(ringFlashTime);
-        arenaRings[ringToDrop - 1].tag = "ArenaEdge";
         GameManager.getInstance().SetArenaFell(true);
         arenaRings[ringToDrop].SetActive(false);
-        arenaRings.Remove(arenaRings[ringToDrop]);
     }
 
 
+    void ResetArena()
+    {
+        ringToDrop = arenaRings.Count - 1;
+
+        for (int i = 0; i < arenaRings.Count; i++)
+        {
+            SetArenaBounds();
+            timer = 0;
+            arenaRings[i].GetComponent<ArenaFall>().Reset();
+            arenaRings[i].SetActive(true);
+        }
+
+        GameManager.getInstance().ArenaNeedsUpdate(false);
+    }
+
     public void SetArenaBounds()
     {
+        Debug.Log(arenaRings[ringToDrop]);
+       // Debug.Break();
         GameManager.getInstance().SetCurrentEdge(arenaRings[ringToDrop]);
     }
 }
