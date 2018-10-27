@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4119719005230790}
   - component: {fileID: 212091958481755688}
-  - component: {fileID: 114063223950796708}
   - component: {fileID: 50270452324214672}
   - component: {fileID: 58612444056878060}
+  - component: {fileID: 114356845852751014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -39,6 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4011330253743310}
   - component: {fileID: 61274551408679212}
+  - component: {fileID: 114426787028699870}
   m_Layer: 0
   m_Name: BullCollider
   m_TagString: Untagged
@@ -78,6 +79,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1641746305552560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4588152859663920}
+  - component: {fileID: 114735037597117164}
+  m_Layer: 0
+  m_Name: PeaShooter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1881186707398166
 GameObject:
   m_ObjectHideFlags: 1
@@ -160,11 +177,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317886554337126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.056702692, y: 0.042489823, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4820664361290312}
   - {fileID: 4875307612205552}
+  - {fileID: 4588152859663920}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -180,6 +198,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4875307612205552}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4588152859663920
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641746305552560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4119719005230790}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4758904539300856
 Transform:
@@ -236,7 +267,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -296,7 +327,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
+  m_Offset: {x: 0, y: 0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -309,34 +340,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &114063223950796708
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1317886554337126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1797eaec48ef7614f9aa9e763acdc1eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPlayer: P1
-  inputData:
-    xLeftAxisDeadzone: 0.275
-    yLeftAxisDeadzone: 0.275
-    xRightAxisDeadzone: 0.35
-    yRightAxisDeadzone: 0.35
-  dashData:
-    dashSpeed: 0
-    maxDashTime: 0
-    dashStopSpeed: 0
-    dashDistance: 0
-    dashCoolDownTime: 0
-  charType: 0
-  speed: 5
-  rotationSpeed: 15
-  canAct: 1
-  heldItem: {fileID: 0}
 --- !u!114 &114249866893438576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,9 +352,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thePlayer: {fileID: 0}
-  addSpeed: 10
+  boopForce: 300
+  addSpeed: 80
   isCharging: 0
-  rushTime: 10
   rushDistance: 6
   cooldownTime: 30
   allowedCharges: 1
@@ -366,11 +369,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007a39c441964944e92ec0a8a5e4262c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoopForce: 0
+  BoopForce: 150
   rotationAngle: -15
   isSpinning: 0
   cooldownTime: 60
   allowedSpins: 4
+--- !u!114 &114356845852751014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317886554337126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cd58cad32176343b2ced9d1d76b3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPlayer: P1
+  inputData:
+    xLeftAxisDeadzone: 0.275
+    yLeftAxisDeadzone: 0.275
+    xRightAxisDeadzone: 0.3
+    yRightAxisDeadzone: 0.3
+  dashData:
+    dashSpeed: 0
+    maxDashTime: 0
+    dashStopSpeed: 0
+    dashDistance: 0
+    dashCoolDownTime: 0
+  charType: 0
+  moveSpeed: 80
+  rotationSpeed: 15
+  canAct: 1
+  heldItem: {fileID: 0}
+--- !u!114 &114426787028699870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410297607160766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f304b3e0f24896e40be0cb0a76bee3dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114735037597117164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641746305552560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22621cd1a197e2e45a09c10979c86fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireTime: 0.3
+  peaBoopForce: 150
 --- !u!212 &212020894942873376
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -462,7 +517,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 1
+  m_SpriteSortPoint: 0
 --- !u!212 &212503633157538652
 SpriteRenderer:
   m_ObjectHideFlags: 1

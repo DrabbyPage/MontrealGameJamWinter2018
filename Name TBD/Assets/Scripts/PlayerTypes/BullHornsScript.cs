@@ -9,12 +9,11 @@ public class BullHornsScript : MonoBehaviour
     Rigidbody2D playerRB;
 
     [SerializeField]
-    float addSpeed = 10.0f;
-    public bool isCharging = false;
+    float boopForce = 200f;
 
     [SerializeField]
-    int rushTime = 10;
-    private int rushCounter = 0;
+    float addSpeed = 10.0f;
+    public bool isCharging = false;
 
     [SerializeField]
     int rushDistance = 4;
@@ -41,6 +40,8 @@ public class BullHornsScript : MonoBehaviour
     {
         thePlayer = player;
         playerRB = rb;
+
+        transform.GetChild(0).GetComponent<BullHornsColliderScript>().Initialize(gameObject, boopForce);
     }
 
     // Determines whether or not the user can currently charge
@@ -77,20 +78,25 @@ public class BullHornsScript : MonoBehaviour
     {
         if (isCharging)
         {
-            //rushCounter++;
             currentPos = new Vector2(thePlayer.transform.position.x, thePlayer.transform.position.y);
-            int currentDistanceAway = Mathf.RoundToInt(Mathf.Abs(currentPos.x - originalPos.x) + Mathf.Abs(currentPos.y - originalPos.y));
+            int currentDistanceAway = Mathf.CeilToInt(Mathf.Abs(currentPos.x - originalPos.x) + Mathf.Abs(currentPos.y - originalPos.y));
+            Debug.Log(currentDistanceAway);
 
             if (currentDistanceAway >= rushDistance)
             {
-                playerRB.velocity = new Vector2(0, 0);
-                chargeCounter++;
-
-                isCharging = false;
-
-                transform.GetChild(0).gameObject.SetActive(false);
+                HaltCharge();
             }
         }
+    }
+
+    public void HaltCharge()
+    {
+        playerRB.velocity = new Vector2(0, 0);
+        chargeCounter++;
+
+        isCharging = false;
+
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public bool GetCharging()
