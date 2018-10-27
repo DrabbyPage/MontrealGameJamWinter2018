@@ -8,6 +8,8 @@ public class PeaScript : MonoBehaviour
 
     float deathTime = 2f;
 
+    float boopForce = 100f;
+
     GameObject parObj;
 
 	// Use this for initialization
@@ -46,6 +48,7 @@ public class PeaScript : MonoBehaviour
         {
             // push the object
             //...................//
+            col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
 
             Destroy(gameObject);
         }

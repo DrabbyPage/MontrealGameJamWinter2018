@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 [System.Serializable]
 public struct InputData
 {
@@ -15,7 +15,7 @@ public struct DashData
 {
     public float dashSpeed, maxDashTime, dashStopSpeed, dashDistance, dashCoolDownTime;
 };
-
+*/
 public class PlayerMovementScript : MonoBehaviour
 {
     [SerializeField]

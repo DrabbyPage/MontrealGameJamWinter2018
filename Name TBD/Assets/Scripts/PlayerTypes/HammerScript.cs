@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HammerScript : MonoBehaviour {
 
-    public float BoopForce;
+    public float BoopForce = 100f;
 
     [SerializeField]
     float rotationAngle = -15.0f;
@@ -88,6 +88,11 @@ public class HammerScript : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("BLOOP");
-        col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce, ForceMode2D.Force);
+        if(col.gameObject.tag == "Player")
+        {
+            //col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce);//, ForceMode2D.Force);
+            col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, BoopForce);
+        }
+
     }
 }
