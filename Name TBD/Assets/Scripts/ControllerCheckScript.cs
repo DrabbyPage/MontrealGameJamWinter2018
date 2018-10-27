@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ControllerCheckScript : MonoBehaviour
 {
-    float joySense = 0.4f;
+    public string currPlayer;
 
+    float joySense = 0.4f;
     string p1_LSH_Name = "P1_LJS_H";
     string p1_LSV_Name = "P1_LJS_V";
     string p1_RSH_Name = "P1_RJS_H";
@@ -35,11 +36,12 @@ public class ControllerCheckScript : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+      //  string p1_LSH_Name = "P1_LJS_H";
+
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         CheckP1ControlInput();
         CheckP2ControlInput();
