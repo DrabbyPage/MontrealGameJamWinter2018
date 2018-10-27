@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class SpearHolderScript : MonoBehaviour
 {
+    [SerializeField]
+    float boopForce = 180.0f;
+
     bool hasWeapon = true;
+
+    GameObject spearChild;
 
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+        spearChild = Instantiate(Resources.Load("Prefabs/Spear")) as GameObject;
+
+        spearChild.GetComponent<SpearScript>().SetParent(gameObject.transform.parent.gameObject);
+        spearChild.GetComponent<SpearScript>().SetBoopVal(boopForce);
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -21,8 +29,15 @@ public class SpearHolderScript : MonoBehaviour
     public void ThrowWeapon()
     {
         if(hasWeapon)
-        {
-            gameObject.transform.GetChild(0).GetComponent<SpearScript>().SetMove(true);
+        {            
+            spearChild.GetComponent<SpearScript>().SetMove(true);
+
+            hasWeapon = false;
         }
+    }
+
+    public void SetHasWeapon(bool newBool)
+    {
+        hasWeapon = newBool;
     }
 }

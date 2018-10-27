@@ -4,41 +4,64 @@ using UnityEngine;
 
 public class SpearScript : MonoBehaviour
 {
-    float boopForce = 180f;
+    float boopForce = 130f;
+    float moveTime;
+    float maxTime = 0.3f;
 
     bool canMove = false;
+    bool isHeld = true;
 
-    float spearMoveSpeed = 90;
+    [SerializeField]
+    float spearMoveSpeed = 60;
 
     GameObject parObj;
 
-	// Use this for initialization
-	void Start ()
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        moveTime = maxTime;
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
 		if(canMove)
         {
             MoveSpear();
         }
+
+        if(isHeld)
+        {
+            ReturnToParent();
+        }
 	}
 
     void MoveSpear()
     {
-        if(canMove)
+        // will push the obj if time hasnt ended
+        if (moveTime > 0)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * spearMoveSpeed);
+            isHeld = false;
+            moveTime = moveTime - Time.deltaTime;
+            GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * boopForce);
+        }
+        else
+        {
+            moveTime = maxTime;
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             canMove = false;
         }
+    }
+
+    void SetPosToPlayer()
+    {
+        gameObject.transform.position = parObj.transform.position;
     }
 
     void ReturnToParent()
     {
         gameObject.transform.position = parObj.transform.position;
+        gameObject.transform.rotation = parObj.transform.rotation;
+        parObj.transform.GetChild(3).GetComponent<SpearHolderScript>().SetHasWeapon(true);
     }
 
     public void SetMove(bool newVal)
@@ -51,12 +74,12 @@ public class SpearScript : MonoBehaviour
         parObj = newPar;
     }
 
-    public void SetBooPVal(float newBoop)
+    public void SetBoopVal(float newBoop)
     {
         boopForce = newBoop;
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Player")
         {
@@ -64,10 +87,15 @@ public class SpearScript : MonoBehaviour
             {
                 Vector2 diff = parObj.transform.position - gameObject.transform.position;
                 col.gameObject.GetComponent<BoopScript>().Booped(-diff, boopForce);
+
+                gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             }
             else
             {
-                ReturnToParent();
+                if (gameObject.GetComponent<Rigidbody2D>().velocity.magnitude < 0.2f)
+                {
+                    isHeld = true;
+                }
             }
         }
     }
