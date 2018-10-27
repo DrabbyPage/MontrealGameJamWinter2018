@@ -360,6 +360,7 @@ MonoBehaviour:
     - {fileID: 1347055865}
     - {fileID: 1989919516}
     - {fileID: 568478408}
+  newRoundStarted: 0
 --- !u!4 &404747630
 Transform:
   m_ObjectHideFlags: 0
@@ -455,7 +456,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.346874
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1722,14 +1723,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 404747631}
-        m_MethodName: CharSelect
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CharacterSelectScene
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1881,6 +1882,15 @@ Prefab:
     - target: {fileID: 4119719005230790, guid: 0590152534344534d8bb22c995d7800f, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114511815153017322, guid: 0590152534344534d8bb22c995d7800f,
+        type: 2}
+      propertyPath: charType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894760087749408, guid: 0590152534344534d8bb22c995d7800f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0590152534344534d8bb22c995d7800f, type: 2}
@@ -2195,6 +2205,15 @@ Prefab:
         type: 2}
       propertyPath: currentPlayer
       value: P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114511815153017322, guid: 0590152534344534d8bb22c995d7800f,
+        type: 2}
+      propertyPath: charType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894760087749408, guid: 0590152534344534d8bb22c995d7800f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0590152534344534d8bb22c995d7800f, type: 2}

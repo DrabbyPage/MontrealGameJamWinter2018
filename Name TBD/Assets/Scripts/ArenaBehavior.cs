@@ -43,8 +43,7 @@ public class ArenaBehavior : MonoBehaviour {
 
                     arenaRings[ringToDrop].GetComponent<ArenaFall>().Fall();
                     StartCoroutine(Wait(ringToDrop));
-                    ringToDrop--;
-                    SetArenaBounds();
+                    ringToDrop = ringToDrop - 1; ;
                 }
             }
         }
@@ -55,8 +54,12 @@ public class ArenaBehavior : MonoBehaviour {
     private IEnumerator Wait(int ringToDrop)
     {
         yield return new WaitForSeconds(ringFlashTime);
+        Debug.Log("arena fell");
         GameManager.getInstance().SetArenaFell(true);
         arenaRings[ringToDrop].SetActive(false);
+
+        SetArenaBounds();
+
     }
 
 
