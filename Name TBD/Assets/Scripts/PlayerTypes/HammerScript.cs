@@ -7,6 +7,8 @@ public class HammerScript : MonoBehaviour {
     public float BoopForce = 100f;
 
     [SerializeField]
+    float fullRotation = 360.0f;
+    [SerializeField]
     float rotationAngle = -15.0f;
     public bool isSpinning = false;
 
@@ -26,7 +28,7 @@ public class HammerScript : MonoBehaviour {
     private void Start ()
     {
         originalRot = transform.rotation.eulerAngles;
-        checker = Mathf.RoundToInt(Mathf.Abs(360 / rotationAngle));
+        checker = Mathf.RoundToInt(Mathf.Abs(fullRotation / rotationAngle));
     }
 	
 	// Update is called once per frame
@@ -78,7 +80,7 @@ public class HammerScript : MonoBehaviour {
             {
                 spinCounter++;
 
-                transform.rotation = Quaternion.Euler(originalRot);
+                //transform.rotation = Quaternion.Euler(originalRot);
                 isSpinning = false;
                 countUp = 0;
             }

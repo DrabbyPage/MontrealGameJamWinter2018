@@ -33,7 +33,10 @@ public class TheoryMove : MonoBehaviour
         SPIN = 0,
         BULL_RUSH = 1,
         PEASHOOTER = 2,
-        SPEAR = 3
+        SPEAR = 3,
+        MINER = 4,
+        TELEFRAG = 5,
+        BIG_POLE = 6
         // ETC.
     };
 
@@ -151,8 +154,27 @@ public class TheoryMove : MonoBehaviour
                 heldItem.GetComponent<BullHornsScript>().SetPlayerValues(this.gameObject, rb);
                 break;
             case PLAYER_TYPE.PEASHOOTER:
-                transform.GetChild(2).gameObject.SetActive(true); ;
+                transform.GetChild(2).gameObject.SetActive(true); 
                 heldItem = transform.GetChild(2).gameObject;
+                break;
+            case PLAYER_TYPE.SPEAR:
+                transform.GetChild(3).gameObject.SetActive(true);
+                heldItem = transform.GetChild(3).gameObject;
+                break;
+            case PLAYER_TYPE.MINER:
+                transform.GetChild(4).gameObject.SetActive(true);
+                heldItem = transform.GetChild(4).gameObject;
+                break;
+            case PLAYER_TYPE.TELEFRAG:
+                transform.GetChild(5).gameObject.SetActive(true);
+                transform.GetChild(5).GetChild(0).gameObject.SetActive(false);
+                heldItem = transform.GetChild(5).gameObject;
+                heldItem.GetComponent<BullHornsScript>().SetPlayerValues(this.gameObject, rb);
+                break;
+            case PLAYER_TYPE.BIG_POLE:
+                moveSpeed /= 2;
+                transform.GetChild(6).gameObject.SetActive(true);
+                heldItem = transform.GetChild(6).gameObject;
                 break;
         }
     }
@@ -177,6 +199,18 @@ public class TheoryMove : MonoBehaviour
                 case PLAYER_TYPE.PEASHOOTER:
                     heldItem.GetComponent<PeaShooterScript>().Shoot();
                     break;
+                case PLAYER_TYPE.SPEAR:
+                    heldItem.GetComponent<SpearHolderScript>().ThrowWeapon();
+                    break;
+                case PLAYER_TYPE.MINER:
+                    heldItem.GetComponent<MinePlacer>().PlaceMine();
+                    break;
+                case PLAYER_TYPE.TELEFRAG:
+                    heldItem.GetComponent<BullHornsScript>().BullHornCharge();
+                    break;
+                case PLAYER_TYPE.BIG_POLE:
+                    heldItem.GetComponent<HammerScript>().SpinHeldObject();
+                    break;
 
             }
         }
@@ -185,20 +219,23 @@ public class TheoryMove : MonoBehaviour
     // Performs any rotations
     private void RotatePlayer()
     {
-        float xRotate = Input.GetAxis(p1_RSH_Name);
-        float yRotate = Input.GetAxis(p1_RSV_Name);
-
-        //Twin stick rotation
-        if ((xRotate > inputData.xRightAxisDeadzone || xRotate < -inputData.xRightAxisDeadzone) ||
-            (yRotate > inputData.yRightAxisDeadzone || yRotate < -inputData.yRightAxisDeadzone))
+        if (charType != PLAYER_TYPE.BIG_POLE && charType != PLAYER_TYPE.SPIN)
         {
+            float xRotate = Input.GetAxis(p1_RSH_Name);
+            float yRotate = Input.GetAxis(p1_RSV_Name);
 
-            //help from KingKong320 @ https://bit.ly/2MMKvb5
-            Vector2 dir = new Vector2(xRotate, yRotate);
-            float rotation = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
+            //Twin stick rotation
+            if ((xRotate > inputData.xRightAxisDeadzone || xRotate < -inputData.xRightAxisDeadzone) ||
+                (yRotate > inputData.yRightAxisDeadzone || yRotate < -inputData.yRightAxisDeadzone))
+            {
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, -rotation)), Time.deltaTime * rotationSpeed);
+                //help from KingKong320 @ https://bit.ly/2MMKvb5
+                Vector2 dir = new Vector2(xRotate, yRotate);
+                float rotation = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
 
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, -rotation)), Time.deltaTime * rotationSpeed);
+
+            }
         }
     }
 }
