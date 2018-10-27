@@ -154,6 +154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4294377626459252}
+  - component: {fileID: 114372515864150826}
   m_Layer: 0
   m_Name: SpearHolder
   m_TagString: Untagged
@@ -715,6 +716,18 @@ MonoBehaviour:
   isSpinning: 0
   cooldownTime: 30
   allowedSpins: 1
+--- !u!114 &114372515864150826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681467885031478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4f34d1433cc424e99e60cfa6882d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boopForce: 180
 --- !u!114 &114381506753246734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -760,7 +773,7 @@ MonoBehaviour:
     dashStopSpeed: 0
     dashDistance: 0
     dashCoolDownTime: 0
-  charType: 6
+  charType: 3
   moveSpeed: 80
   rotationSpeed: 15
   canAct: 1
