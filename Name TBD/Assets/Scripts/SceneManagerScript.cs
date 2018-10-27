@@ -8,28 +8,36 @@ public class SceneManagerScript : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
     }
 
-    // Use this for initialization
-    void Start ()
+    public string GetCurrentScene()
     {
-
+        return SceneManager.GetActiveScene().name;
     }
 
-    // Update is called once per frame
-    void Update ()
+    public void CharSelect()
     {
-
+        SceneManager.LoadScene("CharacterSelect");
     }
 
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Quit()
+    {
+        Debug.Log("quiting app");
+        Application.Quit();
+    }
 
     public void LoadScene(string sceneName)
     {
         if(sceneName != "QuitScene")
         {
             SceneManager.LoadScene(sceneName);
-            GameObject.Find("ButtonManager").GetComponent<ButtonManagerScript>().CheckButtonList();
+            //GameObject.Find("ButtonManager").GetComponent<ButtonManagerScript>().CheckButtonList();
         }
         else
         {

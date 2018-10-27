@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControllerCheckScript : MonoBehaviour
 {
-    public string currPlayer;
+   /* public string currPlayer;
 
     float joySense = 0.4f;
     string p1_LSH_Name = "P1_LJS_H";
@@ -159,5 +159,5 @@ public class ControllerCheckScript : MonoBehaviour
             Debug.Log("2 left trigger down");
         }
     }
-
+    */
 }

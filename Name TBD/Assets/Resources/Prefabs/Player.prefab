@@ -703,7 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4f34d1433cc424e99e60cfa6882d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boopForce: 180
+  boopForce: 70
 --- !u!114 &114381506753246734
 MonoBehaviour:
   m_ObjectHideFlags: 1

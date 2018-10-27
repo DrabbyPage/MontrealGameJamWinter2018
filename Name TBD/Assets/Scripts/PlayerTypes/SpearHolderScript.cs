@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpearHolderScript : MonoBehaviour
 {
     [SerializeField]
-    float boopForce = 180.0f;
+    float boopForce = 90.0f;
 
     bool hasWeapon = true;
 
