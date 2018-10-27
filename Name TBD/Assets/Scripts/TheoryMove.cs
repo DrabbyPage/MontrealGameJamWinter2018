@@ -200,7 +200,7 @@ public class TheoryMove : MonoBehaviour
                     heldItem.GetComponent<PeaShooterScript>().Shoot();
                     break;
                 case PLAYER_TYPE.SPEAR:
-                    //heldItem.GetComponent<PeaShooterScript>().Shoot();
+                    heldItem.GetComponent<SpearHolderScript>().ThrowWeapon();
                     break;
                 case PLAYER_TYPE.MINER:
                     heldItem.GetComponent<MinePlacer>().PlaceMine();
