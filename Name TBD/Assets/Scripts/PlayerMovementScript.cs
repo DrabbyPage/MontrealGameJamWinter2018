@@ -48,11 +48,11 @@ public class PlayerMovementScript : MonoBehaviour
     float rotationSpeed;
 
     public bool canAct = true;
+
     public GameObject heldItem;
 
     Rigidbody2D rb;
     private bool isSpinning = false;
-    private Vector3 originalRot;
 
     GameObject currentArena;
 
@@ -91,9 +91,6 @@ public class PlayerMovementScript : MonoBehaviour
     {
         MoveCharacter();
         RotatePlayer();
-
-        ApplySpin();
-
     }
 
     private void CheckHeldObject()
@@ -110,8 +107,6 @@ public class PlayerMovementScript : MonoBehaviour
                 heldItem = transform.GetChild(1).gameObject;
                 break;
         }
-
-        originalRot = heldItem.transform.rotation.eulerAngles;
     }
 
     // Moves the chosen character on the axis based on their speed stat
@@ -148,34 +143,11 @@ public class PlayerMovementScript : MonoBehaviour
             {
                 // Makes the character spin
                 case PLAYER_TYPE.SPIN:
-                    SpinHeldObject();
+                    heldItem.GetComponent<HammerScript>().SpinHeldObject();
                     break;
                 case PLAYER_TYPE.BULL_RUSH:
                     break;
 
-            }
-        }
-    }
-
-    // Spins the held item
-    private void SpinHeldObject()
-    {
-        if (!isSpinning)
-        {
-            isSpinning = true;
-        }
-    }
-
-    private void ApplySpin()
-    {
-        if (isSpinning)
-        {
-            heldItem.transform.Rotate(0, 0, -15);
-
-            if (Mathf.RoundToInt(heldItem.transform.rotation.eulerAngles.z) == Mathf.RoundToInt(originalRot.z))
-            {
-                transform.rotation = Quaternion.Euler(originalRot);
-                isSpinning = false;
             }
         }
     }
