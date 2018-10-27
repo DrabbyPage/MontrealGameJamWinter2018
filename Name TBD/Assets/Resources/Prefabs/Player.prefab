@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212091958481755688}
   - component: {fileID: 50270452324214672}
   - component: {fileID: 58612444056878060}
-  - component: {fileID: 114356845852751014}
   - component: {fileID: 114511815153017322}
   - component: {fileID: 114973054512491934}
   m_Layer: 0
@@ -417,34 +416,6 @@ MonoBehaviour:
   isSpinning: 0
   cooldownTime: 60
   allowedSpins: 4
---- !u!114 &114356845852751014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1317886554337126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13cd58cad32176343b2ced9d1d76b3a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPlayer: P1
-  inputData:
-    xLeftAxisDeadzone: 0.275
-    yLeftAxisDeadzone: 0.275
-    xRightAxisDeadzone: 0.3
-    yRightAxisDeadzone: 0.3
-  dashData:
-    dashSpeed: 0
-    maxDashTime: 0
-    dashStopSpeed: 0
-    dashDistance: 0
-    dashCoolDownTime: 0
-  charType: 0
-  moveSpeed: 80
-  rotationSpeed: 15
-  canAct: 1
-  heldItem: {fileID: 0}
 --- !u!114 &114426787028699870
 MonoBehaviour:
   m_ObjectHideFlags: 1
