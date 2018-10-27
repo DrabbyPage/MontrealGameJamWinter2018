@@ -9,11 +9,20 @@ public struct InputData
                  xRightAxisDeadzone, yRightAxisDeadzone;
 };
 
+[System.Serializable]
+
+public struct DashData
+{
+    public float dashSpeed, maxDashTime, dashStopSpeed, dashDistance, dashCoolDownTime;
+};
+
 public class PlayerMovementScript : MonoBehaviour
 {
     const string p1_LSH_Name = "P1_LJS_H";
     const string p1_LSV_Name = "P1_LJS_V";
     const string p1_RT_Name = "P1_RT";
+    const string p1_RSH_Name = "P1_RJS_H";
+    const string p1_RSV_Name = "P1_RJS_V";
 
     public enum PLAYER_TYPE
     {
@@ -24,13 +33,20 @@ public class PlayerMovementScript : MonoBehaviour
         // ETC.
     };
 
-    public InputData inputData;
+    [SerializeField]
+    InputData inputData;
+    [SerializeField]
+    DashData dashData;
 
     [Header("Player Type")]
     public PLAYER_TYPE charType;
 
     [Header("Force Data")]
-    public float speed;
+    [SerializeField]
+    float speed;
+    [SerializeField]
+    float rotationSpeed;
+
     public bool canAct = true;
     public GameObject heldItem;
 
@@ -44,6 +60,11 @@ public class PlayerMovementScript : MonoBehaviour
     Vector3 center;
 
     GameManager managerHandle;
+    Vector2 moveVector;
+
+
+    bool dashButtonDown = false, doCooldown, isDashing;
+    float currentDashTime;
 
     private void Awake()
     {
@@ -70,7 +91,10 @@ public class PlayerMovementScript : MonoBehaviour
     {
         MoveCharacter();
         RotatePlayer();
-	}
+
+        ApplySpin();
+
+    }
 
     private void CheckHeldObject()
     {
@@ -81,6 +105,10 @@ public class PlayerMovementScript : MonoBehaviour
                 transform.GetChild(0).gameObject.SetActive(true);
                 heldItem = transform.GetChild(0).gameObject;
                 break;
+            case PLAYER_TYPE.BULL_RUSH:
+                transform.GetChild(1).gameObject.SetActive(true);
+                heldItem = transform.GetChild(1).gameObject;
+                break;
         }
 
         originalRot = heldItem.transform.rotation.eulerAngles;
@@ -89,7 +117,8 @@ public class PlayerMovementScript : MonoBehaviour
     // Moves the chosen character on the axis based on their speed stat
     private void MoveCharacter()
     {
-        Vector2 moveVector;
+        moveVector = Vector2.zero;
+
         float moveHorizontal = Input.GetAxis(p1_LSH_Name);
         float moveVertical = Input.GetAxis(p1_LSV_Name);
 
@@ -104,6 +133,7 @@ public class PlayerMovementScript : MonoBehaviour
             moveVector.y = 0;
 
         rb.velocity = moveVector;
+
     }
 
     // Allows the player to perform an action
@@ -120,6 +150,9 @@ public class PlayerMovementScript : MonoBehaviour
                 case PLAYER_TYPE.SPIN:
                     SpinHeldObject();
                     break;
+                case PLAYER_TYPE.BULL_RUSH:
+                    break;
+
             }
         }
     }
@@ -133,18 +166,37 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
-    // Performs any rotations
-    private void RotatePlayer()
+    private void ApplySpin()
     {
         if (isSpinning)
         {
             heldItem.transform.Rotate(0, 0, -15);
-            
+
             if (Mathf.RoundToInt(heldItem.transform.rotation.eulerAngles.z) == Mathf.RoundToInt(originalRot.z))
             {
                 transform.rotation = Quaternion.Euler(originalRot);
                 isSpinning = false;
             }
+        }
+    }
+
+    // Performs any rotations
+    private void RotatePlayer()
+    {
+        float xRotate = Input.GetAxis(p1_RSH_Name);
+        float yRotate = Input.GetAxis(p1_RSV_Name);
+
+        //Twin stick rotation
+        if ((xRotate > inputData.xRightAxisDeadzone || xRotate < -inputData.xRightAxisDeadzone) ||
+            (yRotate > inputData.yRightAxisDeadzone || yRotate < -inputData.yRightAxisDeadzone))
+        {
+
+            //help from KingKong320 @ https://bit.ly/2MMKvb5
+            Vector2 dir = new Vector2(xRotate, yRotate);
+            float rotation = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, -rotation)), Time.deltaTime * rotationSpeed);
+
         }
     }
 

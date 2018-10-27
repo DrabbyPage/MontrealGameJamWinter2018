@@ -61,12 +61,12 @@ InputManager:
     positiveButton: up
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 0
-    dead: 0
-    sensitivity: 0
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
     snap: 0
     invert: 1
-    type: 0
+    type: 2
     axis: 4
     joyNum: 1
   - serializedVersion: 3
