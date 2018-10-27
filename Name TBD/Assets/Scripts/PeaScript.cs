@@ -8,9 +8,12 @@ public class PeaScript : MonoBehaviour
 
     float deathTime = 2f;
 
+    GameObject parObj;
+
 	// Use this for initialization
 	void Start ()
     {
+        Physics2D.GetIgnoreLayerCollision(8, 9);
 	}
 	
 	// Update is called once per frame
@@ -37,18 +40,21 @@ public class PeaScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        // should be the weapon
-        GameObject owner = gameObject.transform.parent.gameObject;
-
-        // should be the weapon's holder
-        GameObject ownersOwner = owner.transform.parent.gameObject;
-
-        if (col.gameObject.name != ownersOwner.name)
+        if (col.gameObject.name != parObj.name && col.gameObject.tag != "Arena" && col.gameObject.tag != "ArenaEdge")
         {
             // push the object
+            //...................//
+
             Destroy(gameObject);
         }
     }
+
+    public void SetParentObject(GameObject newPar)
+    {
+        //Debug.Log(newPar.name);
+        parObj = newPar;
+    }
+
 }

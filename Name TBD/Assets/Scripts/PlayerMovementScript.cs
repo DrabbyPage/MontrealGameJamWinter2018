@@ -116,6 +116,10 @@ public class PlayerMovementScript : MonoBehaviour
                 heldItem = transform.GetChild(1).gameObject;
                 heldItem.GetComponent<BullHornsScript>().SetPlayerValues(this.gameObject, rb);
                 break;
+            case PLAYER_TYPE.PEASHOOTER:
+                transform.GetChild(2).gameObject.SetActive(true);;
+                heldItem = transform.GetChild(2).gameObject;
+                break;
         }
     }
 
@@ -147,7 +151,7 @@ public class PlayerMovementScript : MonoBehaviour
     private void PerformAction()
     {
         // If the player can act and they input the action key
-        if (canAct && Input.GetAxis(p1_RT_Name) == 1)
+        if (canAct && Input.GetAxis(p1_RT_Name) > 0.2f)
         {
          //   Debug.Log(charType);
 
@@ -159,6 +163,9 @@ public class PlayerMovementScript : MonoBehaviour
                     break;
                 case PLAYER_TYPE.BULL_RUSH:
                     heldItem.GetComponent<BullHornsScript>().BullHornCharge();
+                    break;
+                case PLAYER_TYPE.PEASHOOTER:
+                    heldItem.GetComponent<PeaShooterScript>().Shoot();
                     break;
 
             }

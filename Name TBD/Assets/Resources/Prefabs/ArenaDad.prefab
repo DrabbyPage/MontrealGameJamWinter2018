@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212336164157587790}
   - component: {fileID: 114874384552582330}
   - component: {fileID: 58125374820072268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arena
   m_TagString: Arena
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114292929163640070}
   - component: {fileID: 95258201699888906}
   - component: {fileID: 58643273932820256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arena (1)
   m_TagString: Arena
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4273562751969520}
   - component: {fileID: 114404219157813708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ArenaDad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 95794058744799366}
   - component: {fileID: 114716418163749416}
   - component: {fileID: 58055751764625092}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arena (2)
   m_TagString: ArenaEdge
   m_Icon: {fileID: 0}

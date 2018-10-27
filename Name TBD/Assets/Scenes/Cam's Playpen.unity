@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114063223950796708, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
       propertyPath: charType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114063223950796708, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
@@ -279,7 +279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1808176288
 Transform:
   m_ObjectHideFlags: 0

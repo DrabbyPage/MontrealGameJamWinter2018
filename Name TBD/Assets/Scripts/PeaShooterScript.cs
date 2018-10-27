@@ -14,12 +14,6 @@ public class PeaShooterScript : MonoBehaviour
 
     bool canFire;
 
-    const string p1_LSH_Name = "P1_LJS_H";
-    const string p1_LSV_Name = "P1_LJS_V";
-    const string p1_RT_Name = "P1_RT";
-    const string p1_RSH_Name = "P1_RJS_H";
-    const string p1_RSV_Name = "P1_RJS_V";
-
     // Use this for initialization
     void Start ()
     {
@@ -31,43 +25,41 @@ public class PeaShooterScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        Shoot();
+        CheckFire();
 	}
     
-    void Shoot()
+    public void Shoot()
     {
         GameObject newBullet;
 
-        if(canFire)
+        if (canFire)
         {
-            if (Input.GetAxis(p1_RT_Name) > 0 && canFire)
-            {
-                newBullet = Instantiate(bullet) as GameObject;
+            newBullet = Instantiate(bullet) as GameObject;
 
-                newBullet.transform.eulerAngles = gameObject.transform.eulerAngles;
+            newBullet.GetComponent<PeaScript>().SetParentObject(gameObject.transform.parent.gameObject);
 
-                newBullet.transform.position = gameObject.transform.position + gameObject.transform.up;
+            newBullet.transform.eulerAngles = gameObject.transform.eulerAngles;
 
-                canFire = false;
-            }
-        }
-        else
-        {
-            CheckFire();
+            newBullet.transform.position = gameObject.transform.position + gameObject.transform.up;
+
+            canFire = false;
         }
         
     }
 
     void CheckFire()
     {
-        if(time > 0)
+        if(!canFire)
         {
-            time = time - Time.deltaTime;
-        }
-        else
-        {
-            time = fireTime;
-            canFire = true;
+            if (time > 0)
+            {
+                time = time - Time.deltaTime;
+            }
+            else
+            {
+                time = fireTime;
+                canFire = true;
+            }
         }
     }
 }
