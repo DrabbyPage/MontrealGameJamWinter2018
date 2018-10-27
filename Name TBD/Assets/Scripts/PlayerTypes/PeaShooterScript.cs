@@ -17,6 +17,14 @@ public class PeaShooterScript : MonoBehaviour
 
     bool canFire;
 
+    [SerializeField]
+    int allowedShots;
+    int shotCounter = 0;
+
+    [SerializeField]
+    int cooldownTime = 30;
+    int cooldownCounter = 0;
+
     // Use this for initialization
     void Start ()
     {
@@ -29,13 +37,14 @@ public class PeaShooterScript : MonoBehaviour
 	void Update ()
     {
         CheckFire();
+        CheckCooldown();
 	}
     
     public void Shoot()
     {
         GameObject newBullet;
 
-        if (canFire)
+        if (canFire && shotCounter < allowedShots)
         {
             newBullet = Instantiate(bullet) as GameObject;
 
@@ -47,6 +56,7 @@ public class PeaShooterScript : MonoBehaviour
 
             newBullet.GetComponent<PeaScript>().SetBoopForce(peaBoopForce);
 
+            shotCounter++;
             canFire = false;
         }
         
@@ -64,6 +74,22 @@ public class PeaShooterScript : MonoBehaviour
             {
                 time = fireTime;
                 canFire = true;
+            }
+        }
+    }
+
+    // Determines whether or not the user can currently spin
+    private void CheckCooldown()
+    {
+        if (shotCounter == allowedShots)
+        {
+            cooldownCounter++;
+
+            // If the player's cooldown is at max, allow the player to act again
+            if (cooldownCounter >= cooldownTime)
+            {
+                cooldownCounter = 0;
+                shotCounter = 0;
             }
         }
     }
