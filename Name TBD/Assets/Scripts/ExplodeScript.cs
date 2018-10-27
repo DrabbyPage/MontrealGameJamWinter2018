@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplodeScript : MonoBehaviour
 {
-    float boopForce = 100.0f;
+    float boopForce = 150.0f;
 
     GameObject parObj;
 
@@ -35,9 +35,13 @@ public class ExplodeScript : MonoBehaviour
         {
             // push the object
             //...................//
-            col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
 
-            Destroy(gameObject);
+            Vector2 diff = gameObject.transform.position - col.gameObject.transform.position;
+
+            col.gameObject.GetComponent<BoopScript>().Booped(-diff, boopForce);
+            // using a positive diff can be used for the fishing hook;
+
+            Debug.Log("booped");
         }
     }
 
