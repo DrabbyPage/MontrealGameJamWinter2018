@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour {
 
     bool roundOver = false, roundStart = true, newRound, matchOver, updateArena;
     bool checkArenaState = true;
+    public bool newRoundStarted = false;
     string winText = "";
 
     GameObject currentEdge;
@@ -74,8 +75,8 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-            RoundUpdate();
-            ArenaUpdate();
+        ArenaUpdate();
+        RoundUpdate();
     }
 
     #region Round Code
@@ -95,7 +96,9 @@ public class GameManager : MonoBehaviour {
         CheckForWinner();
 
         if(newRound)
+        {
             DisplayRoundWinner(winText);
+        }
 
         if (matchOver)
             DisplayMatchWinner();
@@ -106,8 +109,8 @@ public class GameManager : MonoBehaviour {
         if (roundStart)
         {
             newRound = false;
-            playerData.player1.GetComponent<PlayerMovementScript>().enabled = false;
-            playerData.player2.GetComponent<PlayerMovementScript>().enabled = false;
+            playerData.player1.GetComponent<TheoryMove>().enabled = false;
+            playerData.player2.GetComponent<TheoryMove>().enabled = false;
 
             matchData.roundPanel.SetActive(true);
             matchData.roundText.text = "ROUND START";
@@ -118,6 +121,7 @@ public class GameManager : MonoBehaviour {
             {
                 if (Mathf.FloorToInt(countDown) == 0)
                 {
+                    newRoundStarted = true;
                     matchData.roundText.text = "";
                     matchData.countDownText.text = "FIGHT";
                 }
@@ -131,8 +135,8 @@ public class GameManager : MonoBehaviour {
                 updateArena = true;
                 matchData.roundPanel.SetActive(false);
 
-                playerData.player1.GetComponent<PlayerMovementScript>().enabled = true;
-                playerData.player2.GetComponent<PlayerMovementScript>().enabled = true;
+                playerData.player1.GetComponent<TheoryMove>().enabled = true;
+                playerData.player2.GetComponent<TheoryMove>().enabled = true;
 
             }
         }
@@ -141,8 +145,8 @@ public class GameManager : MonoBehaviour {
 
     void DisplayMatchWinner()
     {
-        playerData.player1.GetComponent<PlayerMovementScript>().enabled = false;
-        playerData.player2.GetComponent<PlayerMovementScript>().enabled = false;
+        playerData.player1.GetComponent<TheoryMove>().enabled = false;
+        playerData.player2.GetComponent<TheoryMove>().enabled = false;
 
         winText = "PLAYER 2 WINS";
         matchData.roundPanel.SetActive(false);
@@ -152,11 +156,9 @@ public class GameManager : MonoBehaviour {
     }
 
     void DisplayRoundWinner(string winText)
-    {
-        Debug.Log("Display mid round text");
-        
-        playerData.player1.GetComponent<PlayerMovementScript>().enabled = false;
-        playerData.player2.GetComponent<PlayerMovementScript>().enabled = false;
+    {   
+        playerData.player1.GetComponent<TheoryMove>().enabled = false;
+        playerData.player2.GetComponent<TheoryMove>().enabled = false;
 
         if (playerData.player2Wins == NUM_TO_WIN) // player 2 wins match
         {
@@ -197,6 +199,8 @@ public class GameManager : MonoBehaviour {
             {
                 if (p1DeadCounter < p2DeadCounter)
                 {
+                    newRoundStarted = false;
+
                     Debug.Log("P2 win");
                     playerData.player2Wins++;
                     matchData.p2WinMarks[playerData.player2Wins - 1].color = Color.red;
@@ -204,6 +208,8 @@ public class GameManager : MonoBehaviour {
                 }
                 else if (p1DeadCounter > p2DeadCounter)
                 {
+                    newRoundStarted = false;
+
                     Debug.Log("P1 win");
                     playerData.player1Wins++;
                     matchData.p2WinMarks[playerData.player1Wins - 1].color = Color.red;
@@ -211,6 +217,8 @@ public class GameManager : MonoBehaviour {
                 }
                 else
                 {
+                    newRoundStarted = false;
+
                     winText = "DRAW";
                     Debug.Log("DRAW");
                 }
@@ -244,7 +252,7 @@ public class GameManager : MonoBehaviour {
             //Check if player is still in arena
             if (!InsideArena(playerData.player1))
             {
-                Debug.Log("u gon di");
+                //Debug.Log("u gon di");
                 playerData.player2Dead = true;
                 checkArenaState = false;
        //         StartCoroutine(TurnAroundAndDie(playerData.deathDelay, playerData.player1));
@@ -252,7 +260,7 @@ public class GameManager : MonoBehaviour {
             if (!InsideArena(playerData.player2))
             {
                 checkArenaState = false;
-                Debug.Log("u gon di2");
+                //Debug.Log("u gon di2");
                 checkArenaState = false;
                 playerData.player1Dead = true;
                // StartCoroutine(TurnAroundAndDie(playerData.deathDelay, playerData.player2));

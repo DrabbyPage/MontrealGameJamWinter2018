@@ -13,6 +13,8 @@ public class ArenaBehavior : MonoBehaviour {
     int ringToDrop;
     float timer;
 
+    bool roundStarted = false;
+
     private void Awake()
     {
         timer = 0;
@@ -27,20 +29,26 @@ public class ArenaBehavior : MonoBehaviour {
             ResetArena();
         }
 
-        if (ringToDrop > 0)
+        roundStarted = GameManager.getInstance().newRoundStarted;
+
+        if(roundStarted)
         {
-            timer += Time.deltaTime;
-
-            if (timer > timeToDrop && ringToDrop >= 0) //timer for rings falling
+            if (ringToDrop > 0)
             {
-                timer = 0;
+                timer += Time.deltaTime;
 
-                arenaRings[ringToDrop].GetComponent<ArenaFall>().Fall();
-                StartCoroutine(Wait(ringToDrop));
-                ringToDrop--;
-                SetArenaBounds();
+                if (timer > timeToDrop && ringToDrop >= 0) //timer for rings falling
+                {
+                    timer = 0;
+
+                    arenaRings[ringToDrop].GetComponent<ArenaFall>().Fall();
+                    StartCoroutine(Wait(ringToDrop));
+                    ringToDrop--;
+                    SetArenaBounds();
+                }
             }
         }
+
 
     }
 
@@ -54,14 +62,15 @@ public class ArenaBehavior : MonoBehaviour {
 
     void ResetArena()
     {
+        timer = 0;
         ringToDrop = arenaRings.Count - 1;
 
         for (int i = 0; i < arenaRings.Count; i++)
         {
-            SetArenaBounds();
             timer = 0;
             arenaRings[i].GetComponent<ArenaFall>().Reset();
             arenaRings[i].SetActive(true);
+            SetArenaBounds();
         }
 
         GameManager.getInstance().ArenaNeedsUpdate(false);
@@ -72,5 +81,10 @@ public class ArenaBehavior : MonoBehaviour {
         Debug.Log(arenaRings[ringToDrop]);
        // Debug.Break();
         GameManager.getInstance().SetCurrentEdge(arenaRings[ringToDrop]);
+    }
+
+    public void SetRoundStart(bool newBool)
+    {
+
     }
 }

@@ -5,12 +5,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class SceneManagerScript : MonoBehaviour
 {
-
-    private void Awake()
-    {
-       // DontDestroyOnLoad(gameObject);
-    }
-
     public string GetCurrentScene()
     {
         return SceneManager.GetActiveScene().name;
