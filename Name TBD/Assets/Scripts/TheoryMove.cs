@@ -34,7 +34,8 @@ public class TheoryMove : MonoBehaviour
         BULL_RUSH = 1,
         PEASHOOTER = 2,
         SPEAR = 3,
-        MINER = 4
+        MINER = 4,
+        TELEFRAG = 5,
         // ETC.
     };
 
@@ -163,6 +164,12 @@ public class TheoryMove : MonoBehaviour
                 transform.GetChild(4).gameObject.SetActive(true);
                 heldItem = transform.GetChild(4).gameObject;
                 break;
+            case PLAYER_TYPE.TELEFRAG:
+                transform.GetChild(5).gameObject.SetActive(true);
+                transform.GetChild(5).GetChild(0).gameObject.SetActive(false);
+                heldItem = transform.GetChild(5).gameObject;
+                heldItem.GetComponent<BullHornsScript>().SetPlayerValues(this.gameObject, rb);
+                break;
         }
     }
 
@@ -191,6 +198,9 @@ public class TheoryMove : MonoBehaviour
                     break;
                 case PLAYER_TYPE.MINER:
                     heldItem.GetComponent<MinePlacer>().PlaceMine();
+                    break;
+                case PLAYER_TYPE.TELEFRAG:
+                    heldItem.GetComponent<BullHornsScript>().BullHornCharge();
                     break;
 
             }

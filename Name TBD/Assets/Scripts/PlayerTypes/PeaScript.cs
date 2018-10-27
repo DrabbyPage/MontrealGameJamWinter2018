@@ -6,7 +6,7 @@ public class PeaScript : MonoBehaviour
 {
     float moveSpeed = 10f;
 
-    float deathTime = 2f;
+    float deathTime = 1f;
 
     float boopForce = 100f;
 
@@ -48,9 +48,11 @@ public class PeaScript : MonoBehaviour
         {
             // push the object
             //...................//
-            col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
-
-            Destroy(gameObject);
+            if (col.gameObject.GetComponent<BoopScript>())
+            {
+                col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
+                Destroy(gameObject);
+            }
         }
     }
 

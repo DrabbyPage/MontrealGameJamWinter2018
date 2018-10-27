@@ -12,6 +12,9 @@ public class BullHornsScript : MonoBehaviour
     float boopForce = 200f;
 
     [SerializeField]
+    bool invisibleCharge = false;
+
+    [SerializeField]
     float addSpeed = 10.0f;
     public bool isCharging = false;
 
@@ -64,6 +67,12 @@ public class BullHornsScript : MonoBehaviour
     {
         if (!isCharging && chargeCounter < allowedCharges)
         {
+            if (invisibleCharge)
+            {
+                thePlayer.GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            }
+
             originalPos = new Vector2(thePlayer.transform.position.x, thePlayer.transform.position.y);
 
             isCharging = true;
@@ -91,6 +100,13 @@ public class BullHornsScript : MonoBehaviour
 
     public void HaltCharge()
     {
+        if (invisibleCharge)
+        {
+            thePlayer.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+        }
+
         playerRB.velocity = new Vector2(0, 0);
         chargeCounter++;
 
