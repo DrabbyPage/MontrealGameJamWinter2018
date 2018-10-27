@@ -112,7 +112,9 @@ public class PlayerMovementScript : MonoBehaviour
                 break;
             case PLAYER_TYPE.BULL_RUSH:
                 transform.GetChild(1).gameObject.SetActive(true);
+                transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
                 heldItem = transform.GetChild(1).gameObject;
+                heldItem.GetComponent<BullHornsScript>().SetPlayerValues(this.gameObject, rb);
                 break;
         }
     }
@@ -120,23 +122,25 @@ public class PlayerMovementScript : MonoBehaviour
     // Moves the chosen character on the axis based on their speed stat
     private void MoveCharacter()
     {
-        moveVector = Vector2.zero;
+        if (charType != PLAYER_TYPE.BULL_RUSH || !heldItem.GetComponent<BullHornsScript>().GetCharging())
+        {
+            moveVector = Vector2.zero;
 
-        float moveHorizontal = Input.GetAxis(p1_LSH_Name);
-        float moveVertical = Input.GetAxis(p1_LSV_Name);
+            float moveHorizontal = Input.GetAxis(p1_LSH_Name);
+            float moveVertical = Input.GetAxis(p1_LSV_Name);
 
-        if (moveHorizontal > inputData.xLeftAxisDeadzone || moveHorizontal < -inputData.xLeftAxisDeadzone)
-            moveVector.x = moveHorizontal * speed;
-        else
-            moveVector.x = 0;
+            if (moveHorizontal > inputData.xLeftAxisDeadzone || moveHorizontal < -inputData.xLeftAxisDeadzone)
+                moveVector.x = moveHorizontal * speed;
+            else
+                moveVector.x = 0;
 
-        if (moveVertical > inputData.yLeftAxisDeadzone || moveVertical < -inputData.yLeftAxisDeadzone)
-            moveVector.y = moveVertical * speed;
-        else
-            moveVector.y = 0;
+            if (moveVertical > inputData.yLeftAxisDeadzone || moveVertical < -inputData.yLeftAxisDeadzone)
+                moveVector.y = moveVertical * speed;
+            else
+                moveVector.y = 0;
 
-        rb.velocity = moveVector;
-
+            rb.velocity = moveVector;
+        }
     }
 
     // Allows the player to perform an action
@@ -154,6 +158,7 @@ public class PlayerMovementScript : MonoBehaviour
                     heldItem.GetComponent<HammerScript>().SpinHeldObject();
                     break;
                 case PLAYER_TYPE.BULL_RUSH:
+                    heldItem.GetComponent<BullHornsScript>().BullHornCharge();
                     break;
 
             }
