@@ -194,6 +194,46 @@ Prefab:
     - {fileID: 114063223950796708, guid: 0590152534344534d8bb22c995d7800f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 0590152534344534d8bb22c995d7800f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &363788333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 363788334}
+  - component: {fileID: 363788335}
+  m_Layer: 0
+  m_Name: Mines
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &363788334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 363788333}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1731170695}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &363788335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 363788333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78bba9ede3cbd2f48aa70c6ad6bd5faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &521516912
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +382,17 @@ MonoBehaviour:
   rotationSpeed: 15
   canAct: 1
   heldItem: {fileID: 0}
+--- !u!114 &1012394106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1012394104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08abe1f8307bf7648af8e492c2e10e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1050015527
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,52 +576,15 @@ Prefab:
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114356845852751014, guid: 0590152534344534d8bb22c995d7800f,
+        type: 2}
+      propertyPath: currentPlayer
+      value: P2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114063223950796708, guid: 0590152534344534d8bb22c995d7800f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 0590152534344534d8bb22c995d7800f, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1808176287
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1808176288}
-  - component: {fileID: 1808176289}
-  m_Layer: 0
-  m_Name: PeaShooter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1808176288
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1808176287}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1731170695}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1808176289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1808176287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22621cd1a197e2e45a09c10979c86fb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireTime: 0.3
-  peaBoopForce: 150
 --- !u!1 &2079162148
 GameObject:
   m_ObjectHideFlags: 0
