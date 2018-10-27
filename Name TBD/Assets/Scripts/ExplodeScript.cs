@@ -12,9 +12,9 @@ public class ExplodeScript : MonoBehaviour
 
     float sizeX;
     float sizeY;
-    float maxSize = 2.0f;
+    float maxSize = 2.5f;
 
-    float explodeRate = 0.2f;
+    float explodeRate = 0.25f;
 
 	// Use this for initialization
 	void Start ()
