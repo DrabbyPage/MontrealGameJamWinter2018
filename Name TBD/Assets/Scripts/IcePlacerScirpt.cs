@@ -4,57 +4,88 @@ using UnityEngine;
 
 public class IcePlacerScirpt : MonoBehaviour
 {
-    float deathTime = 2f;
+    [SerializeField]
+    float meltTime, slipTime, originalPlayerDrag, slipDrag, 
+          puddleCooldown, puddleSize;
 
+    float deathTime, mSlipTime;
+    bool slipping = true;
     float boopForce = 150f;
+    float timer;
 
-    GameObject parObj;
+    GameObject parObj, otherPlayer, icePuddle;
+    List<GameObject> puddles;
 
-    bool melting = false;
-
-    GameObject icePuddle;
-
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
+        mSlipTime = 0;
+        deathTime = 0;
         icePuddle = Resources.Load("Prefabs/IcePuddle") as GameObject;
+        parObj = gameObject.transform.parent.gameObject;
+        puddles = new List<GameObject>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        TimeTilMelt();
-        MeltDown();
+        SlipTimer();
+        Slip();
+
+        PuddleCooldown();
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+
+    void PuddleCooldown()
     {
-        if (col.gameObject.name != parObj.name && col.gameObject.tag != "Arena" && col.gameObject.tag != "ArenaEdge")
+        timer += Time.deltaTime;
+
+        if (timer > puddleCooldown)
         {
-            // push the object
-            //...................//
-            col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
+            puddles.Clear();
+            timer = 0;
         }
     }
 
-    void TimeTilMelt()
+    void Slip()
     {
-        if (deathTime > 0)
+        if (!slipping)
         {
-            deathTime = deathTime - Time.deltaTime;
-        }
-        else
-        {
-            melting = true;
+            Debug.Log("end slippity");
+            otherPlayer.GetComponent<Rigidbody2D>().drag = originalPlayerDrag;
+            slipping = true;
         }
     }
 
-    public void MeltDown()
+    void SlipTimer()
     {
-        if(melting)
+        if (mSlipTime != 0 && otherPlayer != null)
         {
+            mSlipTime -= Time.deltaTime;
 
+            if (mSlipTime < 0)
+            {
+                mSlipTime = 0;
+                slipping = false;
+            }
         }
+    }
+
+    public void PeformAction()
+    {
+        if (puddles.Count < puddleSize)
+        {
+            GameObject icePud = Instantiate(icePuddle) as GameObject;
+            icePud.GetComponent<IcePuddle>().SetMeltTime(meltTime);
+            icePud.GetComponent<IcePuddle>().SetOwner(parObj);
+            icePud.transform.position = parObj.transform.position;
+            puddles.Insert(0, icePud);
+        }
+    }
+
+    public void MakeSlippery(GameObject obj)
+    {
+        otherPlayer = obj;
+        otherPlayer.GetComponent<Rigidbody2D>().drag = slipDrag;
+        mSlipTime = slipTime;
     }
 
 }
