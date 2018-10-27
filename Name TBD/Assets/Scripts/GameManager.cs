@@ -69,7 +69,10 @@ public class GameManager : MonoBehaviour {
     private IEnumerator TurnAroundAndDie(float waitTime, GameObject player)
     {
         yield return new WaitForSeconds(waitTime);
-        player.GetComponent<Rigidbody2D>().AddForce(-player.transform.up * 1000.0f); //go die pls
+
+        // death animation/ thingy
+        player.GetComponent<Rigidbody2D>().AddForce(-Vector3.up * 1000.0f); //go die pls
+        //player.transform.localScale = new Vector3(x)
     }
     #endregion
 
