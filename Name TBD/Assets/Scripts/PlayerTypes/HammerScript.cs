@@ -87,7 +87,6 @@ public class HammerScript : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("BLOOP");
         if(col.gameObject.tag == "Player")
         {
             //col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce);//, ForceMode2D.Force);

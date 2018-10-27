@@ -29,9 +29,9 @@ public class BoopScript : MonoBehaviour {
 
     public void Booped(Vector2 dir, float boopEnergy)
     {
-        Debug.Log("BLOOP");
-
+        Debug.Log(boopForce);
         boopForce = boopEnergy;
+        Debug.Log(boopForce);
         boopDir = dir;
         isBooped = true;
     }

@@ -185,6 +185,11 @@ Prefab:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 114265117241494528, guid: 0590152534344534d8bb22c995d7800f,
+        type: 2}
+      propertyPath: BoopForce
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114063223950796708, guid: 0590152534344534d8bb22c995d7800f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 0590152534344534d8bb22c995d7800f, type: 2}
