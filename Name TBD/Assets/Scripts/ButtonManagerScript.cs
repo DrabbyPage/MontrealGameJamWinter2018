@@ -5,7 +5,10 @@ using UnityEngine;
 public class ButtonManagerScript : MonoBehaviour
 {
     List<GameObject> buttonList;
+
+    [SerializeField]
     int currentButtonIndex = 0;
+
     float deadStick = 0.5f;
 
     string p1_LSH_Name; //= "P1_LJS_H";
@@ -25,14 +28,9 @@ public class ButtonManagerScript : MonoBehaviour
                        // Use this for initialization
 
     float time;
-    float selectTime = 0.3f;
+    float selectTime = 0.15f;
 
     bool canSelectNewButton = true;
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 
     // Use this for initialization
     void Start ()
@@ -70,33 +68,30 @@ public class ButtonManagerScript : MonoBehaviour
 	}
 
     // adds teh buttons obj to the button list
-    void CheckButtonList()
+    public void CheckButtonList()
     {
         foreach (GameObject button in GameObject.FindGameObjectsWithTag("Button"))
         {
             //Debug.Log(button.name);
             buttonList.Add(button);
         }
-
-        for(int i = 0; i < buttonList.Count; i++)
-        {
-            Debug.Log(buttonList[i].name);
-        }
     }
 
     // checks for the stick input to select the button
     void CheckForButtonSelect()
     {
-        if(canSelectNewButton)
+        buttonList[currentButtonIndex].GetComponent<ButtonScript>().HighlightButton();
+
+        if (canSelectNewButton)
         {
             if (Input.GetAxis(p1_LSV_Name) > deadStick)
             {
-                // left stick is pressed up
+                // left stick is pushed up
+                buttonList[currentButtonIndex].GetComponent<ButtonScript>().UnhighlightButton();
 
                 // move to up button
-                if (currentButtonIndex > -1)
+                if (currentButtonIndex > 0)
                 {
-                    buttonList[currentButtonIndex].GetComponent<ButtonScript>().UnhighlightButton();
                     currentButtonIndex = currentButtonIndex - 1;
                 }
                 else
@@ -110,12 +105,12 @@ public class ButtonManagerScript : MonoBehaviour
             }
             else if (Input.GetAxis(p1_LSV_Name) < -deadStick)
             {
-                // left side on left sick
+                // left stick is pushed down
+                buttonList[currentButtonIndex].GetComponent<ButtonScript>().UnhighlightButton();
 
                 // move to down button
-                if (currentButtonIndex < buttonList.Count)
+                if (currentButtonIndex < buttonList.Count - 1)
                 {
-                    buttonList[currentButtonIndex].GetComponent<ButtonScript>().UnhighlightButton();
                     currentButtonIndex = currentButtonIndex + 1;
                 }
                 else
@@ -128,6 +123,43 @@ public class ButtonManagerScript : MonoBehaviour
                 canSelectNewButton = false;
 
             }
+            else if(Input.GetAxis(p1_LSH_Name) < -deadStick)
+            {
+                // left stick is pushed left
+                buttonList[currentButtonIndex].GetComponent<ButtonScript>().UnhighlightButton();
+
+                // move to up button
+                if (currentButtonIndex > 0)
+                {
+                    currentButtonIndex = currentButtonIndex - 1;
+                }
+                else
+                {
+                    currentButtonIndex = buttonList.Count - 1;
+                }
+
+                buttonList[currentButtonIndex].GetComponent<ButtonScript>().HighlightButton();
+                canSelectNewButton = false;
+            }
+            else if(Input.GetAxis(p1_LSH_Name) > deadStick)
+            {
+                // right side on left sick
+                buttonList[currentButtonIndex].GetComponent<ButtonScript>().UnhighlightButton();
+
+                // move to down button
+                if (currentButtonIndex < buttonList.Count - 1)
+                {
+                    currentButtonIndex = currentButtonIndex + 1;
+                }
+                else
+                {
+                    currentButtonIndex = 0;
+                }
+
+                buttonList[currentButtonIndex].GetComponent<ButtonScript>().HighlightButton();
+
+                canSelectNewButton = false;
+            }
         }
 
     }
@@ -137,7 +169,16 @@ public class ButtonManagerScript : MonoBehaviour
     {
         if(Input.GetButtonDown(p1_B_A_Name))
         {
-            buttonList[currentButtonIndex].GetComponent<ButtonScript>().ButtonAct();
+            if(buttonList[currentButtonIndex].GetComponent<ButtonScript>().buttonType == "SceneButton")
+            {
+                GameObject selectedButton = buttonList[currentButtonIndex];
+                buttonList.Clear();
+                selectedButton.GetComponent<ButtonScript>().SceneButton();
+            }
+            else
+            {
+                // select random characters
+            }
         }
     }
 

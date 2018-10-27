@@ -26,6 +26,14 @@ public class SceneManagerScript : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        if(sceneName != "QuitScene")
+        {
+            SceneManager.LoadScene(sceneName);
+            GameObject.Find("ButtonManager").GetComponent<ButtonManagerScript>().CheckButtonList();
+        }
+        else
+        {
+            Application.Quit();
+        }
     }
 }
