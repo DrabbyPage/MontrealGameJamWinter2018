@@ -90,7 +90,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4758904539300856}
   - component: {fileID: 212603065227147930}
-  - component: {fileID: 61177468450969908}
   m_Layer: 0
   m_Name: BigPole
   m_TagString: Untagged
@@ -574,31 +573,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 4}
   m_EdgeRadius: 0
---- !u!61 &61177468450969908
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1511773619589122}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!61 &61219981397001170
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -677,9 +651,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353161ec686a62d45b15b6bfd69438a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boopForce: 150
-  canPlace: 1
-  timeBetweenPlaces: 2
+  boopForce: 250
+  fireTime: 0.2
+  canPlaceMines: 1
+  allowedMines: 1
+  cooldownTime: 90
 --- !u!114 &114249866893438576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -692,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thePlayer: {fileID: 0}
-  boopForce: 300
+  boopForce: 250
   invisibleCharge: 0
   addSpeed: 60
   isCharging: 0
