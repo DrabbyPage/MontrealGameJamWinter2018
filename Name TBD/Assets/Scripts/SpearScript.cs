@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class SpearScript : MonoBehaviour
 {
-    float boopForce = 130f;
+    float boopForce = 60;
+
     float moveTime;
-    float maxTime = 0.3f;
+    float maxTime = 0.4f;
 
     bool canMove = false;
     bool isHeld = true;
 
     [SerializeField]
-    float spearMoveSpeed = 60;
+    float spearMoveSpeed = 60f;
 
     GameObject parObj;
 
@@ -42,7 +43,7 @@ public class SpearScript : MonoBehaviour
         {
             isHeld = false;
             moveTime = moveTime - Time.deltaTime;
-            GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * boopForce);
+            GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * spearMoveSpeed);
         }
         else
         {
