@@ -18,11 +18,14 @@ public struct DashData
 
 public class PlayerMovementScript : MonoBehaviour
 {
-    const string p1_LSH_Name = "P1_LJS_H";
-    const string p1_LSV_Name = "P1_LJS_V";
-    const string p1_RT_Name = "P1_RT";
-    const string p1_RSH_Name = "P1_RJS_H";
-    const string p1_RSV_Name = "P1_RJS_V";
+    [SerializeField]
+    string currentPlayer;
+
+    string p1_LSH_Name; //= "P1_LJS_H";
+    string p1_LSV_Name; //= "P1_LJS_V";
+    string p1_RT_Name;//= "P1_RT";
+    string p1_RSH_Name; //= "P1_RJS_H";
+    string p1_RSV_Name;// = "P1_RJS_V";
 
     public enum PLAYER_TYPE
     {
@@ -68,6 +71,14 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void Awake()
     {
+        p1_LSH_Name = currentPlayer + "_LJS_H";
+        p1_LSV_Name = currentPlayer + "_LJS_V";
+        p1_RT_Name = currentPlayer + "_RT";
+        p1_RSH_Name = currentPlayer + "_RJS_H";
+        p1_RSV_Name = currentPlayer + "_RJS_V";
+
+        Debug.Log(p1_LSH_Name);
+
         rb = GetComponent<Rigidbody2D>();
         CheckHeldObject();
     }
