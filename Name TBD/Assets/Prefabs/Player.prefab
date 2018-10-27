@@ -126,7 +126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4011330253743310
 Transform:
   m_ObjectHideFlags: 1
@@ -332,7 +332,7 @@ MonoBehaviour:
     dashStopSpeed: 0
     dashDistance: 0
     dashCoolDownTime: 0
-  charType: 1
+  charType: 0
   speed: 5
   rotationSpeed: 15
   canAct: 1
@@ -352,9 +352,9 @@ MonoBehaviour:
   addSpeed: 10
   isCharging: 0
   rushTime: 10
-  rushDistance: 4
-  cooldownTime: 45
-  allowedCharges: 2
+  rushDistance: 6
+  cooldownTime: 30
+  allowedCharges: 1
 --- !u!114 &114265117241494528
 MonoBehaviour:
   m_ObjectHideFlags: 1
