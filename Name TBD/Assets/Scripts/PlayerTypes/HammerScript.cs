@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HammerScript : MonoBehaviour {
 
+    public float BoopForce;
+
     [SerializeField]
     float rotationAngle = -15.0f;
     public bool isSpinning = false;
@@ -21,7 +23,6 @@ public class HammerScript : MonoBehaviour {
     private int checker;
     private int countUp = 0;
 
-    // Use this for initialization
     private void Start ()
     {
         originalRot = transform.rotation.eulerAngles;
@@ -82,5 +83,11 @@ public class HammerScript : MonoBehaviour {
                 countUp = 0;
             }
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("BLOOP");
+        col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce, ForceMode2D.Force);
     }
 }

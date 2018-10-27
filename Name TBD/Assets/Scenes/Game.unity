@@ -213,6 +213,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 50270452324214672, guid: 0590152534344534d8bb22c995d7800f,
+        type: 2}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0590152534344534d8bb22c995d7800f, type: 2}
   m_IsPrefabAsset: 0
@@ -262,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007a39c441964944e92ec0a8a5e4262c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BoopForce: 100
   rotationAngle: -15
   isSpinning: 0
   cooldownTime: 60
@@ -307,6 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007a39c441964944e92ec0a8a5e4262c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BoopForce: 100
   rotationAngle: -15
   isSpinning: 0
   cooldownTime: 60
@@ -448,6 +455,11 @@ Prefab:
     - target: {fileID: 1317886554337126, guid: 0590152534344534d8bb22c995d7800f, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50270452324214672, guid: 0590152534344534d8bb22c995d7800f,
+        type: 2}
+      propertyPath: m_Mass
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0590152534344534d8bb22c995d7800f, type: 2}
