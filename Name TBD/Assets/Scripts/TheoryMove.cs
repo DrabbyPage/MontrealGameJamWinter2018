@@ -33,7 +33,8 @@ public class TheoryMove : MonoBehaviour
         SPIN = 0,
         BULL_RUSH = 1,
         PEASHOOTER = 2,
-        SPEAR = 3
+        SPEAR = 3,
+        MINER = 4
         // ETC.
     };
 
@@ -151,8 +152,16 @@ public class TheoryMove : MonoBehaviour
                 heldItem.GetComponent<BullHornsScript>().SetPlayerValues(this.gameObject, rb);
                 break;
             case PLAYER_TYPE.PEASHOOTER:
-                transform.GetChild(2).gameObject.SetActive(true); ;
+                transform.GetChild(2).gameObject.SetActive(true); 
                 heldItem = transform.GetChild(2).gameObject;
+                break;
+            case PLAYER_TYPE.SPEAR:
+                transform.GetChild(3).gameObject.SetActive(true);
+                heldItem = transform.GetChild(3).gameObject;
+                break;
+            case PLAYER_TYPE.MINER:
+                transform.GetChild(4).gameObject.SetActive(true);
+                heldItem = transform.GetChild(4).gameObject;
                 break;
         }
     }
@@ -176,6 +185,12 @@ public class TheoryMove : MonoBehaviour
                     break;
                 case PLAYER_TYPE.PEASHOOTER:
                     heldItem.GetComponent<PeaShooterScript>().Shoot();
+                    break;
+                case PLAYER_TYPE.SPEAR:
+                    //heldItem.GetComponent<PeaShooterScript>().Shoot();
+                    break;
+                case PLAYER_TYPE.MINER:
+                    heldItem.GetComponent<MinePlacer>().PlaceMine();
                     break;
 
             }
