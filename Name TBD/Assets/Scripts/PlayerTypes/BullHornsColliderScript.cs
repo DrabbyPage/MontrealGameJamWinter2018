@@ -27,6 +27,10 @@ public class BullHornsColliderScript : MonoBehaviour {
             {
                 SoundManagerScript.instance.PlayHitSound(true);
             }
+            if(col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.PlayHitSound(false);
+            }
 
             
         }

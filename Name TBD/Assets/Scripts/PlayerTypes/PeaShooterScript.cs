@@ -57,6 +57,14 @@ public class PeaShooterScript : MonoBehaviour
         if (canFire && shotCounter < allowedShots)
         {
             newBullet = Instantiate(bullet) as GameObject;
+            if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.PeaShootSoundPlay(true);
+            }
+            if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.PeaShootSoundPlay(false);
+            }
 
             if (peashooter)
             {
@@ -104,12 +112,22 @@ public class PeaShooterScript : MonoBehaviour
         if (shotCounter == allowedShots)
         {
             cooldownCounter++;
+            // change player color grey to indicate cool down
+            GetComponentInParent<SpriteRenderer>().color = Color.grey;
 
             // If the player's cooldown is at max, allow the player to act again
             if (cooldownCounter >= cooldownTime)
             {
                 cooldownCounter = 0;
                 shotCounter = 0;
+
+                //set the skin color back to normal
+                GetComponentInParent<SpriteRenderer>().color = Color.white;
+                //plays the ready clip from the sound manager
+                if (SoundManagerScript.instance != null)
+                {
+                    SoundManagerScript.instance.EndCoolDownSound();
+                }
             }
         }
     }

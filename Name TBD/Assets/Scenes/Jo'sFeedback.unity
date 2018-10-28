@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114511815153017322, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
       propertyPath: charType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114364628932701586, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}

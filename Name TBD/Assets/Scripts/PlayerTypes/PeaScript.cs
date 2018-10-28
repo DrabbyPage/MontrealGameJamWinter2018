@@ -16,6 +16,8 @@ public class PeaScript : MonoBehaviour
 	void Start ()
     {
         Physics2D.GetIgnoreLayerCollision(8, 9);
+
+        
 	}
 	
 	// Update is called once per frame
