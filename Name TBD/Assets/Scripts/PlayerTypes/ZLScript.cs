@@ -37,7 +37,7 @@ public class ZLScript : MonoBehaviour {
     void FixedUpdate()
     {
         CheckCooldown();
-        ApplyCharge();
+        //ApplyCharge();
 
     }
 
