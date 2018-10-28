@@ -81,7 +81,7 @@ public class BullHornsScript : MonoBehaviour
 
                 if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
                 {
-                    SoundManagerScript.instance.EndCoolDownSound(true);
+                    SoundManagerScript.instance.EndCoolDownSound(false);
                 }
             }
         }
