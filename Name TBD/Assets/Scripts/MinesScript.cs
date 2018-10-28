@@ -46,6 +46,9 @@ public class MinesScript : MonoBehaviour
         {
             GameObject explosion;
 
+            SoundManagerScript.instance.PlayMineSound(true);
+            
+
             if (!exploding)
             {
                 exploding = true;

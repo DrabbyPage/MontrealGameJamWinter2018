@@ -14,7 +14,7 @@ public class RandomizeManagerScript : MonoBehaviour
     bool play2Selected = false;
     bool hasGiven = false;
 
-    int numOfChar = 18;
+    int numOfChar = 17;
 
     GameObject p1Heart;
     GameObject p2Heart;
@@ -87,7 +87,7 @@ public class RandomizeManagerScript : MonoBehaviour
 
             randChar6Sprite = Resources.Load("Masks/WhiteTelefrag", typeof(Sprite)) as Sprite;
             randChar7Sprite = Resources.Load("Masks/WhitePlank", typeof(Sprite)) as Sprite;
-            randChar8Sprite = Resources.Load("Masks/WhiteBig", typeof(Sprite)) as Sprite;
+            randChar8Sprite = Resources.Load("Masks/WhiteBig", typeof(Sprite)) as Sprite; // small knife
             randChar9Sprite = Resources.Load("Masks/WhiteIce", typeof(Sprite)) as Sprite;
             randChar10Sprite = Resources.Load("Masks/WhiteMagnet", typeof(Sprite)) as Sprite;
 
@@ -98,7 +98,6 @@ public class RandomizeManagerScript : MonoBehaviour
             randChar15Sprite = Resources.Load("Masks/WhiteFox", typeof(Sprite)) as Sprite;
             randChar16Sprite = Resources.Load("Masks/WhiteMoon", typeof(Sprite)) as Sprite;
             randChar17Sprite = Resources.Load("Masks/BlueJoe", typeof(Sprite)) as Sprite; // Joe Siehl
-            randChar18Sprite = Resources.Load("Masks/RedJoe", typeof(Sprite)) as Sprite; // Joe Siehl
         }
 
         // check for null sprites
@@ -351,7 +350,7 @@ public class RandomizeManagerScript : MonoBehaviour
             else if (charVal == 11)
             {
                 charImage.GetComponent<Image>().sprite = randChar11Sprite;
-                AddSprite(randChar13Sprite);
+                AddSprite(randChar11Sprite);
             }
             else if (charVal == 12)
             {
@@ -382,11 +381,6 @@ public class RandomizeManagerScript : MonoBehaviour
             {
                 charImage.GetComponent<Image>().sprite = randChar17Sprite;
                 AddSprite(randChar17Sprite);
-            }
-            else if (charVal == 18)
-            {
-                charImage.GetComponent<Image>().sprite = randChar18Sprite;
-                AddSprite(randChar18Sprite);
             }
         }
 

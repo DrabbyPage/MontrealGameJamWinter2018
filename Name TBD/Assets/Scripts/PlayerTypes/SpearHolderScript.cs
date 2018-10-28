@@ -47,15 +47,6 @@ public class SpearHolderScript : MonoBehaviour
     public void SetHasWeapon(bool newBool)
     {
         hasWeapon = newBool;
-        /*
-        if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
-        {
-            SoundManagerScript.instance.EndCoolDownSound(true);
-        }
-        if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
-        {
-            SoundManagerScript.instance.EndCoolDownSound(false);
-        }
-        */
+        
     }
 }

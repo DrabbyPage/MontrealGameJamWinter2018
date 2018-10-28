@@ -5,6 +5,23 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour {
     public static SoundManagerScript instance;
 
+    public static SoundManagerScript getInstance()
+    {
+        if (instance == null)
+        {
+            instance = GameObject.FindObjectOfType<SoundManagerScript>();
+
+            if (instance == null)
+            {
+                GameObject tmp = new GameObject("TmpManager");
+                instance = tmp.AddComponent<SoundManagerScript>();
+            }
+
+        }
+
+        return instance;
+    }
+
     [Header("AUDIO CLIPS")]
 
     [Header("character sounds")]
@@ -21,13 +38,16 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioClip SpearLand;
     public AudioClip SpearThrow;
 
+    [Header("Miner")]
+    public AudioClip Explosion;
+
     public AudioClip MenuSelect;
     public AudioClip MenuHover;
 
     public AudioClip Moo;
 
     public AudioClip Dash0Snd;
-    public AudioClip Explosion;
+
     
     public AudioClip GotchaGetsCommon;
     public AudioClip GotchaGetsRare;
@@ -68,6 +88,16 @@ public class SoundManagerScript : MonoBehaviour {
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        //If instance already exists and it's not this:
+        if (instance == null)
+        {
+            instance = this;
+        }
+        if (instance != this)
+        {
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+        }
     }
 
     // Use this for initialization
@@ -172,8 +202,21 @@ public class SoundManagerScript : MonoBehaviour {
         }
 
     }
+    //*************** MINER SOUNDS ********************
+    public void PlayMineSound(bool isPlayer1)
+    {
+        if (isPlayer1)
+        {
+            ASause.clip = Explosion;
+            ASause.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2GeneralSource.clip = Explosion;
+            Player2GeneralSource.Play();
+        }
+    }
 
-    
 
 
 

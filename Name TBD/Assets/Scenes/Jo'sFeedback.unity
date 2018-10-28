@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114511815153017322, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
       propertyPath: charType
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114364628932701586, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
@@ -503,11 +503,11 @@ MonoBehaviour:
   PeaShoot: {fileID: 8300000, guid: 764487b44fdae8b45babf9eb59c8dcca, type: 3}
   SpearLand: {fileID: 8300000, guid: 79b668ff1e61f8d4aa72a84ac6c90e88, type: 3}
   SpearThrow: {fileID: 8300000, guid: e0b15681e6abea2439c077d91d6e9d8b, type: 3}
+  Explosion: {fileID: 8300000, guid: 3f35f477000f9bd45a0a347e43646725, type: 3}
   MenuSelect: {fileID: 0}
   MenuHover: {fileID: 0}
   Moo: {fileID: 8300000, guid: e0b15681e6abea2439c077d91d6e9d8b, type: 3}
   Dash0Snd: {fileID: 0}
-  Explosion: {fileID: 0}
   GotchaGetsCommon: {fileID: 0}
   GotchaGetsRare: {fileID: 0}
   GotchaGetsUncommon: {fileID: 0}
