@@ -16,6 +16,7 @@ public class SoundManagerScript : MonoBehaviour {
                 GameObject tmp = new GameObject("TmpManager");
                 instance = tmp.AddComponent<SoundManagerScript>();
             }
+
         }
 
         return instance;
@@ -86,7 +87,17 @@ public class SoundManagerScript : MonoBehaviour {
 
     private void Awake()
     {
-        // DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
+        //If instance already exists and it's not this:
+        if (instance == null)
+        {
+            instance = this;
+        }
+        if (instance != this)
+        {
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+        }
     }
 
     // Use this for initialization
