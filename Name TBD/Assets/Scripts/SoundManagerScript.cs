@@ -21,13 +21,16 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioClip SpearLand;
     public AudioClip SpearThrow;
 
+    [Header("Miner")]
+    public AudioClip Explosion;
+
     public AudioClip MenuSelect;
     public AudioClip MenuHover;
 
     public AudioClip Moo;
 
     public AudioClip Dash0Snd;
-    public AudioClip Explosion;
+
     
     public AudioClip GotchaGetsCommon;
     public AudioClip GotchaGetsRare;
@@ -172,8 +175,21 @@ public class SoundManagerScript : MonoBehaviour {
         }
 
     }
+    //*************** MINER SOUNDS ********************
+    public void PlayMineSound(bool isPlayer1)
+    {
+        if (isPlayer1)
+        {
+            ASause.clip = Explosion;
+            ASause.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2GeneralSource.clip = Explosion;
+            Player2GeneralSource.Play();
+        }
+    }
 
-    
 
 
 

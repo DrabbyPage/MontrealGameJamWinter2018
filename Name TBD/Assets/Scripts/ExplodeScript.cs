@@ -42,6 +42,17 @@ public class ExplodeScript : MonoBehaviour
             // using a positive diff can be used for the fishing hook;
 
             Debug.Log("booped");
+
+            // this makes the hit sound when it hits an enemy
+            if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.PlayHitSound(true);
+            }
+            if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.PlayHitSound(false);
+            }
+
         }
     }
 
