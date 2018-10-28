@@ -103,6 +103,7 @@ public class SoundManagerScript : MonoBehaviour {
         ASause.Play();
     }
 
+
     public void PlayHitSound(bool isPlayer1)
     {
         if (isPlayer1)

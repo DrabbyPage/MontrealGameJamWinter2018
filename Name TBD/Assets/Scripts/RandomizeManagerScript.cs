@@ -11,12 +11,19 @@ public class RandomizeManagerScript : MonoBehaviour
 
     int numOfChar = 18;
 
+    GameObject p1Heart;
+    GameObject p2Heart;
+
+    float animLength = 2;
+    bool heartPump = false;
+
     List<int> player1Types;
     List<int> player2Types;
 
     List<Sprite> player1Sprites;
     List<Sprite> player2Sprites;
 
+    #region Sprite containers
     Sprite randChar1Sprite;
     Sprite randChar2Sprite;
     Sprite randChar3Sprite;
@@ -38,6 +45,7 @@ public class RandomizeManagerScript : MonoBehaviour
     Sprite randChar16Sprite;
     Sprite randChar17Sprite;
     Sprite randChar18Sprite;
+    #endregion
 
     // Use this for initialization
     void Start()
@@ -48,27 +56,33 @@ public class RandomizeManagerScript : MonoBehaviour
         player1Sprites = new List<Sprite>();
         player2Sprites = new List<Sprite>();
 
-        //Assets / Resources / Masks / HammerWhite.png for each path
-        randChar1Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite;
-        randChar2Sprite = Resources.Load("Masks/WhiteBull", typeof(Sprite)) as Sprite;
-        randChar3Sprite = Resources.Load("Masks/WhitePShooter", typeof(Sprite)) as Sprite;
-        randChar4Sprite = Resources.Load("Masks/WhiteSpear", typeof(Sprite)) as Sprite;
-        randChar5Sprite = Resources.Load("Masks/WhiteMines", typeof(Sprite)) as Sprite;
+        p1Heart = GameObject.Find("Player1Panel").transform.GetChild(0).gameObject;
+        p2Heart = GameObject.Find("Player2Panel").transform.GetChild(0).gameObject;
 
-        randChar6Sprite = Resources.Load("Masks/WhiteTelefrag", typeof(Sprite)) as Sprite;
-        randChar7Sprite = Resources.Load("Masks/WhitePlank", typeof(Sprite)) as Sprite;
-        randChar8Sprite = Resources.Load("Masks/WhiteBig", typeof(Sprite)) as Sprite;
-        randChar9Sprite = Resources.Load("Masks/WhiteIce", typeof(Sprite)) as Sprite;
-        randChar10Sprite = Resources.Load("Masks/WhiteMagnet", typeof(Sprite)) as Sprite;
+        // setting all the sprites
+        {
+            //Assets / Resources / Masks / HammerWhite.png for each path
+            randChar1Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite;
+            randChar2Sprite = Resources.Load("Masks/WhiteBull", typeof(Sprite)) as Sprite;
+            randChar3Sprite = Resources.Load("Masks/WhitePShooter", typeof(Sprite)) as Sprite;
+            randChar4Sprite = Resources.Load("Masks/WhiteSpear", typeof(Sprite)) as Sprite;
+            randChar5Sprite = Resources.Load("Masks/WhiteMines", typeof(Sprite)) as Sprite;
 
-        randChar11Sprite = Resources.Load("Masks/WhiteSlow", typeof(Sprite)) as Sprite;
-        randChar12Sprite = Resources.Load("Masks/WhiteMace", typeof(Sprite)) as Sprite;
-        randChar13Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite; // zeke and luther
-        randChar14Sprite = Resources.Load("Masks/WhiteHow2", typeof(Sprite)) as Sprite;
-        randChar15Sprite = Resources.Load("Masks/WhiteFox", typeof(Sprite)) as Sprite;
-        randChar16Sprite = Resources.Load("Masks/WhiteMoon", typeof(Sprite)) as Sprite;
-        randChar17Sprite = Resources.Load("Masks/BlueJoe", typeof(Sprite)) as Sprite; // Joe Siehl
-        randChar18Sprite = Resources.Load("Masks/RedJoe", typeof(Sprite)) as Sprite; // Joe Siehl
+            randChar6Sprite = Resources.Load("Masks/WhiteTelefrag", typeof(Sprite)) as Sprite;
+            randChar7Sprite = Resources.Load("Masks/WhitePlank", typeof(Sprite)) as Sprite;
+            randChar8Sprite = Resources.Load("Masks/WhiteBig", typeof(Sprite)) as Sprite;
+            randChar9Sprite = Resources.Load("Masks/WhiteIce", typeof(Sprite)) as Sprite;
+            randChar10Sprite = Resources.Load("Masks/WhiteMagnet", typeof(Sprite)) as Sprite;
+
+            randChar11Sprite = Resources.Load("Masks/WhiteSlow", typeof(Sprite)) as Sprite;
+            randChar12Sprite = Resources.Load("Masks/WhiteMace", typeof(Sprite)) as Sprite;
+            randChar13Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite; // zeke and luther
+            randChar14Sprite = Resources.Load("Masks/WhiteHow2", typeof(Sprite)) as Sprite;
+            randChar15Sprite = Resources.Load("Masks/WhiteFox", typeof(Sprite)) as Sprite;
+            randChar16Sprite = Resources.Load("Masks/WhiteMoon", typeof(Sprite)) as Sprite;
+            randChar17Sprite = Resources.Load("Masks/BlueJoe", typeof(Sprite)) as Sprite; // Joe Siehl
+            randChar18Sprite = Resources.Load("Masks/RedJoe", typeof(Sprite)) as Sprite; // Joe Siehl
+        }
 
         // check for null sprites
         {
@@ -99,7 +113,9 @@ public class RandomizeManagerScript : MonoBehaviour
     void Update ()
     {
         CheckForFullData();
-	}
+
+        SetHeartAnimation();
+    }
 
     void CheckForFullData()
     {
@@ -112,6 +128,18 @@ public class RandomizeManagerScript : MonoBehaviour
                 InfoHolder.getInstance().SetPlayerInfo(2, player2Types, player2Sprites);
                 hasGiven = true;
             }
+        }
+    }
+
+    void SetHeartAnimation()
+    {
+        if(play1Selected)
+        {
+            p1Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
+        }
+        else
+        {
+            p2Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
         }
     }
 
@@ -135,18 +163,28 @@ public class RandomizeManagerScript : MonoBehaviour
         int newRand;
         newRand = Random.Range(1, numOfChar);
 
-        if(play1Selected && player1Types.Count < 3)
+        if(heartPump == false)
         {
-            player1Types.Add(newRand);
-            MakeImageChar(player1Types.Count, newRand);
-            SwitchPlayers();
+            if (play1Selected && player1Types.Count < 3)
+            {
+                heartPump = true;
+                player1Types.Add(newRand);
+                MakeImageChar(player1Types.Count, newRand);
+                SwitchPlayers();
+
+                StartCoroutine(WaitForAnimation());
+            }
+            else if (play2Selected && player2Types.Count < 3)
+            {
+                heartPump = true;
+                player2Types.Add(newRand);
+                MakeImageChar(player2Types.Count, newRand);
+                SwitchPlayers();
+
+                StartCoroutine(WaitForAnimation());
+            }
         }
-        else if(play2Selected && player2Types.Count < 3)
-        {
-            player2Types.Add(newRand);
-            MakeImageChar(player2Types.Count, newRand);
-            SwitchPlayers();
-        }
+
 
     }
 
@@ -279,5 +317,11 @@ public class RandomizeManagerScript : MonoBehaviour
             player2Sprites.Add(newSprite);
         }
 
+    }
+
+    IEnumerator WaitForAnimation()
+    {
+        yield return new WaitForSeconds(animLength);
+        heartPump = false;
     }
 }

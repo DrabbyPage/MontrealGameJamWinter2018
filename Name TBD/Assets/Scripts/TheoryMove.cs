@@ -179,7 +179,7 @@ public class TheoryMove : MonoBehaviour
                 heldItem = transform.GetChild(6).gameObject;
                 break;
             case PLAYER_TYPE.SMALL_KNIFE:
-                transform.localScale = new Vector3(2, 2, 0);
+                transform.localScale = new Vector3(3, 3, 0);
                 moveSpeed = 100f;
                 transform.GetChild(7).gameObject.SetActive(true);
                 heldItem = transform.GetChild(7).gameObject;
@@ -222,7 +222,7 @@ public class TheoryMove : MonoBehaviour
                 heldItem = transform.GetChild(15).gameObject;
                 break;
             case PLAYER_TYPE.JOE_SIEHL:
-                transform.localScale = new Vector3(0.75f, 0.75f, 0);
+                transform.localScale = new Vector3(1.25f, 1.25f, 0);
                 moveSpeed = 100f;
                 transform.GetChild(16).gameObject.SetActive(true);
                 heldItem = transform.GetChild(16).gameObject;
@@ -324,8 +324,27 @@ public class TheoryMove : MonoBehaviour
     {
         //Debug.Log(newType);
         gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
-        transform.localScale = new Vector3(1, 1, 0);
+        transform.localScale = new Vector3(1.5f, 1.5f, 0);
         moveSpeed = origSpeed;
+
+        if(currentPlayer == "P1")
+        {
+            float r = 255 / 255;
+            float g = 104 / 255;
+            float b = 162 / 255;
+            float a = 255 / 255;
+
+            GetComponent<SpriteRenderer>().color = new Vector4(r, g, b, a);
+        }
+        else if(currentPlayer == "P2")
+        {
+            float r = 82 / 255;
+            float g = 252 / 255;
+            float b = 255 / 255;
+            float a = 255 / 255;
+
+            GetComponent<SpriteRenderer>().color = new Vector4(r, g, b, a);
+        }
 
         if (newType > 0)
         {
