@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class RandomizeManagerScript : MonoBehaviour
 {
+    [SerializeField]
+    GameObject p1AcornTop, p1AcornBottom, p2AcornTop, p2AcornBottom;
+    [SerializeField]
+    Sprite commonTop, commonBottom, uncommonTop, uncommonBottom, rareTop, rareBottom, legendaryTop, legendaryBottom; 
+
     bool play1Selected = true;
     bool play2Selected = false;
     bool hasGiven = false;
@@ -179,6 +184,11 @@ public class RandomizeManagerScript : MonoBehaviour
         {
             Debug.Log("Common Role");
 
+            p1AcornTop.GetComponent<Image>().sprite = commonTop;
+            p1AcornBottom.GetComponent<Image>().sprite = commonBottom;
+            p2AcornTop.GetComponent<Image>().sprite = commonTop;
+            p2AcornBottom.GetComponent<Image>().sprite = commonBottom;
+
             List<int> playerTypes = new List<int>();
             playerTypes.Add((int)PLAYER_TYPE.HOW_TO);
             playerTypes.Add((int)PLAYER_TYPE.SPIN);
@@ -194,6 +204,11 @@ public class RandomizeManagerScript : MonoBehaviour
         {
             Debug.Log("Uncommon Role");
 
+            p1AcornTop.GetComponent<Image>().sprite = uncommonTop;
+            p1AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
+            p2AcornTop.GetComponent<Image>().sprite = uncommonTop;
+            p2AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
+
             List<int> playerTypes = new List<int>();
             playerTypes.Add((int)PLAYER_TYPE.SPEAR);
             playerTypes.Add((int)PLAYER_TYPE.SLIME);
@@ -208,6 +223,10 @@ public class RandomizeManagerScript : MonoBehaviour
         else if(randomPool >= 85 && randomPool <= 99)
         {
             Debug.Log("Rare Role");
+            p1AcornTop.GetComponent<Image>().sprite = rareTop;
+            p1AcornBottom.GetComponent<Image>().sprite = rareBottom;
+            p2AcornTop.GetComponent<Image>().sprite = rareTop;
+            p2AcornBottom.GetComponent<Image>().sprite = rareBottom;
 
             List<int> playerTypes = new List<int>();
             playerTypes.Add((int)PLAYER_TYPE.MAGNET);
@@ -220,6 +239,13 @@ public class RandomizeManagerScript : MonoBehaviour
         else 
         {
             Debug.Log("Legendary Role");
+            p1AcornTop.GetComponent<Image>().sprite = legendaryTop;
+            p1AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
+            p2AcornTop.GetComponent<Image>().sprite = legendaryTop;
+            p2AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
+
+            p1AcornBottom.GetComponent<Animator>().enabled = true;
+            p2AcornBottom.GetComponent<Animator>().enabled = true;
 
             List<int> playerTypes = new List<int>();
             playerTypes.Add((int)PLAYER_TYPE.JOE_SIEHL);
