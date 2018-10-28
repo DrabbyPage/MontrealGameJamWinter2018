@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class RandomizeManagerScript : MonoBehaviour
 {
+    [SerializeField]
+    GameObject p1AcornTop, p1AcornBottom, p2AcornTop, p2AcornBottom;
+    [SerializeField]
+    Sprite commonTop, commonBottom, uncommonTop, uncommonBottom, rareTop, rareBottom, legendaryTop, legendaryBottom; 
+
     bool play1Selected = true;
     bool play2Selected = false;
     bool hasGiven = false;
 
-    int numOfChar = 18;
+    int numOfChar = 17;
 
     GameObject p1Heart;
     GameObject p2Heart;
@@ -82,7 +87,7 @@ public class RandomizeManagerScript : MonoBehaviour
 
             randChar6Sprite = Resources.Load("Masks/WhiteTelefrag", typeof(Sprite)) as Sprite;
             randChar7Sprite = Resources.Load("Masks/WhitePlank", typeof(Sprite)) as Sprite;
-            randChar8Sprite = Resources.Load("Masks/WhiteBig", typeof(Sprite)) as Sprite;
+            randChar8Sprite = Resources.Load("Masks/WhiteBig", typeof(Sprite)) as Sprite; // small knife
             randChar9Sprite = Resources.Load("Masks/WhiteIce", typeof(Sprite)) as Sprite;
             randChar10Sprite = Resources.Load("Masks/WhiteMagnet", typeof(Sprite)) as Sprite;
 
@@ -93,7 +98,6 @@ public class RandomizeManagerScript : MonoBehaviour
             randChar15Sprite = Resources.Load("Masks/WhiteFox", typeof(Sprite)) as Sprite;
             randChar16Sprite = Resources.Load("Masks/WhiteMoon", typeof(Sprite)) as Sprite;
             randChar17Sprite = Resources.Load("Masks/BlueJoe", typeof(Sprite)) as Sprite; // Joe Siehl
-            randChar18Sprite = Resources.Load("Masks/RedJoe", typeof(Sprite)) as Sprite; // Joe Siehl
         }
 
         // check for null sprites
@@ -179,6 +183,11 @@ public class RandomizeManagerScript : MonoBehaviour
         {
             Debug.Log("Common Role");
 
+            p1AcornTop.GetComponent<Image>().sprite = commonTop;
+            p1AcornBottom.GetComponent<Image>().sprite = commonBottom;
+            p2AcornTop.GetComponent<Image>().sprite = commonTop;
+            p2AcornBottom.GetComponent<Image>().sprite = commonBottom;
+
             List<int> playerTypes = new List<int>();
             playerTypes.Add((int)PLAYER_TYPE.HOW_TO);
             playerTypes.Add((int)PLAYER_TYPE.SPIN);
@@ -194,6 +203,11 @@ public class RandomizeManagerScript : MonoBehaviour
         {
             Debug.Log("Uncommon Role");
 
+            p1AcornTop.GetComponent<Image>().sprite = uncommonTop;
+            p1AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
+            p2AcornTop.GetComponent<Image>().sprite = uncommonTop;
+            p2AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
+
             List<int> playerTypes = new List<int>();
             playerTypes.Add((int)PLAYER_TYPE.SPEAR);
             playerTypes.Add((int)PLAYER_TYPE.SLIME);
@@ -208,6 +222,13 @@ public class RandomizeManagerScript : MonoBehaviour
         else if(randomPool >= 85 && randomPool <= 99)
         {
             Debug.Log("Rare Role");
+            p1AcornTop.GetComponent<Image>().sprite = rareTop;
+            p1AcornBottom.GetComponent<Image>().sprite = rareBottom;
+            p2AcornTop.GetComponent<Image>().sprite = rareTop;
+            p2AcornBottom.GetComponent<Image>().sprite = rareBottom;
+
+            p1AcornBottom.GetComponent<Animator>().enabled = true;
+            p2AcornBottom.GetComponent<Animator>().enabled = true;
 
             List<int> playerTypes = new List<int>();
             playerTypes.Add((int)PLAYER_TYPE.MAGNET);
@@ -220,6 +241,10 @@ public class RandomizeManagerScript : MonoBehaviour
         else 
         {
             Debug.Log("Legendary Role");
+            p1AcornTop.GetComponent<Image>().sprite = legendaryTop;
+            p1AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
+            p2AcornTop.GetComponent<Image>().sprite = legendaryTop;
+            p2AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
 
             List<int> playerTypes = new List<int>();
             playerTypes.Add((int)PLAYER_TYPE.JOE_SIEHL);
@@ -325,7 +350,7 @@ public class RandomizeManagerScript : MonoBehaviour
             else if (charVal == 11)
             {
                 charImage.GetComponent<Image>().sprite = randChar11Sprite;
-                AddSprite(randChar13Sprite);
+                AddSprite(randChar11Sprite);
             }
             else if (charVal == 12)
             {
@@ -356,11 +381,6 @@ public class RandomizeManagerScript : MonoBehaviour
             {
                 charImage.GetComponent<Image>().sprite = randChar17Sprite;
                 AddSprite(randChar17Sprite);
-            }
-            else if (charVal == 18)
-            {
-                charImage.GetComponent<Image>().sprite = randChar18Sprite;
-                AddSprite(randChar18Sprite);
             }
         }
 
