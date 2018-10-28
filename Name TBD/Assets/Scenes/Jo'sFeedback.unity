@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 1832250291}
   - component: {fileID: 1832250290}
   - component: {fileID: 1832250289}
+  - component: {fileID: 1832250294}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -401,7 +402,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -498,13 +499,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ReadyClip: {fileID: 8300000, guid: 1c2a22705485b664c9449c96f9f16801, type: 3}
   CoolDownClip: {fileID: 8300000, guid: bac1c32bc3cb3344ca105ee8a7f8223f, type: 3}
-  Hit_snd: {fileID: 8300000, guid: 6392fb960512bd9419c04697af227963, type: 3}
+  Hit_snd: {fileID: 8300000, guid: 3175d93b91d68b149a8f1dd67fb7fa4c, type: 3}
   MenuSelect: {fileID: 0}
   MenuHover: {fileID: 0}
   Moo: {fileID: 8300000, guid: e0b15681e6abea2439c077d91d6e9d8b, type: 3}
   Dash0Snd: {fileID: 0}
   Explosion: {fileID: 0}
-  GotchaGetsBuildUp: {fileID: 0}
   GotchaGetsCommon: {fileID: 0}
   GotchaGetsRare: {fileID: 0}
   GotchaGetsUncommon: {fileID: 0}
@@ -512,13 +512,15 @@ MonoBehaviour:
   HeartBeat: {fileID: 0}
   SpearLand: {fileID: 0}
   SpearThrow: {fileID: 0}
-  TreeFight: {fileID: 0}
+  TreeFightTheme: {fileID: 8300000, guid: 59ca91dc6bf526e44b87c3e378e0e430, type: 3}
+  GotchaGetsBuildUp: {fileID: 8300000, guid: a33ca76f4b9798f4da3d7355bbb56634, type: 3}
   ASause: {fileID: 1832250286}
   Player1Walking: {fileID: 1832250293}
   Player1Hits: {fileID: 1832250292}
   Player2GeneralSource: {fileID: 1832250291}
   Player2Walking: {fileID: 1832250290}
   Player2Hits: {fileID: 1832250289}
+  MusicRecordPlayer: {fileID: 1832250294}
 --- !u!4 &1832250288
 Transform:
   m_ObjectHideFlags: 0
@@ -733,7 +735,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -926,6 +928,101 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1832250294
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1832250285}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.449
+  m_Pitch: 1
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
