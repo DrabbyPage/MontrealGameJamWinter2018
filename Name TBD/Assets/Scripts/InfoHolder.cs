@@ -44,6 +44,17 @@ public class InfoHolder : MonoBehaviour
         holdersHolder.player2Sprites = new List<Sprite>();
 
         DontDestroyOnLoad(gameObject);
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        if (instance != this)
+        {
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+        }
+
         //mSceneManager = gameObject.GetComponent<SceneManagerScript>();
     }
 

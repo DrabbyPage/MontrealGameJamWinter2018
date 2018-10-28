@@ -5,9 +5,37 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class SceneManagerScript : MonoBehaviour
 {
+    public static SceneManagerScript instance;
+
+    public static SceneManagerScript getInstance()
+    {
+        if (instance == null)
+        {
+            instance = GameObject.FindObjectOfType<SceneManagerScript>();
+
+            if (instance == null)
+            {
+                GameObject tmp = new GameObject("TmpManager");
+                instance = tmp.AddComponent<SceneManagerScript>();
+            }
+
+        }
+
+        return instance;
+    }
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        if (instance != this)
+        {
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+        }
     }
 
     public string GetCurrentScene()
