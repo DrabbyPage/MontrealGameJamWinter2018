@@ -328,6 +328,25 @@ public class TheoryMove : MonoBehaviour
         transform.localScale = new Vector3(1, 1, 0);
         moveSpeed = origSpeed;
 
+        if(currentPlayer == "P1")
+        {
+            float r = 255 / 255;
+            float g = 104 / 255;
+            float b = 162 / 255;
+            float a = 255 / 255;
+
+            GetComponent<SpriteRenderer>().color = new Vector4(r, g, b, a);
+        }
+        else if(currentPlayer == "P2")
+        {
+            float r = 82 / 255;
+            float g = 252 / 255;
+            float b = 255 / 255;
+            float a = 255 / 255;
+
+            GetComponent<SpriteRenderer>().color = new Vector4(r, g, b, a);
+        }
+
         if (newType > 0)
         {
             charType = (PLAYER_TYPE)newType;
