@@ -175,13 +175,13 @@ public class TheoryMove : MonoBehaviour
                 heldItem.GetComponent<BullHornsScript>().SetPlayerValues(this.gameObject, rb);
                 break;
             case PLAYER_TYPE.BIG_POLE:
-                moveSpeed = 30;
+                moveSpeed = 20;
                 transform.GetChild(6).gameObject.SetActive(true);
                 heldItem = transform.GetChild(6).gameObject;
                 break;
             case PLAYER_TYPE.SMALL_KNIFE:
                 transform.localScale = new Vector3(2, 2, 0);
-                moveSpeed = 150f;
+                moveSpeed = 100f;
                 transform.GetChild(7).gameObject.SetActive(true);
                 heldItem = transform.GetChild(7).gameObject;
                 break;
@@ -198,12 +198,12 @@ public class TheoryMove : MonoBehaviour
                 heldItem = transform.GetChild(10).gameObject;
                 break;
             case PLAYER_TYPE.FLAIL:
-                moveSpeed = 60;
+                moveSpeed = 40;
                 transform.GetChild(11).gameObject.SetActive(true);
                 heldItem = transform.GetChild(11).gameObject;
                 break;
             case PLAYER_TYPE.ZEKE_AND_LUTHER:
-                moveSpeed = 150f;
+                moveSpeed = 120f;
                 transform.GetChild(12).gameObject.SetActive(true);
                 heldItem = transform.GetChild(12).gameObject;
                 heldItem.GetComponent<ZLScript>().SetPlayerValues(this.gameObject, rb);
@@ -221,6 +221,12 @@ public class TheoryMove : MonoBehaviour
             case PLAYER_TYPE.MOON:
                 transform.GetChild(15).gameObject.SetActive(true);
                 heldItem = transform.GetChild(15).gameObject;
+                break;
+            case PLAYER_TYPE.JOE_SIEHL:
+                transform.localScale = new Vector3(0.75f, 0.75f, 0);
+                moveSpeed = 100f;
+                transform.GetChild(16).gameObject.SetActive(true);
+                heldItem = transform.GetChild(16).gameObject;
                 break;
         }
     }
