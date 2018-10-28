@@ -143,6 +143,8 @@ public class TheoryMove : MonoBehaviour
 
     public void ResetPlayer()
     {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
         if (charType == PLAYER_TYPE.MOON)
         {
             heldItem.transform.rotation = Quaternion.Euler(0, 0, -90);
