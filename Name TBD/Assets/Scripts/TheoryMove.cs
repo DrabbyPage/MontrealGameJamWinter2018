@@ -41,7 +41,8 @@ public class TheoryMove : MonoBehaviour
         ICE_DA_ICEMANE = 8,
         MAGNET = 9,
         SLIME = 10,
-        FLAIL = 11
+        FLAIL = 11,
+        ZEKE_AND_LUTHER = 12
         
         // ETC.
     };
@@ -117,30 +118,33 @@ public class TheoryMove : MonoBehaviour
     // checking for movement input
     void CheckForInput()
     {
-        if(Input.GetAxis(p1_LSH_Name) > deadStick)
+        if (charType != PLAYER_TYPE.ZEKE_AND_LUTHER)
         {
-            // right side on left stick
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.right * moveSpeed);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.right * moveSpeed);
-        }
-        if (Input.GetAxis(p1_LSH_Name) < -deadStick)
-        {
-            // left side on left sick
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(-gameObject.transform.right * moveSpeed);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector3.right * moveSpeed);
-        }
+            if (Input.GetAxis(p1_LSH_Name) > deadStick)
+            {
+                // right side on left stick
+                //gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.right * moveSpeed);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.right * moveSpeed);
+            }
+            if (Input.GetAxis(p1_LSH_Name) < -deadStick)
+            {
+                // left side on left sick
+                //gameObject.GetComponent<Rigidbody2D>().AddForce(-gameObject.transform.right * moveSpeed);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector3.right * moveSpeed);
+            }
 
-        if (Input.GetAxis(p1_LSV_Name) > deadStick)
-        {
-            // right side on left stick
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * moveSpeed);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * moveSpeed);
-        }
-        if (Input.GetAxis(p1_LSV_Name) < -deadStick)
-        {
-            // left side on left sick
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(-gameObject.transform.up * moveSpeed);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector3.up * moveSpeed);
+            if (Input.GetAxis(p1_LSV_Name) > deadStick)
+            {
+                // right side on left stick
+                //gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * moveSpeed);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * moveSpeed);
+            }
+            if (Input.GetAxis(p1_LSV_Name) < -deadStick)
+            {
+                // left side on left sick
+                //gameObject.GetComponent<Rigidbody2D>().AddForce(-gameObject.transform.up * moveSpeed);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector3.up * moveSpeed);
+            }
         }
     }
 
@@ -205,6 +209,12 @@ public class TheoryMove : MonoBehaviour
                 transform.GetChild(11).gameObject.SetActive(true);
                 heldItem = transform.GetChild(11).gameObject;
                 break;
+            case PLAYER_TYPE.ZEKE_AND_LUTHER:
+                moveSpeed *= 1.25f;
+                transform.GetChild(12).gameObject.SetActive(true);
+                heldItem = transform.GetChild(12).gameObject;
+                heldItem.GetComponent<ZLScript>().SetPlayerValues(this.gameObject, rb);
+                break;
         }
     }
 
@@ -255,6 +265,9 @@ public class TheoryMove : MonoBehaviour
                 case PLAYER_TYPE.FLAIL:
                     heldItem.GetComponent<FlailScript>().SpinFaster();
                     break;
+                case PLAYER_TYPE.ZEKE_AND_LUTHER:
+                    heldItem.GetComponent<ZLScript>().ZekeAndLutherCharge();
+                    break;
             }
         }
     }
@@ -280,5 +293,11 @@ public class TheoryMove : MonoBehaviour
 
             }
         }
+    }
+
+    public void IncreaseSpeed(float speedUp)
+    {
+        moveSpeed += speedUp;
+        gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * moveSpeed);
     }
 }
