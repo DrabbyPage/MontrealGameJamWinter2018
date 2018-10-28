@@ -70,6 +70,8 @@ public class FlailScript : MonoBehaviour {
         if (beginCooldown)
         {
             cooldownCounter++;
+            // change player color grey to indicate cool down
+            GetComponentInParent<SpriteRenderer>().color = Color.grey;
 
             // If the player's cooldown is at max, allow the player to act again
             if (cooldownCounter >= cooldownTime)
@@ -77,6 +79,19 @@ public class FlailScript : MonoBehaviour {
                 cooldownCounter = 0;
                 beginCooldown = false;
                 spinFaster = false;
+                //set the skin color back to normal
+                GetComponentInParent<SpriteRenderer>().color = Color.white;
+                if (SoundManagerScript.instance != null)
+                {
+                    if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+                    {
+                        SoundManagerScript.instance.EndCoolDownSound(true);
+                    }
+                    if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+                    {
+                        SoundManagerScript.instance.EndCoolDownSound(false);
+                    }
+                }
             }
         }
     }
@@ -122,6 +137,17 @@ public class FlailScript : MonoBehaviour {
         {
             //col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce);//, ForceMode2D.Force);
             col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, BoopForce);
+
+
+            //get the player that's being collided and determin which sound suarce is played out of
+            if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.PlayHitSound(true);
+            }
+            if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.PlayHitSound(false);
+            }
         }
 
     }
