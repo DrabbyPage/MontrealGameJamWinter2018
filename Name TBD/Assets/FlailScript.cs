@@ -10,6 +10,7 @@ public class FlailScript : MonoBehaviour {
     float fullRotation = 360.0f;
     [SerializeField]
     float rotationAngle = -15.0f;
+    float originalRotationAngle;
     [SerializeField]
     float increasedSpeed = -15.0f;
     public bool spinFaster = false;
@@ -19,18 +20,20 @@ public class FlailScript : MonoBehaviour {
     [SerializeField]
     int cooldownTime = 60;
     private int cooldownCounter = 0;
+    private bool beginCooldown = false;
 
     [SerializeField]
-    int allowedSpins = 4;
-    private int spinCounter = 0;
+    int timeSpinning = 60;
+    private int spinDownCounter = 0;
 
-    private int checker;
-    private int countUp = 0;
+    [SerializeField]
+    int allowedSpinFasters = 4;
+    private int spinFasterCounter = 0;
 
     private void Start()
     {
+        originalRotationAngle = rotationAngle;
         originalRot = transform.rotation.eulerAngles;
-        checker = Mathf.RoundToInt(Mathf.Abs(fullRotation / rotationAngle));
     }
 
     // Update is called once per frame
@@ -41,14 +44,38 @@ public class FlailScript : MonoBehaviour {
             originalRot = transform.rotation.eulerAngles;
         }
 
+        ActivateFastSpin();
         CheckCooldown();
         ApplySpin();
     }
 
     // Determines whether or not the user can currently spin
+    private void ActivateFastSpin()
+    {
+        if (spinFasterCounter == allowedSpinFasters && !beginCooldown)
+        {
+            spinDownCounter++;
+
+            // If the player's cooldown is at max, allow the player to act again
+            if (spinDownCounter >= timeSpinning)
+            {
+                spinDownCounter = 0;
+                spinFasterCounter = 0;
+                rotationAngle = originalRotationAngle;
+                beginCooldown = true;
+
+                for (int i = 0; i < gameObject.transform.childCount; i++)
+                {
+                    gameObject.transform.GetChild(i).transform.position -= (gameObject.transform.GetChild(i).transform.up / 2);
+                }
+            }
+        }
+    }
+
+    // Determines whether or not the user can currently spin
     private void CheckCooldown()
     {
-        if (spinCounter == allowedSpins)
+        if (beginCooldown)
         {
             cooldownCounter++;
 
@@ -56,18 +83,25 @@ public class FlailScript : MonoBehaviour {
             if (cooldownCounter >= cooldownTime)
             {
                 cooldownCounter = 0;
-                spinCounter = 0;
+                beginCooldown = false;
+                spinFaster = false;
             }
         }
     }
 
-    // Spins the held item
+    // Makes the flail spin faster
     public void SpinFaster()
     {
-        if (!spinFaster && spinCounter < allowedSpins)
+        if (!spinFaster && spinFasterCounter < allowedSpinFasters)
         {
             spinFaster = true;
+            spinFasterCounter++;
             rotationAngle += increasedSpeed;
+
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                gameObject.transform.GetChild(i).transform.position += (gameObject.transform.GetChild(i).transform.up / 2);
+            }
         }
     }
 
@@ -75,17 +109,6 @@ public class FlailScript : MonoBehaviour {
     private void ApplySpin()
     {
         transform.Rotate(0, 0, rotationAngle);
-        countUp++;
-
-        if (countUp >= checker)
-        {
-            spinCounter++;
-
-            //transform.rotation = Quaternion.Euler(originalRot);
-            spinFaster = false;
-            rotationAngle -= increasedSpeed;
-            countUp = 0;
-        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
