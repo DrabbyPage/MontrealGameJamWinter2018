@@ -69,7 +69,10 @@ public class BullHornsScript : MonoBehaviour
                 GetComponentInParent<SpriteRenderer>().color = Color.white;
                 //plays the ready clip from the sound manager
                 if (SoundManagerScript.instance != null)
+                {
                     SoundManagerScript.instance.EndCoolDownSound();
+                }
+                    
 
             }
         }
