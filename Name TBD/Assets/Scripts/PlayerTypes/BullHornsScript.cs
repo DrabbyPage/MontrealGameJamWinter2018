@@ -31,15 +31,20 @@ public class BullHornsScript : MonoBehaviour
     int allowedCharges = 2;
     private int chargeCounter = 0;
 
+    int frames = 4;
+    int frameCounter = 0;
+    bool countingFrames = false;
+
     SpriteRenderer sr;
 
-	// Update is called once per frame
-	void FixedUpdate ()
+    // Update is called once per frame
+    void FixedUpdate()
     {
         CheckCooldown();
         ApplyCharge();
 
-	}
+        CountingTelefragFrames();
+    }
 
     public void SetPlayerValues(GameObject player, Rigidbody2D rb)
     {
@@ -57,32 +62,45 @@ public class BullHornsScript : MonoBehaviour
             cooldownCounter++;
             // change player color grey to indicate cool down
             GetComponentInParent<SpriteRenderer>().color = Color.grey;
-            
+
 
             // If the player's cooldown is at max, allow the player to act again
             if (cooldownCounter >= cooldownTime)
             {
                 cooldownCounter = 0;
                 chargeCounter = 0;
-                
+
                 //set the skin color back to normal
                 GetComponentInParent<SpriteRenderer>().color = Color.white;
+
                 //plays the ready clip from the sound manager
-                if (SoundManagerScript.instance != null)
+                if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
                 {
-                    if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
-                    {
-                        SoundManagerScript.instance.EndCoolDownSound(true);
-                    }
-                    if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
-                    {
-                        SoundManagerScript.instance.EndCoolDownSound(false);
-                    }
-
-                    
+                    SoundManagerScript.instance.EndCoolDownSound(true);
                 }
-                    
 
+                if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+                {
+                    SoundManagerScript.instance.EndCoolDownSound(true);
+                }
+            }
+        }
+    }
+
+    public void CountingTelefragFrames()
+    {
+        if (countingFrames)
+        {
+            frameCounter++;
+
+            Debug.Log("GO");
+
+            if (frameCounter >= frames)
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
+
+                countingFrames = false;
+                frameCounter = 0;
             }
         }
     }
@@ -102,15 +120,19 @@ public class BullHornsScript : MonoBehaviour
                 {
                     SoundManagerScript.instance.MooSound(false);
                 }
-
-
             }
-                
+
 
             if (invisibleCharge)
             {
                 thePlayer.GetComponent<SpriteRenderer>().enabled = false;
-                gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+                thePlayer.GetComponent<CircleCollider2D>().enabled = false;
+            }
+
+            else
+            {
+                gameObject.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                transform.GetChild(0).gameObject.SetActive(true);
             }
 
             originalPos = new Vector2(thePlayer.transform.position.x, thePlayer.transform.position.y);
@@ -119,7 +141,6 @@ public class BullHornsScript : MonoBehaviour
             Vector3 increasedSpeed = transform.up * addSpeed;
 
             playerRB.velocity += new Vector2(increasedSpeed.x, increasedSpeed.y);
-            transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -142,17 +163,26 @@ public class BullHornsScript : MonoBehaviour
     {
         if (invisibleCharge)
         {
-            thePlayer.GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            Debug.Log("HERE");
 
+            transform.GetChild(0).gameObject.SetActive(true);
+
+            Debug.Log(transform.GetChild(0).gameObject.activeSelf);
+
+            thePlayer.GetComponent<SpriteRenderer>().enabled = true;
+            thePlayer.GetComponent<CircleCollider2D>().enabled = true;
+            countingFrames = true;
+        }
+
+        else
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
         }
 
         playerRB.velocity = new Vector2(0, 0);
         chargeCounter++;
 
         isCharging = false;
-
-        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public bool GetCharging()
