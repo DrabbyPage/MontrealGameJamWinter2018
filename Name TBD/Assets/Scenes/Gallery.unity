@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 42138177}
   - component: {fileID: 42138176}
   - component: {fileID: 42138179}
+  - component: {fileID: 42138180}
   m_Layer: 5
   m_Name: Mask13
   m_TagString: Untagged
@@ -189,6 +190,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 42138179}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -250,6 +263,37 @@ MonoBehaviour:
   maskName: Joe Siehl, Seer of Nothing
   flavorText: 'A 5''8" heavy-weight with a mean-streak to boot. He''s here to kick
     ass and write documentation--and he''s all out of ass. '
+--- !u!114 &42138180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 42138174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &50204344
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +306,7 @@ GameObject:
   - component: {fileID: 50204347}
   - component: {fileID: 50204346}
   - component: {fileID: 50204349}
+  - component: {fileID: 50204350}
   m_Layer: 5
   m_Name: Mask8
   m_TagString: Untagged
@@ -326,6 +371,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 50204349}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -387,6 +444,37 @@ MonoBehaviour:
   maskName: Mines
   flavorText: 'Fond of leaving "gifts" for his foes, the mask was created by the Badogiak,
     thunderous and wrathful sky-spirits. '
+--- !u!114 &50204350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 50204344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &62575542
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +487,7 @@ GameObject:
   - component: {fileID: 62575545}
   - component: {fileID: 62575544}
   - component: {fileID: 62575547}
+  - component: {fileID: 62575548}
   m_Layer: 5
   m_Name: Mask16
   m_TagString: Untagged
@@ -463,6 +552,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 62575547}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -524,6 +625,37 @@ MonoBehaviour:
   maskName: Plank
   flavorText: 'Said to house to soul of an ancient warrior, this mask years to reunite
     with its long-lost owner in a cul-de-sac, far, far away. '
+--- !u!114 &62575548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62575542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &91392485
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +668,7 @@ GameObject:
   - component: {fileID: 91392488}
   - component: {fileID: 91392487}
   - component: {fileID: 91392490}
+  - component: {fileID: 91392491}
   m_Layer: 5
   m_Name: Mask7
   m_TagString: Untagged
@@ -600,6 +733,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 91392490}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -660,6 +805,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maskName: Magnet
   flavorText: 'A strange, arcane mask of indeterminate power. '
+--- !u!114 &91392491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91392485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &242054369
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,6 +848,7 @@ GameObject:
   - component: {fileID: 242054372}
   - component: {fileID: 242054371}
   - component: {fileID: 242054374}
+  - component: {fileID: 242054375}
   m_Layer: 5
   m_Name: Mask1
   m_TagString: Untagged
@@ -736,6 +913,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 242054374}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -796,6 +985,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maskName: How To
   flavorText: 'A good boy. A helpful boy. He means no harm. '
+--- !u!114 &242054375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 242054369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &469458647
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +1028,7 @@ GameObject:
   - component: {fileID: 469458650}
   - component: {fileID: 469458649}
   - component: {fileID: 469458652}
+  - component: {fileID: 469458653}
   m_Layer: 5
   m_Name: Mask11
   m_TagString: Untagged
@@ -872,6 +1093,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 469458652}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -934,6 +1167,37 @@ MonoBehaviour:
   flavorText: 'In 2020, the Disney co. made groundbreaking progress in wormhole technology.
     Two brave souls volunteered to enter the portal, sealing their fate to a far-off
     land. '
+--- !u!114 &469458653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 469458647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &551462865
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +1210,7 @@ GameObject:
   - component: {fileID: 551462868}
   - component: {fileID: 551462867}
   - component: {fileID: 551462870}
+  - component: {fileID: 551462871}
   m_Layer: 5
   m_Name: Mask3
   m_TagString: Untagged
@@ -1010,6 +1275,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 551462870}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -1070,6 +1347,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maskName: Fox
   flavorText: 'A wry trickster with a penchant for making fools of his foes. '
+--- !u!114 &551462871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 551462865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &570795555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,6 +1390,7 @@ GameObject:
   - component: {fileID: 570795559}
   - component: {fileID: 570795558}
   - component: {fileID: 570795557}
+  - component: {fileID: 570795561}
   m_Layer: 5
   m_Name: Mask2
   m_TagString: Untagged
@@ -1159,6 +1468,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 570795557}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -1206,6 +1527,48 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 570795555}
   m_CullTransparentMesh: 0
+--- !u!114 &570795561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 570795555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &595762792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1581,7 @@ GameObject:
   - component: {fileID: 595762795}
   - component: {fileID: 595762794}
   - component: {fileID: 595762797}
+  - component: {fileID: 595762798}
   m_Layer: 5
   m_Name: Mask6
   m_TagString: Untagged
@@ -1282,6 +1646,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 595762797}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -1343,6 +1719,37 @@ MonoBehaviour:
   maskName: Mace
   flavorText: 'Symptoms of fight include: mild to severe headaches, feelings of frustration,
     and blunt head trauma. '
+--- !u!114 &595762798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595762792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &602457644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,6 +1839,7 @@ GameObject:
   - component: {fileID: 626578393}
   - component: {fileID: 626578392}
   - component: {fileID: 626578395}
+  - component: {fileID: 626578396}
   m_Layer: 5
   m_Name: Mask10
   m_TagString: Untagged
@@ -1496,6 +1904,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 626578395}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -1557,6 +1977,37 @@ MonoBehaviour:
   maskName: Spear
   flavorText: 'Depicting Giwaki of the far north, this mask imbues the wearer with
     an insatiable hunger for human flesh--preferably with a nice garnish.  '
+--- !u!114 &626578396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626578390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &628670547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,6 +2019,7 @@ GameObject:
   - component: {fileID: 628670551}
   - component: {fileID: 628670550}
   - component: {fileID: 628670549}
+  - component: {fileID: 628670552}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1613,7 +2065,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.6698113, g: 0.23064256, b: 0.39642146, a: 1}
+    m_HighlightedColor: {r: 0.9339623, g: 0.79660624, b: 0.15419187, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1632,6 +2084,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 114576762298564836, guid: bbff9adba188a6d4ea8528c41de24d74,
           type: 2}
         m_MethodName: LoadScene
@@ -1680,6 +2144,37 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 628670547}
   m_CullTransparentMesh: 0
+--- !u!114 &628670552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 628670547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1055843807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,6 +2187,7 @@ GameObject:
   - component: {fileID: 1055843810}
   - component: {fileID: 1055843809}
   - component: {fileID: 1055843812}
+  - component: {fileID: 1055843813}
   m_Layer: 5
   m_Name: Mask12
   m_TagString: Untagged
@@ -1756,6 +2252,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1055843812}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -1817,6 +2325,37 @@ MonoBehaviour:
   maskName: Telefrag
   flavorText: 'Its sighting is an ominous portent for troubles to come--typically
     in getting your ass kicked. '
+--- !u!114 &1055843813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1055843807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1161144044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +2368,7 @@ GameObject:
   - component: {fileID: 1161144047}
   - component: {fileID: 1161144046}
   - component: {fileID: 1161144049}
+  - component: {fileID: 1161144050}
   m_Layer: 5
   m_Name: Mask14
   m_TagString: Untagged
@@ -1893,6 +2433,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1161144049}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -1954,6 +2506,37 @@ MonoBehaviour:
   maskName: Pea Shooter
   flavorText: 'A sharpshooter with impeccable aim, this mask usees your average pea
     as artillery. Stop snickering. '
+--- !u!114 &1161144050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1161144044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1180619041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,6 +2801,7 @@ GameObject:
   - component: {fileID: 1436102425}
   - component: {fileID: 1436102424}
   - component: {fileID: 1436102427}
+  - component: {fileID: 1436102428}
   m_Layer: 5
   m_Name: Mask4
   m_TagString: Untagged
@@ -2282,6 +2866,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1436102427}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -2344,6 +2940,37 @@ MonoBehaviour:
   flavorText: 'Once owned by Bemola, an avian ice spirit, to disguise herself as a
     young human, it''s said this mask can be found by those stranded in the frozen
     wastes. '
+--- !u!114 &1436102428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1436102422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1535110000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,8 +3065,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000019073, y: -0.00000047684}
-  m_SizeDelta: {x: 634.7, y: 125}
+  m_AnchoredPosition: {x: -1.7, y: -0.00000047684}
+  m_SizeDelta: {x: 644.6, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568874737
 MonoBehaviour:
@@ -2473,7 +3100,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Select a Mask to Read Its Lore
 --- !u!222 &1568874738
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2493,6 +3120,7 @@ GameObject:
   - component: {fileID: 1653227854}
   - component: {fileID: 1653227853}
   - component: {fileID: 1653227856}
+  - component: {fileID: 1653227857}
   m_Layer: 5
   m_Name: Mask9
   m_TagString: Untagged
@@ -2557,6 +3185,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1653227856}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -2618,6 +3258,37 @@ MonoBehaviour:
   maskName: Spider
   flavorText: A shifty webspinner of fate and misfortune, we just hope you're not
     scared of spiders.
+--- !u!114 &1653227857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1653227851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1766313392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2630,6 +3301,7 @@ GameObject:
   - component: {fileID: 1766313395}
   - component: {fileID: 1766313394}
   - component: {fileID: 1766313397}
+  - component: {fileID: 1766313398}
   m_Layer: 5
   m_Name: Mask17
   m_TagString: Untagged
@@ -2694,6 +3366,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1766313397}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -2755,6 +3439,37 @@ MonoBehaviour:
   maskName: Moon
   flavorText: 'Shrapnel from the dark side of the moon; would sell your soul for a
     cornchip. '
+--- !u!114 &1766313398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1766313392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1830992567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2767,6 +3482,7 @@ GameObject:
   - component: {fileID: 1830992570}
   - component: {fileID: 1830992569}
   - component: {fileID: 1830992572}
+  - component: {fileID: 1830992573}
   m_Layer: 5
   m_Name: Mask5
   m_TagString: Untagged
@@ -2831,6 +3547,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1830992572}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -2892,6 +3620,37 @@ MonoBehaviour:
   maskName: Bull
   flavorText: 'With spear-like horns and a temper to boot, if you''re up against this
     mask, you best not be on the red team. '
+--- !u!114 &1830992573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1830992567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1906469647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,6 +3663,7 @@ GameObject:
   - component: {fileID: 1906469650}
   - component: {fileID: 1906469649}
   - component: {fileID: 1906469652}
+  - component: {fileID: 1906469653}
   m_Layer: 5
   m_Name: Mask15
   m_TagString: Untagged
@@ -2968,6 +3728,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+          type: 2}
+        m_MethodName: PlayOnButtonSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1906469652}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
@@ -3026,5 +3798,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maskName: Hammer
-  flavorText: hihihhhihihihihihihihihihihihihihih
+  maskName: Monkey
+  flavorText: 'Frankenstein created a monster, and we gave a hammer to a monkey. The
+    results were equally disastrous. '
+--- !u!114 &1906469653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906469647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+            type: 2}
+          m_MethodName: PlayOnButtonMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
