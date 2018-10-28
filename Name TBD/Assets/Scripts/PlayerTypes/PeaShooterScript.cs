@@ -126,7 +126,15 @@ public class PeaShooterScript : MonoBehaviour
                 //plays the ready clip from the sound manager
                 if (SoundManagerScript.instance != null)
                 {
-                    SoundManagerScript.instance.EndCoolDownSound();
+                    if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+                    {
+                        SoundManagerScript.instance.EndCoolDownSound(true);
+                    }
+                    if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+                    {
+                        SoundManagerScript.instance.EndCoolDownSound(false);
+                    }
+                        
                 }
             }
         }

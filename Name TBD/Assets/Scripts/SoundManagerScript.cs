@@ -17,6 +17,10 @@ public class SoundManagerScript : MonoBehaviour {
     [Header("Peashooter")]
     public AudioClip PeaShoot;
 
+    [Header("SpearSounds")]
+    public AudioClip SpearLand;
+    public AudioClip SpearThrow;
+
     public AudioClip MenuSelect;
     public AudioClip MenuHover;
 
@@ -32,8 +36,7 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioClip GotchaGetsUncommon2;
     public AudioClip HeartBeat;
 
-    public AudioClip SpearLand;
-    public AudioClip SpearThrow;
+
     
 
     [Header("Music Clips")]
@@ -98,12 +101,21 @@ public class SoundManagerScript : MonoBehaviour {
 
     //*************** UNIVERSAL SOUNDS***************
 
-    public void EndCoolDownSound()
+    public void EndCoolDownSound(bool isPlayer1)
     {
-        // basically the tape in the player
-        ASause.clip = ReadyClip;
-        //this actually players whatever clip is loaded into the source
-        ASause.Play();
+        if (isPlayer1)
+        {
+            // basically the tape in the player
+            ASause.clip = ReadyClip;
+            //this actually players whatever clip is loaded into the source
+            ASause.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2GeneralSource.clip = ReadyClip;
+            Player2GeneralSource.Play();
+        }
+
     }
 
     //*************** BULL SOUNDS ********************
@@ -145,6 +157,26 @@ public class SoundManagerScript : MonoBehaviour {
             Player2GeneralSource.Play();
         }
     }
+    //*************** SPEAR SOUNDS ********************
+    public void SpearThrowSoundPlay(bool isPlayer1)
+    {
+        if (isPlayer1)
+        {
+            ASause.clip = SpearThrow;
+            ASause.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2GeneralSource.clip = SpearThrow;
+            Player2GeneralSource.Play();
+        }
+
+    }
+
+    
+
+
+
 
     // this function determins which player is being hit and then which record player plays the sound
     public void PlayHitSound(bool isPlayer1)
