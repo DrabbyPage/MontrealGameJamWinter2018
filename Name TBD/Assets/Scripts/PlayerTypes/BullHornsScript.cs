@@ -57,6 +57,7 @@ public class BullHornsScript : MonoBehaviour
             cooldownCounter++;
             // change player color grey to indicate cool down
             GetComponentInParent<SpriteRenderer>().color = Color.grey;
+            
 
             // If the player's cooldown is at max, allow the player to act again
             if (cooldownCounter >= cooldownTime)
@@ -66,6 +67,8 @@ public class BullHornsScript : MonoBehaviour
                 
                 //set the skin color back to normal
                 GetComponentInParent<SpriteRenderer>().color = Color.white;
+                //plays the ready clip from the sound manager
+                SoundManagerScript.instance.EndCoolDownSound();
 
             }
         }
@@ -75,6 +78,9 @@ public class BullHornsScript : MonoBehaviour
     {
         if (!isCharging && chargeCounter < allowedCharges)
         {
+            //moos
+            SoundManagerScript.instance.MooSound();
+
             if (invisibleCharge)
             {
                 thePlayer.GetComponent<SpriteRenderer>().enabled = false;
