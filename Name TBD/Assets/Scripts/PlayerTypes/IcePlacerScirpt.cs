@@ -5,8 +5,8 @@ using UnityEngine;
 public class IcePlacerScirpt : MonoBehaviour
 {
     [SerializeField]
-    float meltTime = 0, slipTime = 0, originalPlayerDrag = 0, slipDrag = 0, 
-          puddleCooldown = 0, puddleSize = 0;
+    float meltTime, slipTime, originalPlayerDrag, slipDrag, 
+          puddleCooldown, puddleSize;
 
     float mSlipTime;
     bool slipping = true;
