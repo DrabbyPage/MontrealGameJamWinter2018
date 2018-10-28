@@ -14,7 +14,7 @@ public class RandomizeManagerScript : MonoBehaviour
     GameObject p1Heart;
     GameObject p2Heart;
 
-    float animLength = 2;
+    float animLength = 0.6f;
     bool heartPump = false;
 
     List<int> player1Types;
@@ -135,10 +135,12 @@ public class RandomizeManagerScript : MonoBehaviour
     {
         if(play1Selected)
         {
+            Debug.Log("Player1:" + heartPump);
             p1Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
         }
         else
         {
+            Debug.Log("Player2:" + heartPump);
             p2Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
         }
     }
