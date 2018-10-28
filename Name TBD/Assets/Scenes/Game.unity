@@ -385,29 +385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054ab8ace3c48ee4a8db906f08306853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &448010364 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1122725478826096, guid: ab0b08b1d3bfda740ac044df96187c37,
-    type: 2}
-  m_PrefabInternal: {fileID: 1709150034}
---- !u!95 &448010365
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 448010364}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,31 +1451,6 @@ Prefab:
     - target: {fileID: 4273562751969520, guid: ab0b08b1d3bfda740ac044df96187c37, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114404219157813708, guid: ab0b08b1d3bfda740ac044df96187c37,
-        type: 2}
-      propertyPath: ringFlashTime
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114404219157813708, guid: ab0b08b1d3bfda740ac044df96187c37,
-        type: 2}
-      propertyPath: timeToDrop
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 58055751764625092, guid: ab0b08b1d3bfda740ac044df96187c37,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 58643273932820256, guid: ab0b08b1d3bfda740ac044df96187c37,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 58125374820072268, guid: ab0b08b1d3bfda740ac044df96187c37,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0b08b1d3bfda740ac044df96187c37, type: 2}
