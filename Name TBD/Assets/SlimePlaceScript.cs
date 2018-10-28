@@ -6,11 +6,10 @@ public class SlimePlaceScript : MonoBehaviour {
 
     [SerializeField]
     float deathTime, slowTime, originalPlayerDrag, slowDrag,
-          slimeCooldown, slimeSize;
+          slimeCooldown, slimeSize, boopForce;
 
     float mSlowTime;
     bool slowing = true;
-    float boopForce = 150f;
     float timer;
 
     GameObject parObj, otherPlayer, icePuddle;
@@ -86,4 +85,16 @@ public class SlimePlaceScript : MonoBehaviour {
         otherPlayer.GetComponent<Rigidbody2D>().drag = slowDrag;
         mSlowTime = slowTime;
     }
+
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            //col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce);//, ForceMode2D.Force);
+            col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
+        }
+
+    }
+
 }
