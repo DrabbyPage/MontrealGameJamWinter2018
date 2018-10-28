@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 42138176}
   - component: {fileID: 42138179}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ RectTransform:
   m_Children:
   - {fileID: 1612324642}
   m_Father: {fileID: 1425161822}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -186,11 +186,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 42138177}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 42138179}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 50204346}
   - component: {fileID: 50204349}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,11 +323,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 50204347}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 50204349}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 62575544}
   - component: {fileID: 62575547}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,11 +460,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 62575545}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 62575547}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 91392487}
   - component: {fileID: 91392490}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,11 +597,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 91392488}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 91392490}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 242054371}
   - component: {fileID: 242054374}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -692,7 +692,7 @@ RectTransform:
   m_Children:
   - {fileID: 711315421}
   m_Father: {fileID: 1425161822}
-  m_RootOrder: 18
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -734,11 +734,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 242054372}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 242054374}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -961,7 +961,7 @@ GameObject:
   - component: {fileID: 469458649}
   - component: {fileID: 469458652}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -979,7 +979,7 @@ RectTransform:
   m_Children:
   - {fileID: 247268917}
   m_Father: {fileID: 1425161822}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1021,11 +1021,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 469458650}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 469458652}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -1098,7 +1098,7 @@ GameObject:
   - component: {fileID: 551462867}
   - component: {fileID: 551462870}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1158,11 +1158,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 551462868}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 551462870}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -1235,7 +1235,7 @@ GameObject:
   - component: {fileID: 570795558}
   - component: {fileID: 570795557}
   m_Layer: 5
-  m_Name: MaskButton
+  m_Name: Mask2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1271,8 +1271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maskName: Boop
-  flavorText: hihihhhihihihihihihihihihihihihihih
+  maskName: Scoop
+  flavorText: hi
 --- !u!114 &570795558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,7 +1372,7 @@ GameObject:
   - component: {fileID: 595762794}
   - component: {fileID: 595762797}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1432,11 +1432,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 595762795}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 595762797}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -1661,7 +1661,7 @@ GameObject:
   - component: {fileID: 626578392}
   - component: {fileID: 626578395}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1679,7 +1679,7 @@ RectTransform:
   m_Children:
   - {fileID: 1817252767}
   m_Father: {fileID: 1425161822}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1721,11 +1721,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 626578393}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 626578395}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -1815,7 +1815,7 @@ RectTransform:
   m_Children:
   - {fileID: 1892483509}
   m_Father: {fileID: 1425161822}
-  m_RootOrder: 1
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2072,7 +2072,7 @@ GameObject:
   - component: {fileID: 1055843809}
   - component: {fileID: 1055843812}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2090,7 +2090,7 @@ RectTransform:
   m_Children:
   - {fileID: 1451506470}
   m_Father: {fileID: 1425161822}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2132,11 +2132,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 1055843810}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 1055843812}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -2359,7 +2359,7 @@ GameObject:
   - component: {fileID: 1161144046}
   - component: {fileID: 1161144049}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2377,7 +2377,7 @@ RectTransform:
   m_Children:
   - {fileID: 306762585}
   m_Father: {fileID: 1425161822}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2419,11 +2419,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 1161144047}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 1161144049}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -2714,7 +2714,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1379443140}
-  - {fileID: 628670548}
+  - {fileID: 242054370}
   - {fileID: 570795556}
   - {fileID: 551462866}
   - {fileID: 1436102423}
@@ -2722,16 +2722,16 @@ RectTransform:
   - {fileID: 595762793}
   - {fileID: 91392486}
   - {fileID: 50204345}
+  - {fileID: 1653227852}
   - {fileID: 626578391}
   - {fileID: 469458648}
   - {fileID: 1055843808}
   - {fileID: 42138175}
   - {fileID: 1161144045}
   - {fileID: 1906469648}
-  - {fileID: 1766313393}
   - {fileID: 62575543}
-  - {fileID: 1653227852}
-  - {fileID: 242054370}
+  - {fileID: 1766313393}
+  - {fileID: 628670548}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2753,7 +2753,7 @@ GameObject:
   - component: {fileID: 1436102424}
   - component: {fileID: 1436102427}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2813,11 +2813,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 1436102425}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 1436102427}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -3148,7 +3148,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 570795555}
+  m_FirstSelected: {fileID: 242054369}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1535110003
@@ -3327,7 +3327,7 @@ GameObject:
   - component: {fileID: 1653227853}
   - component: {fileID: 1653227856}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3345,7 +3345,7 @@ RectTransform:
   m_Children:
   - {fileID: 659536663}
   m_Father: {fileID: 1425161822}
-  m_RootOrder: 17
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3387,11 +3387,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 1653227854}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 1653227856}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -3689,7 +3689,7 @@ GameObject:
   - component: {fileID: 1766313394}
   - component: {fileID: 1766313397}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3707,7 +3707,7 @@ RectTransform:
   m_Children:
   - {fileID: 1509384157}
   m_Father: {fileID: 1425161822}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3749,11 +3749,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 1766313395}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 1766313397}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -3901,7 +3901,7 @@ GameObject:
   - component: {fileID: 1830992569}
   - component: {fileID: 1830992572}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3961,11 +3961,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 1830992570}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 1830992572}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:
@@ -4113,7 +4113,7 @@ GameObject:
   - component: {fileID: 1906469649}
   - component: {fileID: 1906469652}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mask15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4131,7 +4131,7 @@ RectTransform:
   m_Children:
   - {fileID: 617622337}
   m_Father: {fileID: 1425161822}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4173,11 +4173,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 570795559}
+  m_TargetGraphic: {fileID: 1906469650}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 570795557}
+      - m_Target: {fileID: 1906469652}
         m_MethodName: DisplayFlavorText
         m_Mode: 1
         m_Arguments:

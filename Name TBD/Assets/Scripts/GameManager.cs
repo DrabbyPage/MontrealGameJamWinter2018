@@ -189,8 +189,11 @@ public class GameManager : MonoBehaviour {
         if (roundStart)
         {
             newRound = false;
+            playerData.player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            playerData.player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             playerData.player1.GetComponent<TheoryMove>().enabled = false;
             playerData.player2.GetComponent<TheoryMove>().enabled = false;
+
 
             SetPlayerValues();
 
@@ -227,8 +230,11 @@ public class GameManager : MonoBehaviour {
 
     void DisplayMatchWinner()
     {
+        playerData.player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        playerData.player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         playerData.player1.GetComponent<TheoryMove>().enabled = false;
         playerData.player2.GetComponent<TheoryMove>().enabled = false;
+
 
         if (playerData.player2Wins > playerData.player1Wins)
             winText = "PLAYER 2 WINS";
@@ -242,9 +248,13 @@ public class GameManager : MonoBehaviour {
     }
 
     void DisplayRoundWinner(string winText)
-    {   
+    {
+
+        playerData.player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        playerData.player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         playerData.player1.GetComponent<TheoryMove>().enabled = false;
         playerData.player2.GetComponent<TheoryMove>().enabled = false;
+
 
         if (playerData.player2Wins == NUM_TO_WIN) // player 2 wins match
         {
@@ -289,7 +299,7 @@ public class GameManager : MonoBehaviour {
 
                     Debug.Log("P2 win");
                     playerData.player2Wins++;
-                    matchData.p2WinMarks[playerData.player2Wins - 1].color = Color.red;
+                    matchData.p1WinMarks[playerData.player2Wins - 1].color = Color.black;
                     winText = "PLAYER 2 WINS ROUND";
                 }
                 else if (playerData.player2Dead)
@@ -298,7 +308,7 @@ public class GameManager : MonoBehaviour {
 
                     Debug.Log("P1 win");
                     playerData.player1Wins++;
-                    matchData.p2WinMarks[playerData.player1Wins - 1].color = Color.red;
+                    matchData.p2WinMarks[playerData.player1Wins - 1].color = Color.black;
                     winText = "PLAYER 1 WINS ROUND";
                 }
 
