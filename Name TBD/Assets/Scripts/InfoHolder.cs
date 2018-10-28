@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InfoHolder : MonoBehaviour
 {
@@ -61,6 +62,11 @@ public class InfoHolder : MonoBehaviour
         {
             GameManager.getInstance().SetPlayerInfo(1, holdersHolder.player1Indexes, holdersHolder.player1Sprites);
             GameManager.getInstance().SetPlayerInfo(2, holdersHolder.player2Indexes, holdersHolder.player2Sprites);
+        }
+
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            ResetPlayerInfo();
         }
     }
 
