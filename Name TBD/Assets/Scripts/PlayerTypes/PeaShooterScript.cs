@@ -134,7 +134,6 @@ public class PeaShooterScript : MonoBehaviour
                     {
                         SoundManagerScript.instance.EndCoolDownSound(false);
                     }
-                        
                 }
             }
         }
