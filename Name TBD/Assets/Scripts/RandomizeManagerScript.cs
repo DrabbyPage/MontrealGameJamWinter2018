@@ -14,8 +14,17 @@ public class RandomizeManagerScript : MonoBehaviour
     GameObject p1Heart;
     GameObject p2Heart;
 
+    GameObject p1Acorn;
+    GameObject p2Acorn;
+
     float animLength = 0.6f;
     bool heartPump = false;
+
+    float acornOpenLength = 1.6f;
+    float acornFallLength = 1.0f;
+
+    bool acornOpen = false;
+    bool acornFalling = false;
 
     List<int> player1Types;
     List<int> player2Types;
@@ -56,8 +65,11 @@ public class RandomizeManagerScript : MonoBehaviour
         player1Sprites = new List<Sprite>();
         player2Sprites = new List<Sprite>();
 
-        p1Heart = GameObject.Find("Player1Panel").transform.GetChild(0).gameObject;
-        p2Heart = GameObject.Find("Player2Panel").transform.GetChild(0).gameObject;
+        p1Heart = GameObject.Find("Player1Panel").transform.GetChild(1).gameObject;
+        p2Heart = GameObject.Find("Player2Panel").transform.GetChild(1).gameObject;
+
+        p1Acorn = GameObject.Find("Player1Panel").transform.GetChild(0).gameObject;
+        p2Acorn = GameObject.Find("Player2Panel").transform.GetChild(0).gameObject;
 
         // setting all the sprites
         {
@@ -135,13 +147,17 @@ public class RandomizeManagerScript : MonoBehaviour
     {
         if(play1Selected)
         {
-            Debug.Log("Player1:" + heartPump);
             p1Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
+            
+            p1Acorn.GetComponent<Animator>().SetBool("IsFalling", acornFalling);
+            p1Acorn.GetComponent<Animator>().SetBool("IsOpening", acornOpen);
         }
         else
         {
-            Debug.Log("Player2:" + heartPump);
             p2Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
+
+            p2Acorn.GetComponent<Animator>().SetBool("IsFalling", acornFalling);
+            p2Acorn.GetComponent<Animator>().SetBool("IsOpening", acornOpen);
         }
     }
 
@@ -165,29 +181,28 @@ public class RandomizeManagerScript : MonoBehaviour
         int newRand;
         newRand = Random.Range(1, numOfChar);
 
-        if(heartPump == false)
+        if(heartPump == false && acornOpen == false)
         {
             if (play1Selected && player1Types.Count < 3)
             {
                 heartPump = true;
+                acornOpen = true;
                 player1Types.Add(newRand);
-                MakeImageChar(player1Types.Count, newRand);
-                SwitchPlayers();
 
-                StartCoroutine(WaitForAnimation());
+                // will do heart anim then acorn anim then it sets teh player
+                StartCoroutine(WaitForAnimation(newRand));
+                
             }
             else if (play2Selected && player2Types.Count < 3)
             {
                 heartPump = true;
+                acornOpen = true;
                 player2Types.Add(newRand);
-                MakeImageChar(player2Types.Count, newRand);
-                SwitchPlayers();
 
-                StartCoroutine(WaitForAnimation());
+                // will do heart anim then acorn anim then it sets teh player
+                StartCoroutine(WaitForAnimation(newRand));
             }
         }
-
-
     }
 
     void MakeImageChar(int currentImage, int charVal)
@@ -321,9 +336,39 @@ public class RandomizeManagerScript : MonoBehaviour
 
     }
 
-    IEnumerator WaitForAnimation()
+    IEnumerator WaitForAnimation(int randNum)
     {
         yield return new WaitForSeconds(animLength);
+
         heartPump = false;
+
+        StartCoroutine(WaitForAcorn(randNum));
+    }
+
+    IEnumerator WaitForAcorn(int randNum)
+    {
+        acornFalling = true;
+
+        yield return new WaitForSeconds(acornFallLength);
+
+        acornOpen = true;
+
+        yield return new WaitForSeconds(acornOpenLength);
+
+        Debug.Log("acorn is done");
+
+        acornFalling = false;
+        acornOpen = false;
+
+        if (play1Selected && player1Types.Count < 3)
+        {
+            MakeImageChar(player1Types.Count, randNum);
+            SwitchPlayers();
+        }
+        else if (play2Selected && player2Types.Count < 3)
+        {
+            MakeImageChar(player2Types.Count, randNum);
+            SwitchPlayers();
+        }
     }
 }
