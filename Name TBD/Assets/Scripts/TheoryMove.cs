@@ -16,6 +16,30 @@ public struct DashData
     public float dashSpeed, maxDashTime, dashStopSpeed, dashDistance, dashCoolDownTime;
 };
 
+public enum PLAYER_TYPE
+{
+    SPIN = 1,
+    BULL_RUSH = 2,
+    PEASHOOTER = 3,
+    SPEAR = 4,
+    MINER = 5,
+    TELEFRAG = 6,
+    BIG_POLE = 7,
+    SMALL_KNIFE = 8,
+    ICE_DA_ICEMANE = 9,
+    MAGNET = 10,
+    SLIME = 11,
+    FLAIL = 12,
+    ZEKE_AND_LUTHER = 13,
+    HOW_TO = 14,
+    FOX = 15,
+    MOON = 16,
+    JOE_SIEHL = 17
+
+    // ETC.
+};
+
+
 public class TheoryMove : MonoBehaviour
 {
     public string currentPlayer;
@@ -26,29 +50,6 @@ public class TheoryMove : MonoBehaviour
     string p1_RSH_Name; //= "P1_RJS_H";
     string p1_RSV_Name;// = "P1_RJS_V";
                        // Use this for initialization
-
-    public enum PLAYER_TYPE
-    {
-        SPIN = 1,
-        BULL_RUSH = 2,
-        PEASHOOTER = 3,
-        SPEAR = 4,
-        MINER = 5,
-        TELEFRAG = 6,
-        BIG_POLE = 7,
-        SMALL_KNIFE = 8,
-        ICE_DA_ICEMANE = 9,
-        MAGNET = 10,
-        SLIME = 11,
-        FLAIL = 12,
-        ZEKE_AND_LUTHER = 13,
-        HOW_TO = 14,
-        FOX = 15,
-        MOON = 16,
-        JOE_SIEHL = 17
-        
-        // ETC.
-    };
 
     [SerializeField]
     InputData inputData;
@@ -142,6 +143,8 @@ public class TheoryMove : MonoBehaviour
 
     public void ResetPlayer()
     {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
         if (charType == PLAYER_TYPE.MOON)
         {
             heldItem.transform.rotation = Quaternion.Euler(0, 0, -90);
