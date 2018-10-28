@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpearHolderScript : MonoBehaviour
 {
     [SerializeField]
-    float boopForce = 90.0f;
+    float boopForce;
 
     bool hasWeapon = true;
 
@@ -15,7 +15,6 @@ public class SpearHolderScript : MonoBehaviour
 	void Start ()
     {
         spearChild = Instantiate(Resources.Load("Prefabs/Spear")) as GameObject;
-
         spearChild.GetComponent<SpearScript>().SetParent(gameObject.transform.parent.gameObject);
         spearChild.GetComponent<SpearScript>().SetBoopVal(boopForce);
     }
