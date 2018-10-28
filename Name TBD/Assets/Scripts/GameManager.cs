@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour {
     int p1DeadCounter, p2DeadCounter;
     float countDown;
 
-    bool roundOver = false, roundStart = true, newRound, matchOver, updateArena;
+    bool roundStart = true, newRound, matchOver, updateArena;
     bool checkArenaState = true;
     public bool newRoundStarted = false;
     string winText = "";
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour {
 
     const int NUM_TO_WIN = 3;
 
-    SceneManagerScript mSceneManager;
+    //SceneManagerScript mSceneManager;
 
     [SerializeField]
     PlayerInfo infoContainer;
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour {
         infoContainer.player2Sprites = new List<Sprite>();
 
         DontDestroyOnLoad(gameObject);
-       mSceneManager = gameObject.GetComponent<SceneManagerScript>();
+       //mSceneManager = gameObject.GetComponent<SceneManagerScript>();
     }
 
     void Start () {
@@ -358,5 +358,18 @@ public class GameManager : MonoBehaviour {
         infoContainer.player2Indexes.Clear();
 
     }
+
+    public bool GetFilledList()
+    {
+        if(infoContainer.player1Indexes.Count == 3 && infoContainer.player2Indexes.Count == 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     #endregion
 }

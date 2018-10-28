@@ -6,7 +6,6 @@ public class PeaShooterScript : MonoBehaviour
 {
     GameObject bullet;
 
-    float joySense = 0.4f;
     float time;
 
     [SerializeField]
@@ -72,8 +71,6 @@ public class PeaShooterScript : MonoBehaviour
 
             else
             {
-                newBullet.GetComponent<StarScript>().SetParentObject(gameObject.transform.parent.gameObject);
-
                 newBullet.transform.eulerAngles = gameObject.transform.eulerAngles;
 
                 newBullet.transform.position = gameObject.transform.position + gameObject.transform.up;

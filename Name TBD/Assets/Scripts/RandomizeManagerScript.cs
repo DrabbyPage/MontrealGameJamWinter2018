@@ -7,10 +7,9 @@ public class RandomizeManagerScript : MonoBehaviour
 {
     bool play1Selected = true;
     bool play2Selected = false;
+    bool hasGiven = false;
 
-    float numRandomizes = 0;
-
-    int numOfChar = 16;
+    int numOfChar = 18;
 
     List<int> player1Types;
     List<int> player2Types;
@@ -37,6 +36,8 @@ public class RandomizeManagerScript : MonoBehaviour
     Sprite randChar15Sprite;
 
     Sprite randChar16Sprite;
+    Sprite randChar17Sprite;
+    Sprite randChar18Sprite;
 
     // Use this for initialization
     void Start()
@@ -62,28 +63,36 @@ public class RandomizeManagerScript : MonoBehaviour
 
         randChar11Sprite = Resources.Load("Masks/WhiteSlow", typeof(Sprite)) as Sprite;
         randChar12Sprite = Resources.Load("Masks/WhiteMace", typeof(Sprite)) as Sprite;
-        randChar13Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite;
-        randChar14Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite;
-        randChar15Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite;
-        randChar16Sprite = Resources.Load("Masks/JoeSiehl", typeof(Sprite)) as Sprite;
+        randChar13Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite; // zeke and luther
+        randChar14Sprite = Resources.Load("Masks/WhiteHow2", typeof(Sprite)) as Sprite;
+        randChar15Sprite = Resources.Load("Masks/WhiteFox", typeof(Sprite)) as Sprite;
+        randChar16Sprite = Resources.Load("Masks/WhiteMoon", typeof(Sprite)) as Sprite;
+        randChar17Sprite = Resources.Load("Masks/BlueJoe", typeof(Sprite)) as Sprite; // Joe Siehl
+        randChar18Sprite = Resources.Load("Masks/RedJoe", typeof(Sprite)) as Sprite; // Joe Siehl
 
-        Debug.Log(randChar1Sprite);
-        Debug.Log(randChar2Sprite);
-        Debug.Log(randChar3Sprite);
-        Debug.Log(randChar4Sprite);
-        Debug.Log(randChar5Sprite);
-        Debug.Log(randChar6Sprite);
-        Debug.Log(randChar7Sprite);
-        Debug.Log(randChar8Sprite);
-        Debug.Log(randChar9Sprite);
-        Debug.Log(randChar10Sprite);
-        Debug.Log(randChar11Sprite);
-        Debug.Log(randChar12Sprite);
-        Debug.Log(randChar13Sprite);
-        Debug.Log(randChar14Sprite);
-        Debug.Log(randChar15Sprite);
-        Debug.Log(randChar16Sprite);
-
+        // check for null sprites
+        {
+            /*
+               Debug.Log(randChar1Sprite);
+               Debug.Log(randChar2Sprite);
+               Debug.Log(randChar3Sprite);
+               Debug.Log(randChar4Sprite);
+               Debug.Log(randChar5Sprite);
+               Debug.Log(randChar6Sprite);
+               Debug.Log(randChar7Sprite);
+               Debug.Log(randChar8Sprite);
+               Debug.Log(randChar9Sprite);
+               Debug.Log(randChar10Sprite);
+               Debug.Log(randChar11Sprite);
+               Debug.Log(randChar12Sprite);
+               Debug.Log(randChar13Sprite);
+               Debug.Log(randChar14Sprite);
+               Debug.Log(randChar15Sprite);
+               Debug.Log(randChar16Sprite);
+               Debug.Log(randChar17Sprite);
+               Debug.Log(randChar18Sprite);
+               */
+        }
     }
 
     // Update is called once per frame
@@ -96,14 +105,19 @@ public class RandomizeManagerScript : MonoBehaviour
     {
         if (player1Types.Count == 3 && player2Types.Count == 3)
         {
-            GameManager.getInstance().SetPlayerInfo(1, player1Types, player1Sprites);
-            GameManager.getInstance().SetPlayerInfo(2, player2Types, player2Sprites);
+            if(!hasGiven)
+            {
+                //Debug.Log("giving player data to manager");
+                GameManager.getInstance().SetPlayerInfo(1, player1Types, player1Sprites);
+                GameManager.getInstance().SetPlayerInfo(2, player2Types, player2Sprites);
+                hasGiven = true;
+            }
         }
     }
 
     void SwitchPlayers()
     {
-        Debug.Log("switching players");
+        //Debug.Log("switching players");
         if (play1Selected)
         {
             play1Selected = false;
@@ -237,12 +251,18 @@ public class RandomizeManagerScript : MonoBehaviour
                 charImage.GetComponent<Image>().sprite = randChar15Sprite;
                 AddSprite(randChar16Sprite);
             }
-            else
+            else if (charVal == 17)
             {
-                charImage.GetComponent<Image>().sprite = randChar1Sprite;
-                AddSprite(randChar1Sprite);
+                charImage.GetComponent<Image>().sprite = randChar15Sprite;
+                AddSprite(randChar17Sprite);
+            }
+            else if (charVal == 18)
+            {
+                charImage.GetComponent<Image>().sprite = randChar15Sprite;
+                AddSprite(randChar18Sprite);
             }
         }
+
         //Debug.Log(charImage.name + " value: " + charVal);
 
         //Debug.Log(charImage.name + " sprite: " + charImage.GetComponent<Image>().sprite);

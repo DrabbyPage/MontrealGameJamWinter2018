@@ -7,15 +7,11 @@ public class FlailScript : MonoBehaviour {
     public float BoopForce = 100f;
 
     [SerializeField]
-    float fullRotation = 360.0f;
-    [SerializeField]
     float rotationAngle = -15.0f;
     float originalRotationAngle;
     [SerializeField]
     float increasedSpeed = -15.0f;
     public bool spinFaster = false;
-
-    private Vector3 originalRot;
 
     [SerializeField]
     int cooldownTime = 60;
@@ -33,17 +29,11 @@ public class FlailScript : MonoBehaviour {
     private void Start()
     {
         originalRotationAngle = rotationAngle;
-        originalRot = transform.rotation.eulerAngles;
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (!spinFaster)
-        {
-            originalRot = transform.rotation.eulerAngles;
-        }
-
         ActivateFastSpin();
         CheckCooldown();
         ApplySpin();

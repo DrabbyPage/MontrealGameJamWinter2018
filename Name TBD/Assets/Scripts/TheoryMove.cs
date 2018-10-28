@@ -30,22 +30,23 @@ public class TheoryMove : MonoBehaviour
 
     public enum PLAYER_TYPE
     {
-        SPIN = 0,
-        BULL_RUSH = 1,
-        PEASHOOTER = 2,
-        SPEAR = 3,
-        MINER = 4,
-        TELEFRAG = 5,
-        BIG_POLE = 6,
-        SMALL_KNIFE = 7,
-        ICE_DA_ICEMANE = 8,
-        MAGNET = 9,
-        SLIME = 10,
-        FLAIL = 11,
-        ZEKE_AND_LUTHER = 12,
-        HOW_TO = 13,
-        FOX = 14,
-        MOON = 15
+        SPIN = 1,
+        BULL_RUSH = 2,
+        PEASHOOTER = 3,
+        SPEAR = 4,
+        MINER = 5,
+        TELEFRAG = 6,
+        BIG_POLE = 7,
+        SMALL_KNIFE = 8,
+        ICE_DA_ICEMANE = 9,
+        MAGNET = 10,
+        SLIME = 11,
+        FLAIL = 12,
+        ZEKE_AND_LUTHER = 13,
+        HOW_TO = 14,
+        FOX = 15,
+        MOON = 16,
+        JOE_SIEHL = 17
         
         // ETC.
     };
@@ -71,18 +72,8 @@ public class TheoryMove : MonoBehaviour
     public GameObject heldItem;
 
     Rigidbody2D rb;
-    private bool isSpinning = false;
 
-    GameObject currentArena;
-
-    float currentArenaRadius;
-    Vector3 center;
-
-    GameManager managerHandle;
-    Vector2 moveVector;
-
-
-    bool dashButtonDown = false, doCooldown, isDashing;
+    bool doCooldown, isDashing;
     float currentDashTime;
 
     private void Awake()
@@ -99,10 +90,7 @@ public class TheoryMove : MonoBehaviour
 
     void Start ()
     {
-        managerHandle = GameManager.getInstance();
-        currentArena = managerHandle.GetCurrentEdge();
-        currentArenaRadius = currentArena.GetComponent<CircleCollider2D>().radius;
-        center = currentArena.GetComponent<Renderer>().bounds.center;
+
     }
 	
 	// Update is called once per frame

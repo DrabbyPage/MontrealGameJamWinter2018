@@ -10,9 +10,6 @@ public class IcePuddle : MonoBehaviour
     float meltTime;
     bool melting;
 
-
-    float originalDrag = 10;
-
     void Start()
     {
         //meltTime = 5f;

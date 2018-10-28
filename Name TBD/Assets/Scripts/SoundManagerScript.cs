@@ -9,13 +9,34 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioClip ReadyClip;
     public AudioClip CoolDownClip;
     public AudioClip Moo;
+    public AudioClip MenuSelect;
+    public AudioClip MenuHover;
+
+    public AudioClip Dash0Snd;
+    public AudioClip Explosion;
+    public AudioClip GotchaGetsBuildUp;
+    public AudioClip GotchaGetsCommon;
+    public AudioClip GotchaGetsRare;
+
+    public AudioClip GotchaGetsUncommon;
+    public AudioClip GotchaGetsUncommon2;
+    public AudioClip HeartBeat;
+    public AudioClip Hit_snd;
+    public AudioClip SpearLand;
+    public AudioClip SpearThrow;
+    public AudioClip TreeFight;
 
 
     public AudioSource ASause;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        ASause = gameObject.GetComponent<AudioSource>();
         //ASause.clip = ReadyClip;
         instance = this;
 	}

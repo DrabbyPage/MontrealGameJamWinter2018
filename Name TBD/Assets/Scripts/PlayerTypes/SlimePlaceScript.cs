@@ -5,8 +5,8 @@ using UnityEngine;
 public class SlimePlaceScript : MonoBehaviour {
 
     [SerializeField]
-    float deathTime, slowTime, originalPlayerDrag, slowDrag,
-          slimeCooldown, slimeSize, boopForce;
+    float deathTime = 0, slowTime = 0, originalPlayerDrag = 0, slowDrag = 0,
+          slimeCooldown = 0, slimeSize = 0, boopForce = 0;
 
     float mSlowTime;
     bool slowing = true;

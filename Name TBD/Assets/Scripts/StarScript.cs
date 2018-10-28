@@ -10,8 +10,6 @@ public class StarScript : MonoBehaviour {
 
     private float scaleUp = 0.03f;
 
-    GameObject parObj;
-
     // Use this for initialization
     void Start()
     {
@@ -51,10 +49,5 @@ public class StarScript : MonoBehaviour {
         }
 
     }
-
-    public void SetParentObject(GameObject newPar)
-    {
-        //Debug.Log(newPar.name);
-        parObj = newPar;
-    }
+    
 }

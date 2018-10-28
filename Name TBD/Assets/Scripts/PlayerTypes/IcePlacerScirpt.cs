@@ -5,12 +5,11 @@ using UnityEngine;
 public class IcePlacerScirpt : MonoBehaviour
 {
     [SerializeField]
-    float meltTime, slipTime, originalPlayerDrag, slipDrag, 
-          puddleCooldown, puddleSize;
+    float meltTime = 0, slipTime = 0, originalPlayerDrag = 0, slipDrag = 0, 
+          puddleCooldown = 0, puddleSize = 0;
 
-    float deathTime, mSlipTime;
+    float mSlipTime;
     bool slipping = true;
-    float boopForce = 150f;
     float timer;
 
     GameObject parObj, otherPlayer, icePuddle;
@@ -19,7 +18,6 @@ public class IcePlacerScirpt : MonoBehaviour
     void Awake()
     {
         mSlipTime = 0;
-        deathTime = 0;
         icePuddle = Resources.Load("Prefabs/IcePuddle") as GameObject;
         parObj = gameObject.transform.parent.gameObject;
         puddles = new List<GameObject>();

@@ -68,7 +68,8 @@ public class BullHornsScript : MonoBehaviour
                 //set the skin color back to normal
                 GetComponentInParent<SpriteRenderer>().color = Color.white;
                 //plays the ready clip from the sound manager
-                SoundManagerScript.instance.EndCoolDownSound();
+                if (SoundManagerScript.instance != null)
+                    SoundManagerScript.instance.EndCoolDownSound();
 
             }
         }
@@ -79,7 +80,8 @@ public class BullHornsScript : MonoBehaviour
         if (!isCharging && chargeCounter < allowedCharges)
         {
             //moos
-            SoundManagerScript.instance.MooSound();
+            if (SoundManagerScript.instance != null)
+                SoundManagerScript.instance.MooSound();
 
             if (invisibleCharge)
             {
@@ -103,7 +105,7 @@ public class BullHornsScript : MonoBehaviour
         {
             currentPos = new Vector2(thePlayer.transform.position.x, thePlayer.transform.position.y);
             int currentDistanceAway = Mathf.CeilToInt(Mathf.Abs(currentPos.x - originalPos.x) + Mathf.Abs(currentPos.y - originalPos.y));
-            Debug.Log(currentDistanceAway);
+            //Debug.Log(currentDistanceAway);
 
             if (currentDistanceAway >= rushDistance)
             {

@@ -17,9 +17,7 @@ public class ZLScript : MonoBehaviour
     [SerializeField]
     float bigZekeTinyLuther = 0.1f;
     public bool isIncreasingSpeed = false;
-
-    [SerializeField]
-    int rushDistance = 4;
+    
     Vector2 originalPos;
     Vector2 currentPos;
     Vector3 increasedSpeed = new Vector3 (0, 20, 0);

@@ -5,11 +5,11 @@ using UnityEngine;
 public class FoxScript : MonoBehaviour {
 
     [SerializeField]
-    float foxCooldown, boopForce;
+    float foxCooldown;//, boopForce;
 
     GameObject owner, tracer, tracerObj;
 
-    bool tracerPlaced = false, hasTracerSpawned = false;
+    bool hasTracerSpawned = false;
 
     float timer;
 
@@ -65,11 +65,4 @@ public class FoxScript : MonoBehaviour {
         owner = ob;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
-        }
-    }
 }

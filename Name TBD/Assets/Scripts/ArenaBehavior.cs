@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArenaBehavior : MonoBehaviour {
 
     [SerializeField]
-    float ringFlashTime, timeToDrop;
+    float ringFlashTime = 0, timeToDrop = 0;
 
     [SerializeField]
     List<GameObject> arenaRings;
@@ -81,7 +81,7 @@ public class ArenaBehavior : MonoBehaviour {
 
     public void SetArenaBounds()
     {
-        Debug.Log(arenaRings[ringToDrop]);
+        //Debug.Log(arenaRings[ringToDrop]);
        // Debug.Break();
         GameManager.getInstance().SetCurrentEdge(arenaRings[ringToDrop]);
     }

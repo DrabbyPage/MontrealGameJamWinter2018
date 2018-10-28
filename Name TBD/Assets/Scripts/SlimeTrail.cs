@@ -10,12 +10,9 @@ public class SlimeTrail : MonoBehaviour {
     float deathTime;
     bool dying;
 
-
-    float originalDrag = 10;
-
     void Start()
     {
-        //meltTime = 5f;
+
     }
 
     void Update()

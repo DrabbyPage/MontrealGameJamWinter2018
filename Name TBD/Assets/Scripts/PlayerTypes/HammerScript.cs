@@ -12,8 +12,6 @@ public class HammerScript : MonoBehaviour {
     float rotationAngle = -15.0f;
     public bool isSpinning = false;
 
-    private Vector3 originalRot;
-
     [SerializeField]
     int cooldownTime = 60;
     private int cooldownCounter = 0;
@@ -27,18 +25,12 @@ public class HammerScript : MonoBehaviour {
 
     private void Start ()
     {
-        originalRot = transform.rotation.eulerAngles;
         checker = Mathf.RoundToInt(Mathf.Abs(fullRotation / rotationAngle));
     }
 	
 	// Update is called once per frame
 	private void FixedUpdate ()
     {
-        if (!isSpinning)
-        {
-            originalRot = transform.rotation.eulerAngles;
-        }
-
         CheckCooldown();
         ApplySpin();
 	}
