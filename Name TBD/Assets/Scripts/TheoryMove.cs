@@ -97,7 +97,6 @@ public class TheoryMove : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        CheckCanAct();
         PerformAction();
 	}
 
@@ -142,32 +141,29 @@ public class TheoryMove : MonoBehaviour
     }
 
     // Checks whether or not a player is capable of performing an action
-    void CheckCanAct()
+    public void DisableAction()
     {
-        if (!canAct)
+        switch (charType)
         {
-            switch (charType)
-            {
-                case PLAYER_TYPE.FLAIL:
-                    heldItem.GetComponent<FlailScript>().DisableSpin();
-                    break;
-                case PLAYER_TYPE.ZEKE_AND_LUTHER:
-                    heldItem.GetComponent<ZLScript>().DisableVelocity();
-                    break;
-            }
+            case PLAYER_TYPE.FLAIL:
+                heldItem.GetComponent<FlailScript>().DisableSpin();
+                break;
+            case PLAYER_TYPE.ZEKE_AND_LUTHER:
+                heldItem.GetComponent<ZLScript>().DisableVelocity();
+                break;
         }
+    }
 
-        else
+    public void EnableAction()
+    {
+        switch (charType)
         {
-            switch (charType)
-            {
-                case PLAYER_TYPE.FLAIL:
-                    heldItem.GetComponent<FlailScript>().EnableSpin();
-                    break;
-                case PLAYER_TYPE.ZEKE_AND_LUTHER:
-                    heldItem.GetComponent<ZLScript>().EnableVelocity();
-                    break;
-            }
+            case PLAYER_TYPE.FLAIL:
+                heldItem.GetComponent<FlailScript>().EnableSpin();
+                break;
+            case PLAYER_TYPE.ZEKE_AND_LUTHER:
+                heldItem.GetComponent<ZLScript>().EnableVelocity();
+                break;
         }
     }
 
@@ -360,19 +356,19 @@ public class TheoryMove : MonoBehaviour
 
         if(currentPlayer == "P1")
         {
-            float r = 255 / 255;
-            float g = 104 / 255;
-            float b = 162 / 255;
-            float a = 255 / 255;
+            float r = 1;
+            float g = 0.4078f;
+            float b = 0.6352f;
+            float a = 1;
 
             GetComponent<SpriteRenderer>().color = new Vector4(r, g, b, a);
         }
         else if(currentPlayer == "P2")
         {
-            float r = 82 / 255;
-            float g = 252 / 255;
-            float b = 255 / 255;
-            float a = 255 / 255;
+            float r = 0.3215f;
+            float g = 0.9882f;
+            float b = 1;
+            float a = 1;
 
             GetComponent<SpriteRenderer>().color = new Vector4(r, g, b, a);
         }
