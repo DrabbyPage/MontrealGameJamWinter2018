@@ -18,8 +18,7 @@ public struct DashData
 
 public class TheoryMove : MonoBehaviour
 {
-    [SerializeField]
-    string currentPlayer;
+    public string currentPlayer;
 
     string p1_LSH_Name; //= "P1_LJS_H";
     string p1_LSV_Name; //= "P1_LJS_V";

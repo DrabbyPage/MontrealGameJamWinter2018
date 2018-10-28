@@ -21,6 +21,14 @@ public class BullHornsColliderScript : MonoBehaviour {
             col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
 
             bullHornsObject.GetComponent<BullHornsScript>().HaltCharge();
+
+            //get the player that's being collided
+            if(col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.PlayHitSound(true);
+            }
+
+            
         }
     }
 }
