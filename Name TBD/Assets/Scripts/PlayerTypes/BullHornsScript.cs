@@ -84,7 +84,19 @@ public class BullHornsScript : MonoBehaviour
         {
             //moos
             if (SoundManagerScript.instance != null)
-                SoundManagerScript.instance.MooSound();
+            {
+                if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+                {
+                    SoundManagerScript.instance.MooSound(true);
+                }
+                if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+                {
+                    SoundManagerScript.instance.MooSound(false);
+                }
+
+
+            }
+                
 
             if (invisibleCharge)
             {
