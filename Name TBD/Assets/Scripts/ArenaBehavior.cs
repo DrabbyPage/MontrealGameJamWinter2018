@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArenaBehavior : MonoBehaviour {
 
     [SerializeField]
-    float ringFlashTime = 0, timeToDrop = 0;
+    float ringFlashTime, timeToDrop;
 
     [SerializeField]
     List<GameObject> arenaRings;
