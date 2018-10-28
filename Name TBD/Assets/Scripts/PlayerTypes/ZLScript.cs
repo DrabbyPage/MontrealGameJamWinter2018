@@ -37,8 +37,6 @@ public class ZLScript : MonoBehaviour {
     void FixedUpdate()
     {
         CheckCooldown();
-        ApplyCharge();
-
     }
 
     public void SetPlayerValues(GameObject player, Rigidbody2D rb)
