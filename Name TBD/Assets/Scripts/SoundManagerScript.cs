@@ -21,7 +21,7 @@ public class SoundManagerScript : MonoBehaviour {
 
     public AudioClip Dash0Snd;
     public AudioClip Explosion;
-    public AudioClip GotchaGetsBuildUp;
+    
     public AudioClip GotchaGetsCommon;
     public AudioClip GotchaGetsRare;
 
@@ -31,7 +31,12 @@ public class SoundManagerScript : MonoBehaviour {
 
     public AudioClip SpearLand;
     public AudioClip SpearThrow;
-    public AudioClip TreeFight;
+    
+
+    [Header("Music Clips")]
+    public AudioClip TreeFightTheme;
+    public AudioClip GotchaGetsBuildUp;
+
 
     [Header("RECORD PLAYERS")]
     [Header("player 1 specific record players")]
@@ -39,11 +44,13 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioSource Player1Walking;
     public AudioSource Player1Hits;
 
-    [Header("player 1 specific record players")]
+    [Header("player 2 specific record players")]
     public AudioSource Player2GeneralSource; 
     public AudioSource Player2Walking;
     public AudioSource Player2Hits;
 
+    [Header("music record players")]
+    public AudioSource MusicRecordPlayer;
 
 
     private void Awake()
@@ -54,7 +61,8 @@ public class SoundManagerScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         ASause = gameObject.GetComponent<AudioSource>();
-        //ASause.clip = ReadyClip;
+        MusicRecordPlayer.clip = TreeFightTheme;
+        MusicRecordPlayer.Play();
         instance = this;
 	}
 	
@@ -103,7 +111,7 @@ public class SoundManagerScript : MonoBehaviour {
         ASause.Play();
     }
 
-
+    // this function determins which player is being hit and then which record player plays the sound
     public void PlayHitSound(bool isPlayer1)
     {
         if (isPlayer1)
