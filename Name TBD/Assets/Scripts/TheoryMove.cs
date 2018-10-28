@@ -121,7 +121,7 @@ public class TheoryMove : MonoBehaviour
     // checking for movement input
     void CheckForInput()
     {
-        if (charType != PLAYER_TYPE.ZEKE_AND_LUTHER || charType != PLAYER_TYPE.HOW_TO)
+        if (charType != PLAYER_TYPE.ZEKE_AND_LUTHER)
         {
             if (Input.GetAxis(p1_LSH_Name) > deadStick)
             {
@@ -219,10 +219,9 @@ public class TheoryMove : MonoBehaviour
                 heldItem.GetComponent<ZLScript>().SetPlayerValues(this.gameObject, rb);
                 break;
             case PLAYER_TYPE.HOW_TO:
-                moveSpeed = 0;
                 transform.GetChild(13).gameObject.SetActive(true);
                 heldItem = transform.GetChild(13).gameObject;
-                heldItem.GetComponent<HowToScript>().FreezeConstraints(rb);
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 break;
             case PLAYER_TYPE.FOX:
                 transform.GetChild(14).gameObject.SetActive(true);
@@ -299,7 +298,7 @@ public class TheoryMove : MonoBehaviour
     // Performs any rotations
     private void RotatePlayer()
     {
-        if (charType != PLAYER_TYPE.BIG_POLE && charType != PLAYER_TYPE.SPIN || charType != PLAYER_TYPE.FLAIL || charType != PLAYER_TYPE.SMALL_KNIFE || charType != PLAYER_TYPE.HOW_TO)
+        if (charType != PLAYER_TYPE.BIG_POLE && charType != PLAYER_TYPE.SPIN && charType != PLAYER_TYPE.FLAIL && charType != PLAYER_TYPE.SMALL_KNIFE && charType != PLAYER_TYPE.HOW_TO)
         {
             float xRotate = Input.GetAxis(p1_RSH_Name);
             float yRotate = Input.GetAxis(p1_RSV_Name);

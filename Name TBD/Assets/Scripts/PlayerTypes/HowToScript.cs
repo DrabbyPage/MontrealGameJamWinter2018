@@ -7,11 +7,6 @@ public class HowToScript : MonoBehaviour {
     [SerializeField]
     float boopForce = 200.0f;
 
-    public void FreezeConstraints(Rigidbody2D rb)
-    {
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-    }
-
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player")
