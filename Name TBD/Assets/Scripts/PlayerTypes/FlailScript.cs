@@ -26,6 +26,8 @@ public class FlailScript : MonoBehaviour {
     int allowedSpinFasters = 4;
     private int spinFasterCounter = 0;
 
+    bool cannotSpin;
+
     private void Start()
     {
         originalRotationAngle = rotationAngle;
@@ -95,10 +97,23 @@ public class FlailScript : MonoBehaviour {
         }
     }
 
+    public void DisableSpin()
+    {
+        cannotSpin = true;
+    }
+
+    public void EnableSpin()
+    {
+        cannotSpin = false;
+    }
+
     // Applies the spin to the held object
     private void ApplySpin()
     {
-        transform.Rotate(0, 0, rotationAngle);
+        if (!cannotSpin)
+        {
+            transform.Rotate(0, 0, rotationAngle);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)

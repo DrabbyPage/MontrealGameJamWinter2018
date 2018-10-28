@@ -14,8 +14,17 @@ public class RandomizeManagerScript : MonoBehaviour
     GameObject p1Heart;
     GameObject p2Heart;
 
+    GameObject p1Acorn;
+    GameObject p2Acorn;
+
     float animLength = 0.6f;
     bool heartPump = false;
+
+    float acornOpenLength = 1.6f;
+    float acornFallLength = 1.0f;
+
+    bool acornOpen = false;
+    bool acornFalling = false;
 
     List<int> player1Types;
     List<int> player2Types;
@@ -56,8 +65,11 @@ public class RandomizeManagerScript : MonoBehaviour
         player1Sprites = new List<Sprite>();
         player2Sprites = new List<Sprite>();
 
-        p1Heart = GameObject.Find("Player1Panel").transform.GetChild(0).gameObject;
-        p2Heart = GameObject.Find("Player2Panel").transform.GetChild(0).gameObject;
+        p1Heart = GameObject.Find("Player1Panel").transform.GetChild(1).gameObject;
+        p2Heart = GameObject.Find("Player2Panel").transform.GetChild(1).gameObject;
+
+        p1Acorn = GameObject.Find("Player1Panel").transform.GetChild(0).gameObject;
+        p2Acorn = GameObject.Find("Player2Panel").transform.GetChild(0).gameObject;
 
         // setting all the sprites
         {
@@ -135,12 +147,10 @@ public class RandomizeManagerScript : MonoBehaviour
     {
         if(play1Selected)
         {
-            Debug.Log("Player1:" + heartPump);
             p1Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
         }
         else
         {
-            Debug.Log("Player2:" + heartPump);
             p2Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
         }
     }
@@ -163,31 +173,82 @@ public class RandomizeManagerScript : MonoBehaviour
     public void RandomizeForPlayer()
     {
         int newRand;
-        newRand = Random.Range(1, numOfChar);
+        int randomPool = Random.Range(1, 100);
 
-        if(heartPump == false)
+        if (randomPool > 0 && randomPool < 50)
+        {
+            Debug.Log("Common Role");
+
+            List<int> playerTypes = new List<int>();
+            playerTypes.Add((int)PLAYER_TYPE.HOW_TO);
+            playerTypes.Add((int)PLAYER_TYPE.SPIN);
+            playerTypes.Add((int)PLAYER_TYPE.BULL_RUSH);
+            playerTypes.Add((int)PLAYER_TYPE.PEASHOOTER);
+            playerTypes.Add((int)PLAYER_TYPE.SMALL_KNIFE);
+            playerTypes.Add((int)PLAYER_TYPE.MINER);
+
+            int randMember = Random.Range(0, playerTypes.Count - 1);
+            newRand = playerTypes[randMember];
+        }
+        else if (randomPool >= 50 && randomPool < 85)
+        {
+            Debug.Log("Uncommon Role");
+
+            List<int> playerTypes = new List<int>();
+            playerTypes.Add((int)PLAYER_TYPE.SPEAR);
+            playerTypes.Add((int)PLAYER_TYPE.SLIME);
+            playerTypes.Add((int)PLAYER_TYPE.TELEFRAG);
+            playerTypes.Add((int)PLAYER_TYPE.MOON);
+            playerTypes.Add((int)PLAYER_TYPE.ICE_DA_ICEMANE);
+            playerTypes.Add((int)PLAYER_TYPE.BIG_POLE);
+
+            int randMember = Random.Range(0, playerTypes.Count - 1);
+            newRand = playerTypes[randMember];
+        }
+        else if(randomPool >= 85 && randomPool <= 99)
+        {
+            Debug.Log("Rare Role");
+
+            List<int> playerTypes = new List<int>();
+            playerTypes.Add((int)PLAYER_TYPE.MAGNET);
+            playerTypes.Add((int)PLAYER_TYPE.FLAIL);
+            playerTypes.Add((int)PLAYER_TYPE.ZEKE_AND_LUTHER);
+
+            int randMember = Random.Range(0, playerTypes.Count - 1);
+            newRand = playerTypes[randMember];
+        }
+        else 
+        {
+            Debug.Log("Legendary Role");
+
+            List<int> playerTypes = new List<int>();
+            playerTypes.Add((int)PLAYER_TYPE.JOE_SIEHL);
+            newRand = playerTypes[0];
+        }
+
+        if (heartPump == false && acornOpen == false)
         {
             if (play1Selected && player1Types.Count < 3)
             {
                 heartPump = true;
+                acornOpen = true;
                 player1Types.Add(newRand);
-                MakeImageChar(player1Types.Count, newRand);
-                SwitchPlayers();
 
-                StartCoroutine(WaitForAnimation());
+                // will do heart anim then acorn anim then it sets teh player
+                StartCoroutine(WaitForAnimation(newRand));
+                
             }
             else if (play2Selected && player2Types.Count < 3)
             {
-                heartPump = true;
-                player2Types.Add(newRand);
-                MakeImageChar(player2Types.Count, newRand);
-                SwitchPlayers();
 
-                StartCoroutine(WaitForAnimation());
+                heartPump = true;
+                acornOpen = true;
+                player2Types.Add(newRand);
+
+                // will do heart anim then acorn anim then it sets teh player
+                StartCoroutine(WaitForAnimation(newRand));
             }
         }
-
-
     }
 
     void MakeImageChar(int currentImage, int charVal)
@@ -321,9 +382,69 @@ public class RandomizeManagerScript : MonoBehaviour
 
     }
 
-    IEnumerator WaitForAnimation()
+    IEnumerator WaitForAnimation(int randNum)
     {
         yield return new WaitForSeconds(animLength);
+
         heartPump = false;
+
+        if(play1Selected)
+        {
+            p1Acorn.GetComponent<Animator>().SetBool("IsFalling", true);
+            p1Acorn.GetComponent<Animator>().SetBool("IsOpening", true);
+        }
+        else
+        {
+            p2Acorn.GetComponent<Animator>().SetBool("IsFalling", true);
+            p2Acorn.GetComponent<Animator>().SetBool("IsOpening", true);
+        }
+
+        StartCoroutine(WaitForAcorn(randNum));
+    }
+
+    IEnumerator WaitForAcorn(int randNum)
+    {
+        acornFalling = true;
+
+        yield return new WaitForSeconds(acornFallLength);
+        
+        if (play1Selected)
+        {
+            p1Acorn.GetComponent<Animator>().SetBool("IsFalling", false);
+        }
+        else
+        {
+            p2Acorn.GetComponent<Animator>().SetBool("IsFalling", false);
+        }
+
+        acornFalling = false;
+        acornOpen = true;
+
+        yield return new WaitForSeconds(acornOpenLength);
+
+        Debug.Log("acorn is done");
+
+        acornOpen = false;
+
+
+        if (play1Selected)
+        {
+            p1Acorn.GetComponent<Animator>().SetBool("IsOpening", false);
+        }
+        else
+        {
+            p1Acorn.GetComponent<Animator>().SetBool("IsOpening", false);
+        }
+
+        if (play1Selected)// && player1Types.Count < 3)
+        {
+            MakeImageChar(player1Types.Count, randNum);
+            SwitchPlayers();
+        }
+        else if (play2Selected)// && player2Types.Count < 3)
+        {
+            MakeImageChar(player2Types.Count, randNum);
+            SwitchPlayers();
+        }
     }
 }

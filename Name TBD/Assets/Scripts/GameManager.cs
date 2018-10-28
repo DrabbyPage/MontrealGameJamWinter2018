@@ -193,6 +193,8 @@ public class GameManager : MonoBehaviour {
             playerData.player1.GetComponent<TheoryMove>().enabled = false;
             playerData.player2.GetComponent<TheoryMove>().enabled = false;
 
+            playerData.player1.GetComponent<TheoryMove>().DisableAction();
+            playerData.player2.GetComponent<TheoryMove>().DisableAction();
 
             SetPlayerValues();
 
@@ -233,6 +235,9 @@ public class GameManager : MonoBehaviour {
                 playerData.player1.GetComponent<TheoryMove>().enabled = true;
                 playerData.player2.GetComponent<TheoryMove>().enabled = true;
 
+                Debug.Log("SETTING");
+                playerData.player1.GetComponent<TheoryMove>().EnableAction();
+                playerData.player2.GetComponent<TheoryMove>().EnableAction();
             }
         }
 
@@ -244,6 +249,12 @@ public class GameManager : MonoBehaviour {
         playerData.player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         playerData.player1.GetComponent<TheoryMove>().enabled = false;
         playerData.player2.GetComponent<TheoryMove>().enabled = false;
+
+        playerData.player1.GetComponent<TheoryMove>().DisableAction();
+        playerData.player1.GetComponent<TheoryMove>().ResetPlayer();
+
+        playerData.player2.GetComponent<TheoryMove>().DisableAction();
+        playerData.player2.GetComponent<TheoryMove>().ResetPlayer();
 
 
         if (playerData.player2Wins > playerData.player1Wins)
@@ -264,6 +275,12 @@ public class GameManager : MonoBehaviour {
         playerData.player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         playerData.player1.GetComponent<TheoryMove>().enabled = false;
         playerData.player2.GetComponent<TheoryMove>().enabled = false;
+
+        playerData.player1.GetComponent<TheoryMove>().DisableAction();
+        playerData.player1.GetComponent<TheoryMove>().ResetPlayer();
+
+        playerData.player2.GetComponent<TheoryMove>().DisableAction();
+        playerData.player2.GetComponent<TheoryMove>().ResetPlayer();
 
 
         if (playerData.player2Wins == NUM_TO_WIN) // player 2 wins match

@@ -14,6 +14,9 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioClip CoolDownClip;
     public AudioClip Hit_snd;
 
+    [Header("Peashooter")]
+    public AudioClip PeaShoot;
+
     public AudioClip MenuSelect;
     public AudioClip MenuHover;
 
@@ -21,7 +24,7 @@ public class SoundManagerScript : MonoBehaviour {
 
     public AudioClip Dash0Snd;
     public AudioClip Explosion;
-    public AudioClip GotchaGetsBuildUp;
+    
     public AudioClip GotchaGetsCommon;
     public AudioClip GotchaGetsRare;
 
@@ -31,7 +34,12 @@ public class SoundManagerScript : MonoBehaviour {
 
     public AudioClip SpearLand;
     public AudioClip SpearThrow;
-    public AudioClip TreeFight;
+    
+
+    [Header("Music Clips")]
+    public AudioClip TreeFightTheme;
+    public AudioClip GotchaGetsBuildUp;
+
 
     [Header("RECORD PLAYERS")]
     [Header("player 1 specific record players")]
@@ -39,10 +47,18 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioSource Player1Walking;
     public AudioSource Player1Hits;
 
-    [Header("player 1 specific record players")]
+    [Header("player 2 specific record players")]
     public AudioSource Player2GeneralSource; 
     public AudioSource Player2Walking;
     public AudioSource Player2Hits;
+
+    [Header("music record players")]
+    public AudioSource MusicRecordPlayer;
+    /*
+    [Header("projectile players")]
+    public AudioSource peaShootSnd;
+    public AudioSource Spear;
+    */
 
 
 
@@ -54,7 +70,8 @@ public class SoundManagerScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         ASause = gameObject.GetComponent<AudioSource>();
-        //ASause.clip = ReadyClip;
+        MusicRecordPlayer.clip = TreeFightTheme;
+        MusicRecordPlayer.Play();
         instance = this;
 	}
 	
@@ -91,19 +108,45 @@ public class SoundManagerScript : MonoBehaviour {
 
     //*************** BULL SOUNDS ********************
 
-    public void MooSound()
+    public void MooSound(bool isPlayer1)
     {
-        
+        if (isPlayer1)
+        {
+            // basically the tape in the player
+            ASause.clip = Moo;
+            //this actually players whatever clip is loaded into the source
+            ASause.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2GeneralSource.clip = Moo;
+            Player2GeneralSource.Play();
+        }
             
 
-
+        /*
         // basically the tape in the player
         ASause.clip = Moo;
         //this actually players whatever clip is loaded into the source
-        ASause.Play();
+        ASause.Play();*/
     }
 
+    //*************** PEA SHOOTER SOUNDS ********************
+    public void PeaShootSoundPlay(bool isPlayer1)
+    {
+        if (isPlayer1)
+        {
+            ASause.clip = PeaShoot;
+            ASause.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2GeneralSource.clip = PeaShoot;
+            Player2GeneralSource.Play();
+        }
+    }
 
+    // this function determins which player is being hit and then which record player plays the sound
     public void PlayHitSound(bool isPlayer1)
     {
         if (isPlayer1)
