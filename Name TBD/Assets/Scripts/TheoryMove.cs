@@ -140,6 +140,19 @@ public class TheoryMove : MonoBehaviour
         }
     }
 
+    public void ResetPlayer()
+    {
+        if (charType == PLAYER_TYPE.MOON)
+        {
+            heldItem.transform.rotation = Quaternion.Euler(0, 0, -90);
+        }
+
+        else
+        {
+            heldItem.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
     // Checks whether or not a player is capable of performing an action
     public void DisableAction()
     {

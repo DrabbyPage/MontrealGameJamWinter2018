@@ -241,7 +241,10 @@ public class GameManager : MonoBehaviour {
         playerData.player2.GetComponent<TheoryMove>().enabled = false;
 
         playerData.player1.GetComponent<TheoryMove>().DisableAction();
+        playerData.player1.GetComponent<TheoryMove>().ResetPlayer();
+
         playerData.player2.GetComponent<TheoryMove>().DisableAction();
+        playerData.player2.GetComponent<TheoryMove>().ResetPlayer();
 
 
         if (playerData.player2Wins > playerData.player1Wins)
@@ -264,7 +267,10 @@ public class GameManager : MonoBehaviour {
         playerData.player2.GetComponent<TheoryMove>().enabled = false;
 
         playerData.player1.GetComponent<TheoryMove>().DisableAction();
+        playerData.player1.GetComponent<TheoryMove>().ResetPlayer();
+
         playerData.player2.GetComponent<TheoryMove>().DisableAction();
+        playerData.player2.GetComponent<TheoryMove>().ResetPlayer();
 
 
         if (playerData.player2Wins == NUM_TO_WIN) // player 2 wins match
