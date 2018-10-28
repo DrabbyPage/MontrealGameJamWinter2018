@@ -22,6 +22,9 @@ public class RandomizeManagerScript : MonoBehaviour
     GameObject p1Acorn;
     GameObject p2Acorn;
 
+    GameObject p1CharText;
+    GameObject p2CharText;
+
     float animLength = 0.6f;
     bool heartPump = false;
 
@@ -75,6 +78,12 @@ public class RandomizeManagerScript : MonoBehaviour
 
         p1Acorn = GameObject.Find("Player1Panel").transform.GetChild(0).gameObject;
         p2Acorn = GameObject.Find("Player2Panel").transform.GetChild(0).gameObject;
+
+
+        p1CharText = GameObject.Find("Player1Text");
+        p2CharText = GameObject.Find("Player2Text");
+        p1CharText.GetComponent<Text>().text = "";
+        p2CharText.GetComponent<Text>().text = "";
 
         // setting all the sprites
         {
@@ -176,83 +185,83 @@ public class RandomizeManagerScript : MonoBehaviour
 
     public void RandomizeForPlayer()
     {
-        int newRand;
-        int randomPool = Random.Range(1, 100);
-
-        if (randomPool > 0 && randomPool < 50)
-        {
-            Debug.Log("Common Role");
-
-            p1AcornTop.GetComponent<Image>().sprite = commonTop;
-            p1AcornBottom.GetComponent<Image>().sprite = commonBottom;
-            p2AcornTop.GetComponent<Image>().sprite = commonTop;
-            p2AcornBottom.GetComponent<Image>().sprite = commonBottom;
-
-            List<int> playerTypes = new List<int>();
-            playerTypes.Add((int)PLAYER_TYPE.HOW_TO);
-            playerTypes.Add((int)PLAYER_TYPE.SPIN);
-            playerTypes.Add((int)PLAYER_TYPE.BULL_RUSH);
-            playerTypes.Add((int)PLAYER_TYPE.PEASHOOTER);
-            playerTypes.Add((int)PLAYER_TYPE.SMALL_KNIFE);
-            playerTypes.Add((int)PLAYER_TYPE.MINER);
-
-            int randMember = Random.Range(0, playerTypes.Count - 1);
-            newRand = playerTypes[randMember];
-        }
-        else if (randomPool >= 50 && randomPool < 85)
-        {
-            Debug.Log("Uncommon Role");
-
-            p1AcornTop.GetComponent<Image>().sprite = uncommonTop;
-            p1AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
-            p2AcornTop.GetComponent<Image>().sprite = uncommonTop;
-            p2AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
-
-            List<int> playerTypes = new List<int>();
-            playerTypes.Add((int)PLAYER_TYPE.SPEAR);
-            playerTypes.Add((int)PLAYER_TYPE.SLIME);
-            playerTypes.Add((int)PLAYER_TYPE.TELEFRAG);
-            playerTypes.Add((int)PLAYER_TYPE.MOON);
-            playerTypes.Add((int)PLAYER_TYPE.ICE_DA_ICEMANE);
-            playerTypes.Add((int)PLAYER_TYPE.BIG_POLE);
-
-            int randMember = Random.Range(0, playerTypes.Count - 1);
-            newRand = playerTypes[randMember];
-        }
-        else if(randomPool >= 85 && randomPool <= 99)
-        {
-            Debug.Log("Rare Role");
-            p1AcornTop.GetComponent<Image>().sprite = rareTop;
-            p1AcornBottom.GetComponent<Image>().sprite = rareBottom;
-            p2AcornTop.GetComponent<Image>().sprite = rareTop;
-            p2AcornBottom.GetComponent<Image>().sprite = rareBottom;
-
-            p1AcornBottom.GetComponent<Animator>().enabled = true;
-            p2AcornBottom.GetComponent<Animator>().enabled = true;
-
-            List<int> playerTypes = new List<int>();
-            playerTypes.Add((int)PLAYER_TYPE.MAGNET);
-            playerTypes.Add((int)PLAYER_TYPE.FLAIL);
-            playerTypes.Add((int)PLAYER_TYPE.ZEKE_AND_LUTHER);
-
-            int randMember = Random.Range(0, playerTypes.Count - 1);
-            newRand = playerTypes[randMember];
-        }
-        else 
-        {
-            Debug.Log("Legendary Role");
-            p1AcornTop.GetComponent<Image>().sprite = legendaryTop;
-            p1AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
-            p2AcornTop.GetComponent<Image>().sprite = legendaryTop;
-            p2AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
-
-            List<int> playerTypes = new List<int>();
-            playerTypes.Add((int)PLAYER_TYPE.JOE_SIEHL);
-            newRand = playerTypes[0];
-        }
-
         if (heartPump == false && acornOpen == false)
         {
+            int newRand;
+            int randomPool = Random.Range(1, 100);
+
+            if (randomPool > 0 && randomPool < 50)
+            {
+                Debug.Log("Common Role");
+
+                p1AcornTop.GetComponent<Image>().sprite = commonTop;
+                p1AcornBottom.GetComponent<Image>().sprite = commonBottom;
+                p2AcornTop.GetComponent<Image>().sprite = commonTop;
+                p2AcornBottom.GetComponent<Image>().sprite = commonBottom;
+
+                List<int> playerTypes = new List<int>();
+                playerTypes.Add((int)PLAYER_TYPE.HOW_TO);
+                playerTypes.Add((int)PLAYER_TYPE.SPIN);
+                playerTypes.Add((int)PLAYER_TYPE.BULL_RUSH);
+                playerTypes.Add((int)PLAYER_TYPE.PEASHOOTER);
+                playerTypes.Add((int)PLAYER_TYPE.SMALL_KNIFE);
+                playerTypes.Add((int)PLAYER_TYPE.MINER);
+
+                int randMember = Random.Range(0, playerTypes.Count - 1);
+                newRand = playerTypes[randMember];
+            }
+            else if (randomPool >= 50 && randomPool < 85)
+            {
+                Debug.Log("Uncommon Role");
+
+                p1AcornTop.GetComponent<Image>().sprite = uncommonTop;
+                p1AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
+                p2AcornTop.GetComponent<Image>().sprite = uncommonTop;
+                p2AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
+
+                List<int> playerTypes = new List<int>();
+                playerTypes.Add((int)PLAYER_TYPE.SPEAR);
+                playerTypes.Add((int)PLAYER_TYPE.SLIME);
+                playerTypes.Add((int)PLAYER_TYPE.TELEFRAG);
+                playerTypes.Add((int)PLAYER_TYPE.MOON);
+                playerTypes.Add((int)PLAYER_TYPE.ICE_DA_ICEMANE);
+                playerTypes.Add((int)PLAYER_TYPE.BIG_POLE);
+
+                int randMember = Random.Range(0, playerTypes.Count - 1);
+                newRand = playerTypes[randMember];
+            }
+            else if (randomPool >= 85 && randomPool <= 99)
+            {
+                Debug.Log("Rare Role");
+                p1AcornTop.GetComponent<Image>().sprite = rareTop;
+                p1AcornBottom.GetComponent<Image>().sprite = rareBottom;
+                p2AcornTop.GetComponent<Image>().sprite = rareTop;
+                p2AcornBottom.GetComponent<Image>().sprite = rareBottom;
+
+                p1AcornBottom.GetComponent<Animator>().enabled = true;
+                p2AcornBottom.GetComponent<Animator>().enabled = true;
+
+                List<int> playerTypes = new List<int>();
+                playerTypes.Add((int)PLAYER_TYPE.MAGNET);
+                playerTypes.Add((int)PLAYER_TYPE.FLAIL);
+                playerTypes.Add((int)PLAYER_TYPE.ZEKE_AND_LUTHER);
+
+                int randMember = Random.Range(0, playerTypes.Count - 1);
+                newRand = playerTypes[randMember];
+            }
+            else
+            {
+                Debug.Log("Legendary Role");
+                p1AcornTop.GetComponent<Image>().sprite = legendaryTop;
+                p1AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
+                p2AcornTop.GetComponent<Image>().sprite = legendaryTop;
+                p2AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
+
+                List<int> playerTypes = new List<int>();
+                playerTypes.Add((int)PLAYER_TYPE.JOE_SIEHL);
+                newRand = playerTypes[0];
+            }
+
             if (play1Selected && player1Types.Count < 3)
             {
                 heartPump = true;
@@ -300,87 +309,87 @@ public class RandomizeManagerScript : MonoBehaviour
             if (charVal == 1)
             {
                 charImage.GetComponent<Image>().sprite = randChar1Sprite;
-                AddSprite(randChar1Sprite);
+                AddSprite(randChar1Sprite, "Hammer Man");
             }
             else if (charVal == 2)
             {
                 charImage.GetComponent<Image>().sprite = randChar2Sprite;
-                AddSprite(randChar2Sprite);
+                AddSprite(randChar2Sprite, "Bull");
             }
             else if (charVal == 3)
             {
                 charImage.GetComponent<Image>().sprite = randChar3Sprite;
-                AddSprite(randChar3Sprite);
+                AddSprite(randChar3Sprite, "Pee Shooter");
             }
             else if (charVal == 4)
             {
                 charImage.GetComponent<Image>().sprite = randChar4Sprite;
-                AddSprite(randChar4Sprite);
+                AddSprite(randChar4Sprite, "Spear");
             }
             else if (charVal == 5)
             {
                 charImage.GetComponent<Image>().sprite = randChar5Sprite;
-                AddSprite(randChar5Sprite);
+                AddSprite(randChar5Sprite, "Mine Man");
             }
             else if (charVal == 6)
             {
                 charImage.GetComponent<Image>().sprite = randChar6Sprite;
-                AddSprite(randChar6Sprite);
+                AddSprite(randChar6Sprite, "Telefrag");
             }
             else if (charVal == 7)
             {
                 charImage.GetComponent<Image>().sprite = randChar7Sprite;
-                AddSprite(randChar7Sprite);
+                AddSprite(randChar7Sprite, "Poleman");
             }
             else if (charVal == 8)
             {
                 charImage.GetComponent<Image>().sprite = randChar8Sprite;
-                AddSprite(randChar8Sprite);
+                AddSprite(randChar8Sprite, "Big Man Small Knife");
             }
             else if (charVal == 9)
             {
                 charImage.GetComponent<Image>().sprite = randChar9Sprite;
-                AddSprite(randChar9Sprite);
+                AddSprite(randChar9Sprite, "Ice Man");
             }
             else if (charVal == 10)
             {
                 charImage.GetComponent<Image>().sprite = randChar10Sprite;
-                AddSprite(randChar10Sprite);
+                AddSprite(randChar10Sprite, "Magent");
             }
             else if (charVal == 11)
             {
                 charImage.GetComponent<Image>().sprite = randChar11Sprite;
-                AddSprite(randChar11Sprite);
+                AddSprite(randChar11Sprite, "Slimer");
             }
             else if (charVal == 12)
             {
                 charImage.GetComponent<Image>().sprite = randChar12Sprite;
-                AddSprite(randChar12Sprite);
+                AddSprite(randChar12Sprite, "Flailer");
             }
             else if (charVal == 13)
             {
                 charImage.GetComponent<Image>().sprite = randChar13Sprite;
-                AddSprite(randChar13Sprite);
+                AddSprite(randChar13Sprite, "Zeke and Luther");
             }
             else if (charVal == 14)
             {
                 charImage.GetComponent<Image>().sprite = randChar14Sprite;
-                AddSprite(randChar14Sprite);
+                AddSprite(randChar14Sprite, "Tutorial Man");
             }
             else if (charVal == 15)
             {
                 charImage.GetComponent<Image>().sprite = randChar15Sprite;
-                AddSprite(randChar15Sprite);
+                AddSprite(randChar15Sprite, "Foxie");
             }
             else if (charVal == 16)
             {
                 charImage.GetComponent<Image>().sprite = randChar16Sprite;
-                AddSprite(randChar16Sprite);
+                AddSprite(randChar16Sprite, "Moon");
             }
             else if (charVal == 17)
             {
                 charImage.GetComponent<Image>().sprite = randChar17Sprite;
-                AddSprite(randChar17Sprite);
+                AddSprite(randChar17Sprite, "Joe Siehl");
             }
         }
 
@@ -389,15 +398,18 @@ public class RandomizeManagerScript : MonoBehaviour
         //Debug.Log(charImage.name + " sprite: " + charImage.GetComponent<Image>().sprite);
     }
 
-    void AddSprite(Sprite newSprite)
+    void AddSprite(Sprite newSprite, string name)
     {
         if (play1Selected)
         {
             player1Sprites.Add(newSprite);
+
+            p1CharText.GetComponent<Text>().text = name;
         }
         else
         {
             player2Sprites.Add(newSprite);
+            p2CharText.GetComponent<Text>().text = name;
         }
 
     }

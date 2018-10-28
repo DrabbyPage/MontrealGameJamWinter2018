@@ -220,11 +220,27 @@ public class SoundManagerScript : MonoBehaviour {
     }
 
 
+    public void PlayOnButtonMove()
+    {
+        float orgVolume = ASause.volume;
+        ASause.volume = 1;
+        ASause.clip = MenuHover;
+        ASause.Play();
+        ASause.volume = orgVolume;
+    }
+
+    public void PlayOnButtonSelect()
+    {
+        float orgVolume = ASause.volume;
+        ASause.volume = 1;
+         ASause.clip = MenuSelect;
+        ASause.Play();
+        ASause.volume = orgVolume;
+    }
 
 
-
-    // this function determins which player is being hit and then which record player plays the sound
-    public void PlayHitSound(bool isPlayer1)
+// this function determins which player is being hit and then which record player plays the sound
+public void PlayHitSound(bool isPlayer1)
     {
         if (isPlayer1)
         {
