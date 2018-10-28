@@ -104,7 +104,7 @@ public class BullHornsScript : MonoBehaviour
         if (isCharging)
         {
             currentPos = new Vector2(thePlayer.transform.position.x, thePlayer.transform.position.y);
-            int currentDistanceAway = Mathf.CeilToInt(Mathf.Abs(currentPos.x - originalPos.x) + Mathf.Abs(currentPos.y - originalPos.y));
+            int currentDistanceAway = Mathf.CeilToInt(Mathf.Abs(currentPos.x - originalPos.x) + Mathf.Abs(currentPos.y - originalPos.y) + 0.5f);
             //Debug.Log(currentDistanceAway);
 
             if (currentDistanceAway >= rushDistance)

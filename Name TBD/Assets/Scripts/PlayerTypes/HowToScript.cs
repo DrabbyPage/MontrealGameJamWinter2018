@@ -12,7 +12,9 @@ public class HowToScript : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             //col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce);//, ForceMode2D.Force);
-            col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
+
+            Vector2 difference = col.gameObject.transform.position - gameObject.transform.position;
+            col.gameObject.GetComponent<BoopScript>().Booped(difference, boopForce);
         }
     }
 }
