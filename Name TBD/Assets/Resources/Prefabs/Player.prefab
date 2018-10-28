@@ -1877,7 +1877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireTime: 0.15
   peashooter: 1
-  peaBoopForce: 75
+  peaBoopForce: 120
   allowedShots: 4
   cooldownTime: 35
 --- !u!114 &114364628932701586
@@ -1994,7 +1994,7 @@ MonoBehaviour:
     dashStopSpeed: 0
     dashDistance: 0
     dashCoolDownTime: 0
-  charType: 16
+  charType: 3
   moveSpeed: 80
   rotationSpeed: 15
   canAct: 1
