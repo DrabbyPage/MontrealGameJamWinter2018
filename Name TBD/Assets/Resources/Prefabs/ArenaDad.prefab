@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212336164157587790}
   - component: {fileID: 114874384552582330}
   - component: {fileID: 58125374820072268}
+  - component: {fileID: 95312677839695646}
   m_Layer: 8
   m_Name: Arena
   m_TagString: Arena
@@ -90,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1735820687871928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.066717386, y: -0.3370857, z: 10}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4860662199798904}
@@ -152,7 +153,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.55
 --- !u!58 &58125374820072268
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -167,7 +168,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.55
 --- !u!58 &58643273932820256
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -182,7 +183,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.50000006
+  m_Radius: 0.55
 --- !u!95 &95258201699888906
 Animator:
   serializedVersion: 3
@@ -190,6 +191,24 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1581942617600034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fef718e1968516e489286f22297bf74f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &95312677839695646
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122725478826096}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: fef718e1968516e489286f22297bf74f, type: 2}
@@ -241,8 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2381c63a9186f9f48820503dbefd6722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringFlashTime: 1.5
-  timeToDrop: 5
+  ringFlashTime: 1.2
+  timeToDrop: 6
   arenaRings:
   - {fileID: 1122725478826096}
   - {fileID: 1581942617600034}
