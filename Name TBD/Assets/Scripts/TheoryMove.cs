@@ -39,7 +39,9 @@ public class TheoryMove : MonoBehaviour
         BIG_POLE = 6,
         SMALL_KNIFE = 7,
         ICE_DA_ICEMANE = 8,
-        MAGNET = 9
+        MAGNET = 9,
+        SLIME = 10,
+        FLAIL = 11
         
         // ETC.
     };
@@ -186,6 +188,23 @@ public class TheoryMove : MonoBehaviour
                 transform.GetChild(7).gameObject.SetActive(true);
                 heldItem = transform.GetChild(7).gameObject;
                 break;
+            case PLAYER_TYPE.ICE_DA_ICEMANE:
+                transform.GetChild(8).gameObject.SetActive(true);
+                heldItem = transform.GetChild(8).gameObject;
+                break;
+            case PLAYER_TYPE.MAGNET:
+                transform.GetChild(9).gameObject.SetActive(true);
+                heldItem = transform.GetChild(9).gameObject;
+                break;
+            case PLAYER_TYPE.SLIME:
+                transform.GetChild(10).gameObject.SetActive(true);
+                heldItem = transform.GetChild(10).gameObject;
+                break;
+            case PLAYER_TYPE.FLAIL:
+                moveSpeed /= 2;
+                transform.GetChild(11).gameObject.SetActive(true);
+                heldItem = transform.GetChild(11).gameObject;
+                break;
         }
     }
 
@@ -223,6 +242,18 @@ public class TheoryMove : MonoBehaviour
                     break;
                 case PLAYER_TYPE.SMALL_KNIFE:
                     heldItem.GetComponent<HammerScript>().SpinHeldObject();
+                    break;
+                case PLAYER_TYPE.ICE_DA_ICEMANE:
+                    heldItem.GetComponent<IcePlacerScirpt>().PeformAction();
+                    break;
+                case PLAYER_TYPE.MAGNET:
+                    heldItem.GetComponent<MagnetScript>().ReversePolarity();
+                    break;
+                case PLAYER_TYPE.SLIME:
+                    heldItem.GetComponent<SlimePlaceScript>().PeformAction();
+                    break;
+                case PLAYER_TYPE.FLAIL:
+                    heldItem.GetComponent<FlailScript>().SpinFaster();
                     break;
             }
         }
