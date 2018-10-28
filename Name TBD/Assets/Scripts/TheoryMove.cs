@@ -102,18 +102,8 @@ public class TheoryMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        CheckSprite();
-        CheckHeldObject();
         CheckForInput();
         RotatePlayer();
-    }
-
-    void CheckSprite()
-    {
-        if (currentPlayer == "P1")
-            gameObject.GetComponent<SpriteRenderer>().sprite = GameManager.getInstance().GetPlayersSprite(1);
-        else if (currentPlayer == "P2")
-            gameObject.GetComponent<SpriteRenderer>().sprite = GameManager.getInstance().GetPlayersSprite(2);
     }
 
     // checking for movement input
@@ -183,13 +173,13 @@ public class TheoryMove : MonoBehaviour
                 heldItem.GetComponent<BullHornsScript>().SetPlayerValues(this.gameObject, rb);
                 break;
             case PLAYER_TYPE.BIG_POLE:
-                moveSpeed /= 4;
+                moveSpeed = 30;
                 transform.GetChild(6).gameObject.SetActive(true);
                 heldItem = transform.GetChild(6).gameObject;
                 break;
             case PLAYER_TYPE.SMALL_KNIFE:
-                transform.localScale += new Vector3(1, 1, 0);
-                moveSpeed *= 1.25f;
+                transform.localScale = new Vector3(2, 2, 0);
+                moveSpeed = 150f;
                 transform.GetChild(7).gameObject.SetActive(true);
                 heldItem = transform.GetChild(7).gameObject;
                 break;
@@ -206,12 +196,12 @@ public class TheoryMove : MonoBehaviour
                 heldItem = transform.GetChild(10).gameObject;
                 break;
             case PLAYER_TYPE.FLAIL:
-                moveSpeed /= 2;
+                moveSpeed = 60;
                 transform.GetChild(11).gameObject.SetActive(true);
                 heldItem = transform.GetChild(11).gameObject;
                 break;
             case PLAYER_TYPE.ZEKE_AND_LUTHER:
-                moveSpeed *= 1.25f;
+                moveSpeed = 150f;
                 transform.GetChild(12).gameObject.SetActive(true);
                 heldItem = transform.GetChild(12).gameObject;
                 heldItem.GetComponent<ZLScript>().SetPlayerValues(this.gameObject, rb);
@@ -325,6 +315,21 @@ public class TheoryMove : MonoBehaviour
 
     public void SetPlayerType(int newType)
     {
-        charType = (PLAYER_TYPE)newType;
+        //Debug.Log(newType);
+
+        if(newType > 0)
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.localScale = new Vector3(1, 1, 0);
+
+            charType = (PLAYER_TYPE)newType;
+
+            if (heldItem != null && heldItem.activeInHierarchy == true)
+            {
+                heldItem.SetActive(false);
+            }
+            CheckHeldObject();
+        }
+
     }
 }

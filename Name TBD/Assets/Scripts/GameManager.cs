@@ -107,8 +107,8 @@ public class GameManager : MonoBehaviour {
     {
         if (!containerFilled)
             SetCharValue();
-        else
-            SetPlayerValues();
+       // else
+            //SetPlayerValues();
 
         ArenaUpdate();
         RoundUpdate();
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour {
             playerData.player1.GetComponent<TheoryMove>().SetPlayerType(InfoHolder.getInstance().holdersHolder.player1Indexes[p1DeadCounter]);
             playerData.player1.GetComponent<SpriteRenderer>().sprite = InfoHolder.getInstance().holdersHolder.player1Sprites[p1DeadCounter];
         }
-        if (playerData.player1 != null)
+        if (playerData.player2 != null)
         {
             playerData.player2.GetComponent<TheoryMove>().SetPlayerType(InfoHolder.getInstance().holdersHolder.player2Indexes[p2DeadCounter]);
             playerData.player2.GetComponent<SpriteRenderer>().sprite = InfoHolder.getInstance().holdersHolder.player2Sprites[p2DeadCounter];
@@ -174,6 +174,8 @@ public class GameManager : MonoBehaviour {
             newRound = false;
             playerData.player1.GetComponent<TheoryMove>().enabled = false;
             playerData.player2.GetComponent<TheoryMove>().enabled = false;
+
+            SetPlayerValues();
 
             matchData.roundPanel.SetActive(true);
             matchData.roundText.text = "ROUND START";
@@ -271,7 +273,6 @@ public class GameManager : MonoBehaviour {
                     Debug.Log("P2 win");
                     playerData.player2Wins++;
                     matchData.p2WinMarks[playerData.player2Wins - 1].color = Color.red;
-                    //p1DeadCounter++;
                     winText = "PLAYER 2 WINS ROUND";
                 }
                 else if (playerData.player2Dead)
@@ -281,10 +282,10 @@ public class GameManager : MonoBehaviour {
                     Debug.Log("P1 win");
                     playerData.player1Wins++;
                     matchData.p2WinMarks[playerData.player1Wins - 1].color = Color.red;
-                    //p2DeadCounter++;
                     winText = "PLAYER 1 WINS ROUND";
                 }
-                else if(playerData.player1Dead && playerData.player2Dead)
+
+                if(playerData.player1Dead && playerData.player2Dead)
                 {
                     newRoundStarted = false;
 
@@ -294,8 +295,6 @@ public class GameManager : MonoBehaviour {
 
                 playerData.player1Dead = false;
                 playerData.player2Dead = false;
-                //p1DeadCounter = 0;
-                //p2DeadCounter = 0;
 
 
                 newRound = true;
@@ -351,6 +350,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            Debug.Log("Character is null");
             return true;// only temperary
         }
 

@@ -1645,8 +1645,8 @@ MonoBehaviour:
     - {fileID: 63850005}
     p2WinMarks:
     - {fileID: 1989919516}
-    - {fileID: 1347055865}
     - {fileID: 568478408}
+    - {fileID: 1347055865}
   newRoundStarted: 0
   infoContainer:
     player1Indexes: 
