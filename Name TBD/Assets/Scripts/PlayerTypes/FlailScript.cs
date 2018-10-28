@@ -100,7 +100,6 @@ public class FlailScript : MonoBehaviour {
     public void DisableSpin()
     {
         cannotSpin = true;
-        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     public void EnableSpin()
