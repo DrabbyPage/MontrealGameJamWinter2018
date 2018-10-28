@@ -14,6 +14,9 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioClip CoolDownClip;
     public AudioClip Hit_snd;
 
+    [Header("Peashooter")]
+    public AudioClip PeaShoot;
+
     public AudioClip MenuSelect;
     public AudioClip MenuHover;
 
@@ -51,6 +54,12 @@ public class SoundManagerScript : MonoBehaviour {
 
     [Header("music record players")]
     public AudioSource MusicRecordPlayer;
+    /*
+    [Header("projectile players")]
+    public AudioSource peaShootSnd;
+    public AudioSource Spear;
+    */
+
 
 
     private void Awake()
@@ -99,16 +108,42 @@ public class SoundManagerScript : MonoBehaviour {
 
     //*************** BULL SOUNDS ********************
 
-    public void MooSound()
+    public void MooSound(bool isPlayer1)
     {
-        
+        if (isPlayer1)
+        {
+            // basically the tape in the player
+            ASause.clip = Moo;
+            //this actually players whatever clip is loaded into the source
+            ASause.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2GeneralSource.clip = Moo;
+            Player2GeneralSource.Play();
+        }
             
 
-
+        /*
         // basically the tape in the player
         ASause.clip = Moo;
         //this actually players whatever clip is loaded into the source
-        ASause.Play();
+        ASause.Play();*/
+    }
+
+    //*************** PEA SHOOTER SOUNDS ********************
+    public void PeaShootSoundPlay(bool isPlayer1)
+    {
+        if (isPlayer1)
+        {
+            ASause.clip = PeaShoot;
+            ASause.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2GeneralSource.clip = PeaShoot;
+            Player2GeneralSource.Play();
+        }
     }
 
     // this function determins which player is being hit and then which record player plays the sound

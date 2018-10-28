@@ -41,12 +41,20 @@ public class HammerScript : MonoBehaviour {
         if (spinCounter == allowedSpins)
         {
             cooldownCounter++;
+            // change player color grey to indicate cool down
+            GetComponentInParent<SpriteRenderer>().color = Color.grey;
 
             // If the player's cooldown is at max, allow the player to act again
             if (cooldownCounter >= cooldownTime)
             {
                 cooldownCounter = 0;
                 spinCounter = 0;
+
+                //set the skin color back to normal
+                GetComponentInParent<SpriteRenderer>().color = Color.white;
+                //plays the ready clip from the sound manager
+                if (SoundManagerScript.instance != null)
+                    SoundManagerScript.instance.EndCoolDownSound();
             }
         }
     }
@@ -85,6 +93,16 @@ public class HammerScript : MonoBehaviour {
         {
             //col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce);//, ForceMode2D.Force);
             col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, BoopForce);
+
+            //get the player that's being collided and determin which sound suarce is played out of
+            if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.PlayHitSound(true);
+            }
+            if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.PlayHitSound(false);
+            }
         }
 
     }
