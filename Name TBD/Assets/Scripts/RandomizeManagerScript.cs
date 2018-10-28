@@ -228,6 +228,9 @@ public class RandomizeManagerScript : MonoBehaviour
             p2AcornTop.GetComponent<Image>().sprite = rareTop;
             p2AcornBottom.GetComponent<Image>().sprite = rareBottom;
 
+            p1AcornBottom.GetComponent<Animator>().enabled = true;
+            p2AcornBottom.GetComponent<Animator>().enabled = true;
+
             List<int> playerTypes = new List<int>();
             playerTypes.Add((int)PLAYER_TYPE.MAGNET);
             playerTypes.Add((int)PLAYER_TYPE.FLAIL);
@@ -243,9 +246,6 @@ public class RandomizeManagerScript : MonoBehaviour
             p1AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
             p2AcornTop.GetComponent<Image>().sprite = legendaryTop;
             p2AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
-
-            p1AcornBottom.GetComponent<Animator>().enabled = true;
-            p2AcornBottom.GetComponent<Animator>().enabled = true;
 
             List<int> playerTypes = new List<int>();
             playerTypes.Add((int)PLAYER_TYPE.JOE_SIEHL);

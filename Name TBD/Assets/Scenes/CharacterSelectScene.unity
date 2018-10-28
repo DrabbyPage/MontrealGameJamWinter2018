@@ -424,10 +424,10 @@ MonoBehaviour:
   commonBottom: {fileID: 21300000, guid: ccafd9ef67eaf244abe7c1e0e876cce9, type: 3}
   uncommonTop: {fileID: 21300000, guid: 55a6f1c365dd73246a2b1450b621a5f3, type: 3}
   uncommonBottom: {fileID: 21300000, guid: 8f9e9164cc5474d46abdf6ef66a15250, type: 3}
-  rareTop: {fileID: 21300000, guid: 11e1e0dddb197ca459050576f6ea0b89, type: 3}
-  rareBottom: {fileID: 21300000, guid: aa6b010bff4b5d54da7e157579996845, type: 3}
-  legendaryTop: {fileID: 21300000, guid: 585330ac83e74404ca71adec4edfbe46, type: 3}
-  legendaryBottom: {fileID: 21300000, guid: 6492147dc6cf6ca4687fd19cf6ee04a8, type: 3}
+  rareTop: {fileID: 21300000, guid: 585330ac83e74404ca71adec4edfbe46, type: 3}
+  rareBottom: {fileID: 21300000, guid: 6492147dc6cf6ca4687fd19cf6ee04a8, type: 3}
+  legendaryTop: {fileID: 21300000, guid: 11e1e0dddb197ca459050576f6ea0b89, type: 3}
+  legendaryBottom: {fileID: 21300000, guid: ccafd9ef67eaf244abe7c1e0e876cce9, type: 3}
 --- !u!4 &539571788
 Transform:
   m_ObjectHideFlags: 0
