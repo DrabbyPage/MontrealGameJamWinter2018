@@ -64,6 +64,8 @@ public class TheoryMove : MonoBehaviour
     [SerializeField]
     float moveSpeed = 120.0f;
 
+    float origSpeed;
+
     [SerializeField]
     float rotationSpeed;
 
@@ -90,7 +92,7 @@ public class TheoryMove : MonoBehaviour
 
     void Start ()
     {
-
+        origSpeed = 120f;
     }
 	
 	// Update is called once per frame
@@ -316,20 +318,21 @@ public class TheoryMove : MonoBehaviour
     public void SetPlayerType(int newType)
     {
         //Debug.Log(newType);
+        gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        transform.localScale = new Vector3(1, 1, 0);
+        moveSpeed = origSpeed;
 
-        if(newType > 0)
+        if (newType > 0)
         {
-            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
-            transform.localScale = new Vector3(1, 1, 0);
-
             charType = (PLAYER_TYPE)newType;
 
-            if (heldItem != null && heldItem.activeInHierarchy == true)
-            {
-                heldItem.SetActive(false);
-            }
-            CheckHeldObject();
         }
 
+        if (heldItem != null && heldItem.activeInHierarchy == true)
+        {
+            heldItem.SetActive(false);
+        }
+
+        CheckHeldObject();
     }
 }
