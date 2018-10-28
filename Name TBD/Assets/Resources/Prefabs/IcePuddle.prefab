@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4727296752798328}
   - component: {fileID: 212852052154363364}
   - component: {fileID: 58490203878408962}
-  - component: {fileID: 114914812380773704}
+  - component: {fileID: 114411575244273584}
+  - component: {fileID: 50563005158735458}
   m_Layer: 0
   m_Name: IcePuddle
   m_TagString: Untagged
@@ -37,11 +38,31 @@ Transform:
   m_GameObject: {fileID: 1734864592650560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8117025, y: 0.043441065, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50563005158735458
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734864592650560}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: f6cdf008d135b6248927c2d89e982abf, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &58490203878408962
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -57,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114914812380773704
+--- !u!114 &114411575244273584
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,7 +86,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1734864592650560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c853829bd0612ed418cbf13c9e08eacb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2723e7209b09d8b49b6a83783aaf600f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212852052154363364
@@ -102,7 +123,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 0ba3700792ff0465c8a006dd4b301b42, type: 3}
   m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0

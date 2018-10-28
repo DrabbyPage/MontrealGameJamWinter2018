@@ -148,7 +148,11 @@ public class GameManager : MonoBehaviour {
         playerData.player1.GetComponent<TheoryMove>().enabled = false;
         playerData.player2.GetComponent<TheoryMove>().enabled = false;
 
-        winText = "PLAYER 2 WINS";
+        if (playerData.player2Wins > playerData.player1Wins)
+            winText = "PLAYER 2 WINS";
+        else
+            winText = "PLAYER 2 WINS";
+
         matchData.roundPanel.SetActive(false);
         matchData.matchPanel.SetActive(true);
 
