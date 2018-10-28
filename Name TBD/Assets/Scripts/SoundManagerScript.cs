@@ -5,12 +5,19 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour {
     public static SoundManagerScript instance;
 
-    [Header("Audio clips")]
+    [Header("AUDIO CLIPS")]
+
+    [Header("character sounds")]
+
+    [Header("universal sounds")]
     public AudioClip ReadyClip;
     public AudioClip CoolDownClip;
-    public AudioClip Moo;
+    public AudioClip Hit_snd;
+
     public AudioClip MenuSelect;
     public AudioClip MenuHover;
+
+    public AudioClip Moo;
 
     public AudioClip Dash0Snd;
     public AudioClip Explosion;
@@ -21,13 +28,23 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioClip GotchaGetsUncommon;
     public AudioClip GotchaGetsUncommon2;
     public AudioClip HeartBeat;
-    public AudioClip Hit_snd;
+
     public AudioClip SpearLand;
     public AudioClip SpearThrow;
     public AudioClip TreeFight;
 
+    [Header("RECORD PLAYERS")]
+    [Header("player 1 specific record players")]
+    public AudioSource ASause; //this is player 1's source
+    public AudioSource Player1Walking;
+    public AudioSource Player1Hits;
 
-    public AudioSource ASause;
+    [Header("player 1 specific record players")]
+    public AudioSource Player2GeneralSource; 
+    public AudioSource Player2Walking;
+    public AudioSource Player2Hits;
+
+
 
     private void Awake()
     {
@@ -61,6 +78,9 @@ public class SoundManagerScript : MonoBehaviour {
 
     }
 
+
+    //*************** UNIVERSAL SOUNDS***************
+
     public void EndCoolDownSound()
     {
         // basically the tape in the player
@@ -69,12 +89,32 @@ public class SoundManagerScript : MonoBehaviour {
         ASause.Play();
     }
 
+    //*************** BULL SOUNDS ********************
+
     public void MooSound()
     {
+        
+            
+
+
         // basically the tape in the player
         ASause.clip = Moo;
         //this actually players whatever clip is loaded into the source
         ASause.Play();
+    }
+
+    public void PlayHitSound(bool isPlayer1)
+    {
+        if (isPlayer1)
+        {
+            Player1Hits.clip = Hit_snd;
+            Player1Hits.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2Hits.clip = Hit_snd;
+            Player2Hits.Play();
+        }
     }
 
 }
