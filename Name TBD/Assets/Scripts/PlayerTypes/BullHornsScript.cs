@@ -30,7 +30,9 @@ public class BullHornsScript : MonoBehaviour
     [SerializeField]
     int allowedCharges = 2;
     private int chargeCounter = 0;
-	
+
+    SpriteRenderer sr;
+
 	// Update is called once per frame
 	void FixedUpdate ()
     {
@@ -53,12 +55,18 @@ public class BullHornsScript : MonoBehaviour
         if (chargeCounter == allowedCharges)
         {
             cooldownCounter++;
+            // change player color grey to indicate cool down
+            GetComponentInParent<SpriteRenderer>().color = Color.grey;
 
             // If the player's cooldown is at max, allow the player to act again
             if (cooldownCounter >= cooldownTime)
             {
                 cooldownCounter = 0;
                 chargeCounter = 0;
+                
+                //set the skin color back to normal
+                GetComponentInParent<SpriteRenderer>().color = Color.white;
+
             }
         }
     }
