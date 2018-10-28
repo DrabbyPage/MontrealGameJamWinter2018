@@ -30,12 +30,17 @@ public class ZLScript : MonoBehaviour
     int allowedCharges = 1;
     private int chargeCounter = 0;
 
+    private bool noVelocity = false;
+
     // Update is called once per frame
     void FixedUpdate()
     {
         CheckCooldown();
 
-        playerRB.AddForce(new Vector2(increasedSpeed.x, increasedSpeed.y));
+        if (!noVelocity)
+        {
+            playerRB.AddForce(new Vector2(increasedSpeed.x, increasedSpeed.y));
+        }
     }
 
     public void SetPlayerValues(GameObject player, Rigidbody2D rb)
@@ -81,5 +86,15 @@ public class ZLScript : MonoBehaviour
 
             chargeCounter++;
         }
+    }
+
+    public void DisableVelocity ()
+    {
+        noVelocity = true;
+    }
+
+    public void EnableVelocity()
+    {
+        noVelocity = false;
     }
 }

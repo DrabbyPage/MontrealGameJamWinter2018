@@ -97,6 +97,7 @@ public class TheoryMove : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        CheckCanAct();
         PerformAction();
 	}
 
@@ -136,6 +137,36 @@ public class TheoryMove : MonoBehaviour
                 // left side on left sick
                 //gameObject.GetComponent<Rigidbody2D>().AddForce(-gameObject.transform.up * moveSpeed);
                 gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector3.up * moveSpeed);
+            }
+        }
+    }
+
+    // Checks whether or not a player is capable of performing an action
+    void CheckCanAct()
+    {
+        if (!canAct)
+        {
+            switch (charType)
+            {
+                case PLAYER_TYPE.FLAIL:
+                    heldItem.GetComponent<FlailScript>().DisableSpin();
+                    break;
+                case PLAYER_TYPE.ZEKE_AND_LUTHER:
+                    heldItem.GetComponent<ZLScript>().DisableVelocity();
+                    break;
+            }
+        }
+
+        else
+        {
+            switch (charType)
+            {
+                case PLAYER_TYPE.FLAIL:
+                    heldItem.GetComponent<FlailScript>().EnableSpin();
+                    break;
+                case PLAYER_TYPE.ZEKE_AND_LUTHER:
+                    heldItem.GetComponent<ZLScript>().EnableVelocity();
+                    break;
             }
         }
     }

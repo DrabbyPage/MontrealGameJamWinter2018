@@ -194,6 +194,8 @@ public class GameManager : MonoBehaviour {
             playerData.player1.GetComponent<TheoryMove>().enabled = false;
             playerData.player2.GetComponent<TheoryMove>().enabled = false;
 
+            playerData.player1.GetComponent<TheoryMove>().canAct = false;
+            playerData.player2.GetComponent<TheoryMove>().canAct = false;
 
             SetPlayerValues();
 
@@ -223,6 +225,8 @@ public class GameManager : MonoBehaviour {
                 playerData.player1.GetComponent<TheoryMove>().enabled = true;
                 playerData.player2.GetComponent<TheoryMove>().enabled = true;
 
+                playerData.player1.GetComponent<TheoryMove>().canAct = true;
+                playerData.player2.GetComponent<TheoryMove>().canAct = true;
             }
         }
 
