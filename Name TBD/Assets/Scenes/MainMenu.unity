@@ -542,8 +542,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: PlayMenuHover
+        - m_Target: {fileID: 2007687030}
+          m_MethodName: PlayOnButtonMove
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -608,8 +608,8 @@ MonoBehaviour:
           m_StringArgument: Gallery
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayMenuSelect
+      - m_Target: {fileID: 2007687030}
+        m_MethodName: PlayOnButtonSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -920,8 +920,8 @@ MonoBehaviour:
           m_StringArgument: HowTo
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayMenuSelect
+      - m_Target: {fileID: 2007687030}
+        m_MethodName: PlayOnButtonSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -983,8 +983,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: PlayMenuHover
+        - m_Target: {fileID: 2007687030}
+          m_MethodName: PlayOnButtonMove
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1231,8 +1231,8 @@ MonoBehaviour:
           m_StringArgument: QuitScene
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayMenuSelect
+      - m_Target: {fileID: 2007687030}
+        m_MethodName: PlayOnButtonSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1294,8 +1294,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: PlayMenuHover
+        - m_Target: {fileID: 2007687030}
+          m_MethodName: PlayOnButtonMove
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1305,12 +1305,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 9
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -1404,8 +1398,8 @@ MonoBehaviour:
           m_StringArgument: CharacterSelectScene
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayMenuSelect
+      - m_Target: {fileID: 2007687030}
+        m_MethodName: PlayOnButtonSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1467,8 +1461,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: PlayMenuHover
+        - m_Target: {fileID: 2007687030}
+          m_MethodName: PlayOnButtonMove
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

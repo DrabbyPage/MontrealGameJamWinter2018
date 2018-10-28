@@ -151,7 +151,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3175d93b91d68b149a8f1dd67fb7fa4c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
@@ -729,11 +729,11 @@ MonoBehaviour:
   PeaShoot: {fileID: 8300000, guid: 764487b44fdae8b45babf9eb59c8dcca, type: 3}
   SpearLand: {fileID: 8300000, guid: 79b668ff1e61f8d4aa72a84ac6c90e88, type: 3}
   SpearThrow: {fileID: 8300000, guid: e0b15681e6abea2439c077d91d6e9d8b, type: 3}
+  Explosion: {fileID: 8300000, guid: 3f35f477000f9bd45a0a347e43646725, type: 3}
   MenuSelect: {fileID: 8300000, guid: 3175d93b91d68b149a8f1dd67fb7fa4c, type: 3}
   MenuHover: {fileID: 8300000, guid: 939febd153c58864a941e3fbb26f88f1, type: 3}
   Moo: {fileID: 8300000, guid: e0b15681e6abea2439c077d91d6e9d8b, type: 3}
   Dash0Snd: {fileID: 8300000, guid: 41ba48cac0ec21949b0eb48c15414adb, type: 3}
-  Explosion: {fileID: 8300000, guid: 3f35f477000f9bd45a0a347e43646725, type: 3}
   GotchaGetsCommon: {fileID: 8300000, guid: 7d4f4a0d883b65b48ae203b66df87095, type: 3}
   GotchaGetsRare: {fileID: 8300000, guid: 31f02eb70187dcc4584d016603ab4829, type: 3}
   GotchaGetsUncommon: {fileID: 8300000, guid: 50b5f498bd628904b816db9831c3029c, type: 3}
