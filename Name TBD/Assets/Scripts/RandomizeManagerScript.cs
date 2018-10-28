@@ -176,83 +176,83 @@ public class RandomizeManagerScript : MonoBehaviour
 
     public void RandomizeForPlayer()
     {
-        int newRand;
-        int randomPool = Random.Range(1, 100);
-
-        if (randomPool > 0 && randomPool < 50)
-        {
-            Debug.Log("Common Role");
-
-            p1AcornTop.GetComponent<Image>().sprite = commonTop;
-            p1AcornBottom.GetComponent<Image>().sprite = commonBottom;
-            p2AcornTop.GetComponent<Image>().sprite = commonTop;
-            p2AcornBottom.GetComponent<Image>().sprite = commonBottom;
-
-            List<int> playerTypes = new List<int>();
-            playerTypes.Add((int)PLAYER_TYPE.HOW_TO);
-            playerTypes.Add((int)PLAYER_TYPE.SPIN);
-            playerTypes.Add((int)PLAYER_TYPE.BULL_RUSH);
-            playerTypes.Add((int)PLAYER_TYPE.PEASHOOTER);
-            playerTypes.Add((int)PLAYER_TYPE.SMALL_KNIFE);
-            playerTypes.Add((int)PLAYER_TYPE.MINER);
-
-            int randMember = Random.Range(0, playerTypes.Count - 1);
-            newRand = playerTypes[randMember];
-        }
-        else if (randomPool >= 50 && randomPool < 85)
-        {
-            Debug.Log("Uncommon Role");
-
-            p1AcornTop.GetComponent<Image>().sprite = uncommonTop;
-            p1AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
-            p2AcornTop.GetComponent<Image>().sprite = uncommonTop;
-            p2AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
-
-            List<int> playerTypes = new List<int>();
-            playerTypes.Add((int)PLAYER_TYPE.SPEAR);
-            playerTypes.Add((int)PLAYER_TYPE.SLIME);
-            playerTypes.Add((int)PLAYER_TYPE.TELEFRAG);
-            playerTypes.Add((int)PLAYER_TYPE.MOON);
-            playerTypes.Add((int)PLAYER_TYPE.ICE_DA_ICEMANE);
-            playerTypes.Add((int)PLAYER_TYPE.BIG_POLE);
-
-            int randMember = Random.Range(0, playerTypes.Count - 1);
-            newRand = playerTypes[randMember];
-        }
-        else if(randomPool >= 85 && randomPool <= 99)
-        {
-            Debug.Log("Rare Role");
-            p1AcornTop.GetComponent<Image>().sprite = rareTop;
-            p1AcornBottom.GetComponent<Image>().sprite = rareBottom;
-            p2AcornTop.GetComponent<Image>().sprite = rareTop;
-            p2AcornBottom.GetComponent<Image>().sprite = rareBottom;
-
-            p1AcornBottom.GetComponent<Animator>().enabled = true;
-            p2AcornBottom.GetComponent<Animator>().enabled = true;
-
-            List<int> playerTypes = new List<int>();
-            playerTypes.Add((int)PLAYER_TYPE.MAGNET);
-            playerTypes.Add((int)PLAYER_TYPE.FLAIL);
-            playerTypes.Add((int)PLAYER_TYPE.ZEKE_AND_LUTHER);
-
-            int randMember = Random.Range(0, playerTypes.Count - 1);
-            newRand = playerTypes[randMember];
-        }
-        else 
-        {
-            Debug.Log("Legendary Role");
-            p1AcornTop.GetComponent<Image>().sprite = legendaryTop;
-            p1AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
-            p2AcornTop.GetComponent<Image>().sprite = legendaryTop;
-            p2AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
-
-            List<int> playerTypes = new List<int>();
-            playerTypes.Add((int)PLAYER_TYPE.JOE_SIEHL);
-            newRand = playerTypes[0];
-        }
-
         if (heartPump == false && acornOpen == false)
         {
+            int newRand;
+            int randomPool = Random.Range(1, 100);
+
+            if (randomPool > 0 && randomPool < 50)
+            {
+                Debug.Log("Common Role");
+
+                p1AcornTop.GetComponent<Image>().sprite = commonTop;
+                p1AcornBottom.GetComponent<Image>().sprite = commonBottom;
+                p2AcornTop.GetComponent<Image>().sprite = commonTop;
+                p2AcornBottom.GetComponent<Image>().sprite = commonBottom;
+
+                List<int> playerTypes = new List<int>();
+                playerTypes.Add((int)PLAYER_TYPE.HOW_TO);
+                playerTypes.Add((int)PLAYER_TYPE.SPIN);
+                playerTypes.Add((int)PLAYER_TYPE.BULL_RUSH);
+                playerTypes.Add((int)PLAYER_TYPE.PEASHOOTER);
+                playerTypes.Add((int)PLAYER_TYPE.SMALL_KNIFE);
+                playerTypes.Add((int)PLAYER_TYPE.MINER);
+
+                int randMember = Random.Range(0, playerTypes.Count - 1);
+                newRand = playerTypes[randMember];
+            }
+            else if (randomPool >= 50 && randomPool < 85)
+            {
+                Debug.Log("Uncommon Role");
+
+                p1AcornTop.GetComponent<Image>().sprite = uncommonTop;
+                p1AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
+                p2AcornTop.GetComponent<Image>().sprite = uncommonTop;
+                p2AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
+
+                List<int> playerTypes = new List<int>();
+                playerTypes.Add((int)PLAYER_TYPE.SPEAR);
+                playerTypes.Add((int)PLAYER_TYPE.SLIME);
+                playerTypes.Add((int)PLAYER_TYPE.TELEFRAG);
+                playerTypes.Add((int)PLAYER_TYPE.MOON);
+                playerTypes.Add((int)PLAYER_TYPE.ICE_DA_ICEMANE);
+                playerTypes.Add((int)PLAYER_TYPE.BIG_POLE);
+
+                int randMember = Random.Range(0, playerTypes.Count - 1);
+                newRand = playerTypes[randMember];
+            }
+            else if (randomPool >= 85 && randomPool <= 99)
+            {
+                Debug.Log("Rare Role");
+                p1AcornTop.GetComponent<Image>().sprite = rareTop;
+                p1AcornBottom.GetComponent<Image>().sprite = rareBottom;
+                p2AcornTop.GetComponent<Image>().sprite = rareTop;
+                p2AcornBottom.GetComponent<Image>().sprite = rareBottom;
+
+                p1AcornBottom.GetComponent<Animator>().enabled = true;
+                p2AcornBottom.GetComponent<Animator>().enabled = true;
+
+                List<int> playerTypes = new List<int>();
+                playerTypes.Add((int)PLAYER_TYPE.MAGNET);
+                playerTypes.Add((int)PLAYER_TYPE.FLAIL);
+                playerTypes.Add((int)PLAYER_TYPE.ZEKE_AND_LUTHER);
+
+                int randMember = Random.Range(0, playerTypes.Count - 1);
+                newRand = playerTypes[randMember];
+            }
+            else
+            {
+                Debug.Log("Legendary Role");
+                p1AcornTop.GetComponent<Image>().sprite = legendaryTop;
+                p1AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
+                p2AcornTop.GetComponent<Image>().sprite = legendaryTop;
+                p2AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
+
+                List<int> playerTypes = new List<int>();
+                playerTypes.Add((int)PLAYER_TYPE.JOE_SIEHL);
+                newRand = playerTypes[0];
+            }
+
             if (play1Selected && player1Types.Count < 3)
             {
                 heartPump = true;
