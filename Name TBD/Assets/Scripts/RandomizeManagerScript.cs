@@ -148,16 +148,10 @@ public class RandomizeManagerScript : MonoBehaviour
         if(play1Selected)
         {
             p1Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
-
-            //p1Acorn.GetComponent<Animator>().SetBool("IsFalling", acornFalling);
-            //p1Acorn.GetComponent<Animator>().SetBool("IsOpening", acornOpen);
         }
         else
         {
             p2Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
-
-            //p2Acorn.GetComponent<Animator>().SetBool("IsFalling", acornFalling);
-            //p2Acorn.GetComponent<Animator>().SetBool("IsOpening", acornOpen);
         }
     }
 
@@ -179,9 +173,60 @@ public class RandomizeManagerScript : MonoBehaviour
     public void RandomizeForPlayer()
     {
         int newRand;
-        newRand = Random.Range(1, numOfChar);
+        int randomPool = Random.Range(1, 100);
 
-        if(heartPump == false && acornOpen == false)
+        if (randomPool > 0 && randomPool < 50)
+        {
+            Debug.Log("Common Role");
+
+            List<int> playerTypes = new List<int>();
+            playerTypes.Add((int)PLAYER_TYPE.HOW_TO);
+            playerTypes.Add((int)PLAYER_TYPE.SPIN);
+            playerTypes.Add((int)PLAYER_TYPE.BULL_RUSH);
+            playerTypes.Add((int)PLAYER_TYPE.PEASHOOTER);
+            playerTypes.Add((int)PLAYER_TYPE.SMALL_KNIFE);
+            playerTypes.Add((int)PLAYER_TYPE.MINER);
+
+            int randMember = Random.Range(0, playerTypes.Count - 1);
+            newRand = playerTypes[randMember];
+        }
+        else if (randomPool >= 50 && randomPool < 85)
+        {
+            Debug.Log("Uncommon Role");
+
+            List<int> playerTypes = new List<int>();
+            playerTypes.Add((int)PLAYER_TYPE.SPEAR);
+            playerTypes.Add((int)PLAYER_TYPE.SLIME);
+            playerTypes.Add((int)PLAYER_TYPE.TELEFRAG);
+            playerTypes.Add((int)PLAYER_TYPE.MOON);
+            playerTypes.Add((int)PLAYER_TYPE.ICE_DA_ICEMANE);
+            playerTypes.Add((int)PLAYER_TYPE.BIG_POLE);
+
+            int randMember = Random.Range(0, playerTypes.Count - 1);
+            newRand = playerTypes[randMember];
+        }
+        else if(randomPool >= 85 && randomPool <= 99)
+        {
+            Debug.Log("Rare Role");
+
+            List<int> playerTypes = new List<int>();
+            playerTypes.Add((int)PLAYER_TYPE.MAGNET);
+            playerTypes.Add((int)PLAYER_TYPE.FLAIL);
+            playerTypes.Add((int)PLAYER_TYPE.ZEKE_AND_LUTHER);
+
+            int randMember = Random.Range(0, playerTypes.Count - 1);
+            newRand = playerTypes[randMember];
+        }
+        else 
+        {
+            Debug.Log("Legendary Role");
+
+            List<int> playerTypes = new List<int>();
+            playerTypes.Add((int)PLAYER_TYPE.JOE_SIEHL);
+            newRand = playerTypes[0];
+        }
+
+        if (heartPump == false && acornOpen == false)
         {
             if (play1Selected && player1Types.Count < 3)
             {
