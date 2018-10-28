@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour {
             }
             else
             {
+                Debug.Log("NULL");
                 playerData.player1.GetComponent<TheoryMove>().SetPlayerType(-1);
             }
 

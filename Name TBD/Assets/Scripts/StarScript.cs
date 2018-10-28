@@ -8,7 +8,7 @@ public class StarScript : MonoBehaviour {
 
     float deathTime = 2.0f;
 
-    private float scaleUp = 0.03f;
+    private float scaleUp = 0.06f;
 
     // Use this for initialization
     void Start()
@@ -43,7 +43,7 @@ public class StarScript : MonoBehaviour {
 
     private void ScaleUp()
     {
-        if (transform.localScale.x < 2 && transform.localScale.y < 2)
+        if (transform.localScale.x < 3 && transform.localScale.y < 3)
         {
             transform.localScale += new Vector3(scaleUp, scaleUp, 0);
         }

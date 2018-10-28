@@ -24,9 +24,9 @@ public class MagnetScript : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        transform.GetChild(0).GetComponent<MagnetAreaScript>().SetMagnetAreaData(gameObject, farBoop);
-        transform.GetChild(1).GetComponent<MagnetAreaScript>().SetMagnetAreaData(gameObject, midBoop);
-        transform.GetChild(2).GetComponent<MagnetAreaScript>().SetMagnetAreaData(gameObject, closeBoop);
+        transform.GetChild(0).GetComponent<MagnetAreaScript>().SetMagnetAreaData(gameObject.transform.parent.gameObject, farBoop);
+        transform.GetChild(1).GetComponent<MagnetAreaScript>().SetMagnetAreaData(gameObject.transform.parent.gameObject, midBoop);
+        transform.GetChild(2).GetComponent<MagnetAreaScript>().SetMagnetAreaData(gameObject.transform.parent.gameObject, closeBoop);
     }
 
     // Update is called once per frame

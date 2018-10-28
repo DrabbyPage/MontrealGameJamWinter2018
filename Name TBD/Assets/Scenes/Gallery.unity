@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 42138178}
   - component: {fileID: 42138177}
   - component: {fileID: 42138176}
+  - component: {fileID: 42138179}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -185,10 +186,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 42138177}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &42138177
@@ -225,6 +237,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 42138174}
   m_CullTransparentMesh: 0
+--- !u!114 &42138179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 42138174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &50204344
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +261,7 @@ GameObject:
   - component: {fileID: 50204348}
   - component: {fileID: 50204347}
   - component: {fileID: 50204346}
+  - component: {fileID: 50204349}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -297,10 +323,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 50204347}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &50204347
@@ -337,6 +374,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 50204344}
   m_CullTransparentMesh: 0
+--- !u!114 &50204349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 50204344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &62575542
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +398,7 @@ GameObject:
   - component: {fileID: 62575546}
   - component: {fileID: 62575545}
   - component: {fileID: 62575544}
+  - component: {fileID: 62575547}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -409,10 +460,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 62575545}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &62575545
@@ -449,6 +511,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 62575542}
   m_CullTransparentMesh: 0
+--- !u!114 &62575547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62575542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &91392485
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +535,7 @@ GameObject:
   - component: {fileID: 91392489}
   - component: {fileID: 91392488}
   - component: {fileID: 91392487}
+  - component: {fileID: 91392490}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -521,10 +597,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 91392488}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &91392488
@@ -561,6 +648,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 91392485}
   m_CullTransparentMesh: 0
+--- !u!114 &91392490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91392485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &242054369
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +672,7 @@ GameObject:
   - component: {fileID: 242054373}
   - component: {fileID: 242054372}
   - component: {fileID: 242054371}
+  - component: {fileID: 242054374}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -633,10 +734,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 242054372}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &242054372
@@ -673,6 +785,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 242054369}
   m_CullTransparentMesh: 0
+--- !u!114 &242054374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 242054369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &247268916
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +959,7 @@ GameObject:
   - component: {fileID: 469458651}
   - component: {fileID: 469458650}
   - component: {fileID: 469458649}
+  - component: {fileID: 469458652}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -895,10 +1021,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 469458650}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &469458650
@@ -935,6 +1072,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 469458647}
   m_CullTransparentMesh: 0
+--- !u!114 &469458652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 469458647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &551462865
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +1096,7 @@ GameObject:
   - component: {fileID: 551462869}
   - component: {fileID: 551462868}
   - component: {fileID: 551462867}
+  - component: {fileID: 551462870}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1007,10 +1158,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 551462868}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &551462868
@@ -1047,6 +1209,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 551462865}
   m_CullTransparentMesh: 0
+--- !u!114 &551462870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 551462865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &570795555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,6 +1370,7 @@ GameObject:
   - component: {fileID: 595762796}
   - component: {fileID: 595762795}
   - component: {fileID: 595762794}
+  - component: {fileID: 595762797}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1256,10 +1432,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 595762795}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &595762795
@@ -1296,6 +1483,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 595762792}
   m_CullTransparentMesh: 0
+--- !u!114 &595762797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595762792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &602457644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1659,7 @@ GameObject:
   - component: {fileID: 626578394}
   - component: {fileID: 626578393}
   - component: {fileID: 626578392}
+  - component: {fileID: 626578395}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1520,10 +1721,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 626578393}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &626578393
@@ -1560,6 +1772,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 626578390}
   m_CullTransparentMesh: 0
+--- !u!114 &626578395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626578390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &628670547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,7 +1860,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 628670550}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114576762298564836, guid: bbff9adba188a6d4ea8528c41de24d74,
+          type: 2}
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &628670550
@@ -1833,6 +2070,7 @@ GameObject:
   - component: {fileID: 1055843811}
   - component: {fileID: 1055843810}
   - component: {fileID: 1055843809}
+  - component: {fileID: 1055843812}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1894,10 +2132,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1055843810}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1055843810
@@ -1934,6 +2183,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1055843807}
   m_CullTransparentMesh: 0
+--- !u!114 &1055843812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1055843807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &1056493429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,6 +2357,7 @@ GameObject:
   - component: {fileID: 1161144048}
   - component: {fileID: 1161144047}
   - component: {fileID: 1161144046}
+  - component: {fileID: 1161144049}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2156,10 +2419,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1161144047}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1161144047
@@ -2196,6 +2470,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1161144044}
   m_CullTransparentMesh: 0
+--- !u!114 &1161144049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1161144044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &1375453473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,7 +2591,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.7, y: -97.3}
+  m_AnchoredPosition: {x: 0.7000122, y: -97.29999}
   m_SizeDelta: {x: -23, y: -307.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1379443141
@@ -2464,6 +2751,7 @@ GameObject:
   - component: {fileID: 1436102426}
   - component: {fileID: 1436102425}
   - component: {fileID: 1436102424}
+  - component: {fileID: 1436102427}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2525,10 +2813,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1436102425}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1436102425
@@ -2565,6 +2864,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436102422}
   m_CullTransparentMesh: 0
+--- !u!114 &1436102427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1436102422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &1451506469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3013,6 +3325,7 @@ GameObject:
   - component: {fileID: 1653227855}
   - component: {fileID: 1653227854}
   - component: {fileID: 1653227853}
+  - component: {fileID: 1653227856}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -3074,10 +3387,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1653227854}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1653227854
@@ -3114,6 +3438,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1653227851}
   m_CullTransparentMesh: 0
+--- !u!114 &1653227856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1653227851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &1658821883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3350,6 +3687,7 @@ GameObject:
   - component: {fileID: 1766313396}
   - component: {fileID: 1766313395}
   - component: {fileID: 1766313394}
+  - component: {fileID: 1766313397}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -3411,10 +3749,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1766313395}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1766313395
@@ -3451,6 +3800,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1766313392}
   m_CullTransparentMesh: 0
+--- !u!114 &1766313397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1766313392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &1817252766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,6 +3899,7 @@ GameObject:
   - component: {fileID: 1830992571}
   - component: {fileID: 1830992570}
   - component: {fileID: 1830992569}
+  - component: {fileID: 1830992572}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -3598,10 +3961,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1830992570}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1830992570
@@ -3638,6 +4012,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1830992567}
   m_CullTransparentMesh: 0
+--- !u!114 &1830992572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1830992567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &1892483508
 GameObject:
   m_ObjectHideFlags: 0
@@ -3724,6 +4111,7 @@ GameObject:
   - component: {fileID: 1906469651}
   - component: {fileID: 1906469650}
   - component: {fileID: 1906469649}
+  - component: {fileID: 1906469652}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -3785,10 +4173,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1906469650}
+  m_TargetGraphic: {fileID: 570795559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570795557}
+        m_MethodName: DisplayFlavorText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1906469650
@@ -3825,6 +4224,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1906469647}
   m_CullTransparentMesh: 0
+--- !u!114 &1906469652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906469647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6532c0582f194e971292fc1d5c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskName: Boop
+  flavorText: hihihhhihihihihihihihihihihihihihih
 --- !u!1 &2081306994
 GameObject:
   m_ObjectHideFlags: 0
