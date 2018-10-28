@@ -11,7 +11,11 @@ public class RandomizeManagerScript : MonoBehaviour
 
     int numOfChar = 18;
 
-    float animLength = 0;
+    GameObject p1Heart;
+    GameObject p2Heart;
+
+    float animLength = 0.6f;
+    bool heartPump = false;
 
     List<int> player1Types;
     List<int> player2Types;
@@ -52,6 +56,10 @@ public class RandomizeManagerScript : MonoBehaviour
         player1Sprites = new List<Sprite>();
         player2Sprites = new List<Sprite>();
 
+        p1Heart = GameObject.Find("Player1Panel").transform.GetChild(0).gameObject;
+        p2Heart = GameObject.Find("Player2Panel").transform.GetChild(0).gameObject;
+
+        // setting all the sprites
         {
             //Assets / Resources / Masks / HammerWhite.png for each path
             randChar1Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite;
@@ -105,7 +113,9 @@ public class RandomizeManagerScript : MonoBehaviour
     void Update ()
     {
         CheckForFullData();
-	}
+
+        SetHeartAnimation();
+    }
 
     void CheckForFullData()
     {
@@ -118,6 +128,20 @@ public class RandomizeManagerScript : MonoBehaviour
                 InfoHolder.getInstance().SetPlayerInfo(2, player2Types, player2Sprites);
                 hasGiven = true;
             }
+        }
+    }
+
+    void SetHeartAnimation()
+    {
+        if(play1Selected)
+        {
+            Debug.Log("Player1:" + heartPump);
+            p1Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
+        }
+        else
+        {
+            Debug.Log("Player2:" + heartPump);
+            p2Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
         }
     }
 
@@ -141,18 +165,28 @@ public class RandomizeManagerScript : MonoBehaviour
         int newRand;
         newRand = Random.Range(1, numOfChar);
 
-        if(play1Selected && player1Types.Count < 3)
+        if(heartPump == false)
         {
-            player1Types.Add(newRand);
-            MakeImageChar(player1Types.Count, newRand);
-            SwitchPlayers();
+            if (play1Selected && player1Types.Count < 3)
+            {
+                heartPump = true;
+                player1Types.Add(newRand);
+                MakeImageChar(player1Types.Count, newRand);
+                SwitchPlayers();
+
+                StartCoroutine(WaitForAnimation());
+            }
+            else if (play2Selected && player2Types.Count < 3)
+            {
+                heartPump = true;
+                player2Types.Add(newRand);
+                MakeImageChar(player2Types.Count, newRand);
+                SwitchPlayers();
+
+                StartCoroutine(WaitForAnimation());
+            }
         }
-        else if(play2Selected && player2Types.Count < 3)
-        {
-            player2Types.Add(newRand);
-            MakeImageChar(player2Types.Count, newRand);
-            SwitchPlayers();
-        }
+
 
     }
 
@@ -290,5 +324,6 @@ public class RandomizeManagerScript : MonoBehaviour
     IEnumerator WaitForAnimation()
     {
         yield return new WaitForSeconds(animLength);
+        heartPump = false;
     }
 }

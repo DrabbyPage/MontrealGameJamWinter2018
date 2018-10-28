@@ -18,8 +18,7 @@ public struct DashData
 
 public class TheoryMove : MonoBehaviour
 {
-    [SerializeField]
-    string currentPlayer;
+    public string currentPlayer;
 
     string p1_LSH_Name; //= "P1_LJS_H";
     string p1_LSV_Name; //= "P1_LJS_V";
@@ -327,6 +326,25 @@ public class TheoryMove : MonoBehaviour
         gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
         transform.localScale = new Vector3(1.5f, 1.5f, 0);
         moveSpeed = origSpeed;
+
+        if(currentPlayer == "P1")
+        {
+            float r = 255 / 255;
+            float g = 104 / 255;
+            float b = 162 / 255;
+            float a = 255 / 255;
+
+            GetComponent<SpriteRenderer>().color = new Vector4(r, g, b, a);
+        }
+        else if(currentPlayer == "P2")
+        {
+            float r = 82 / 255;
+            float g = 252 / 255;
+            float b = 255 / 255;
+            float a = 255 / 255;
+
+            GetComponent<SpriteRenderer>().color = new Vector4(r, g, b, a);
+        }
 
         if (newType > 0)
         {

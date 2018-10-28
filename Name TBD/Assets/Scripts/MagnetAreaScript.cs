@@ -23,7 +23,7 @@ public class MagnetAreaScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.name != thisParent.name && col.gameObject.tag != "Arena" && col.gameObject.tag != "ArenaEdge")
+        if (col.gameObject.tag == "Player" && col.gameObject.name != thisParent.name && col.gameObject.tag != "Arena" && col.gameObject.tag != "ArenaEdge")
         {
             // Push the object
             col.gameObject.GetComponent<BoopScript>().Booped(thisParent.transform.up, boopForce);

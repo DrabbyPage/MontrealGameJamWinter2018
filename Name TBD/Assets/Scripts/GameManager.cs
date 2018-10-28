@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour {
         //Debug.Log(infoContainer.player1Sprites.Count);
         if (playerData.player1 != null)
         {
-            if(infoContainer.player1Indexes.Count > 0)
+            if(InfoHolder.getInstance().holdersHolder.player1Indexes.Count > 0)
             {
                 playerData.player1.GetComponent<TheoryMove>().SetPlayerType(InfoHolder.getInstance().holdersHolder.player1Indexes[p1DeadCounter]);
                 playerData.player1.GetComponent<SpriteRenderer>().sprite = InfoHolder.getInstance().holdersHolder.player1Sprites[p1DeadCounter];
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour {
         }
         if (playerData.player2 != null)
         {
-            if (infoContainer.player2Indexes.Count > 0)
+            if (InfoHolder.getInstance().holdersHolder.player2Indexes.Count > 0)
             {
                 playerData.player2.GetComponent<TheoryMove>().SetPlayerType(InfoHolder.getInstance().holdersHolder.player2Indexes[p2DeadCounter]);
                 playerData.player2.GetComponent<SpriteRenderer>().sprite = InfoHolder.getInstance().holdersHolder.player2Sprites[p2DeadCounter];
