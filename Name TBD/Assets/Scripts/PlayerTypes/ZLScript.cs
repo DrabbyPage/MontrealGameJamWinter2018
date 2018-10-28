@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZLScript : MonoBehaviour {
+public class ZLScript : MonoBehaviour
+{
 
     [SerializeField]
     GameObject thePlayer;
@@ -10,9 +11,6 @@ public class ZLScript : MonoBehaviour {
 
     [SerializeField]
     float boopForce = 200f;
-
-    [SerializeField]
-    bool invisibleCharge = false;
 
     [SerializeField]
     float addSpeed = 10.0f;
@@ -24,21 +22,22 @@ public class ZLScript : MonoBehaviour {
     int rushDistance = 4;
     Vector2 originalPos;
     Vector2 currentPos;
+    Vector3 increasedSpeed = new Vector3 (0, 20, 0);
 
     [SerializeField]
     int cooldownTime = 45;
     private int cooldownCounter = 0;
 
     [SerializeField]
-    int allowedCharges = 2;
+    int allowedCharges = 1;
     private int chargeCounter = 0;
 
     // Update is called once per frame
     void FixedUpdate()
     {
         CheckCooldown();
-        //ApplyCharge();
 
+        playerRB.AddForce(new Vector2(increasedSpeed.x, increasedSpeed.y));
     }
 
     public void SetPlayerValues(GameObject player, Rigidbody2D rb)
@@ -46,7 +45,8 @@ public class ZLScript : MonoBehaviour {
         thePlayer = player;
         playerRB = rb;
 
-        transform.GetChild(0).GetComponent<BullHornsColliderScript>().Initialize(gameObject, boopForce);
+        transform.GetChild(0).GetComponent<ZLColliderScript>().Initialize(boopForce);
+        playerRB.velocity += new Vector2(transform.forward.x, transform.forward.y);
     }
 
     // Determines whether or not the user can currently charge
@@ -73,9 +73,13 @@ public class ZLScript : MonoBehaviour {
             addSpeed += bigZekeTinyLuther;
 
             isIncreasingSpeed = true;
-            Vector3 increasedSpeed = transform.up * addSpeed;
+            increasedSpeed = transform.up * addSpeed;
 
-            playerRB.velocity += new Vector2(increasedSpeed.x, increasedSpeed.y);
+            boopForce += addSpeed;
+
+            thePlayer.GetComponent<TheoryMove>().IncreaseSpeed(addSpeed);
+
+            //playerRB.velocity += new Vector2(increasedSpeed.x, increasedSpeed.y);
 
             chargeCounter++;
         }
