@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour {
 
     const int NUM_TO_WIN = 3;
 
+    Animator deathAnim;
     //SceneManagerScript mSceneManager;
 
     bool containerFilled = false;
@@ -137,8 +138,6 @@ public class GameManager : MonoBehaviour {
     void SetPlayerValues()
     {
         // setting the type for the players
-        //Debug.Log(infoContainer.player1Indexes.Count);
-        //Debug.Log(infoContainer.player1Sprites.Count);
         if (playerData.player1 != null)
         {
             if(InfoHolder.getInstance().holdersHolder.player1Indexes.Count > 0)
@@ -204,6 +203,17 @@ public class GameManager : MonoBehaviour {
             countDown -= Time.deltaTime;
             if (countDown > 0.0f)
             {
+                
+                //reset dead player
+                if (countDown < 2.5f)
+                {
+                    playerData.player1.transform.position = playerData.player1Spawn.position;
+                    playerData.player2.transform.position = playerData.player2Spawn.position;
+                    playerData.player1.GetComponent<Animator>().SetBool("shouldDie", false);
+                    playerData.player2.GetComponent<Animator>().SetBool("shouldDie", false);
+
+                }
+
                 if (Mathf.FloorToInt(countDown) == 0)
                 {
                     newRoundStarted = true;
@@ -271,12 +281,6 @@ public class GameManager : MonoBehaviour {
             matchData.roundPanel.SetActive(true);
             matchData.roundText.text = winText;
             matchData.countDownText.text = "";
-
-            //Reset players
-            playerData.player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            playerData.player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            playerData.player1.transform.position = playerData.player1Spawn.position;
-            playerData.player2.transform.position = playerData.player2Spawn.position;
 
             countDown -= Time.deltaTime;
             if (countDown <= 0.0f)
@@ -347,11 +351,12 @@ public class GameManager : MonoBehaviour {
             //Check if player is still in arena
             if (!InsideArena(playerData.player1))
             {
-                //Debug.Log("u gon di");
                 playerData.player1Dead = true;
                 p1DeadCounter++;
                 checkArenaState = false;
-       //         StartCoroutine(TurnAroundAndDie(playerData.deathDelay, playerData.player1));
+                deathAnim = playerData.player1.GetComponent<Animator>();
+                playerData.player1.GetComponent<Animator>().SetBool("shouldDie", true);
+
             }
             if (!InsideArena(playerData.player2))
             {
@@ -360,7 +365,7 @@ public class GameManager : MonoBehaviour {
                 checkArenaState = false;
                 playerData.player2Dead = true;
                 p2DeadCounter++;
-               // StartCoroutine(TurnAroundAndDie(playerData.deathDelay, playerData.player2));
+                playerData.player2.GetComponent<Animator>().SetBool("shouldDie", true);
             }
         }
     }
@@ -381,12 +386,6 @@ public class GameManager : MonoBehaviour {
             return true;// only temperary
         }
 
-    }
-
-    private IEnumerator TurnAroundAndDie(float waitTime, GameObject player)
-    {
-       yield return new WaitForSeconds(waitTime);
-       // player.GetComponent<Rigidbody2D>().AddForce(-player.transform.up * 1000.0f);
     }
     #endregion
 

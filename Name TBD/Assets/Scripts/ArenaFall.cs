@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class ArenaFall : MonoBehaviour {
 
-//    [SerializeField]
-  //  Color ringColor;
+    Sprite originalSprite;
+    SpriteRenderer rend;
+
+    private void Awake()
+    {
+        rend = gameObject.GetComponent<SpriteRenderer>();
+        originalSprite = rend.sprite;
+    }
 
     public void Reset()
     {
-        if(gameObject.GetComponent<Animator>() != null)
+        if (gameObject.GetComponent<Animator>() != null)
+        {
             gameObject.GetComponent<Animator>().SetBool("shouldFlash", false);
+            rend.sprite = originalSprite;
+
+        }
     }
 
     public void Fall()
