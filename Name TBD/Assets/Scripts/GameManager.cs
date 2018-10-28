@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour {
         public bool player1Dead, player2Dead;
         public int player1Wins, player2Wins;
     };
+
     [System.Serializable]
     public struct MatchData
     {
@@ -41,6 +42,16 @@ public class GameManager : MonoBehaviour {
         public Text roundText, countDownText, matchWinText;
         public Image[] p1WinMarks, p2WinMarks;
     }
+
+    [System.Serializable]
+    public struct PlayerInfo
+    {
+        public List<int> player1Indexes;
+        public List<Sprite> player1Sprites;
+
+        public List<int> player2Indexes;
+        public List<Sprite> player2Sprites;
+    };
     #endregion
 
     [SerializeField]
@@ -63,8 +74,19 @@ public class GameManager : MonoBehaviour {
 
     SceneManagerScript mSceneManager;
 
+    [SerializeField]
+    PlayerInfo infoContainer;
+
     private void Awake()
     {
+
+        infoContainer.player1Indexes = new List<int>();
+        infoContainer.player2Indexes = new List<int>();
+
+        infoContainer.player1Sprites = new List<Sprite>();
+        infoContainer.player2Sprites = new List<Sprite>();
+
+        DontDestroyOnLoad(gameObject);
        mSceneManager = gameObject.GetComponent<SceneManagerScript>();
     }
 
@@ -311,6 +333,30 @@ public class GameManager : MonoBehaviour {
     public void ArenaNeedsUpdate(bool hasUpdated)
     {
         updateArena = hasUpdated;
+    }
+
+    public void SetPlayerInfo(int playerNum, List<int> newIndexes, List<Sprite> newSprites)
+    {
+        if (playerNum == 1)
+        {
+            infoContainer.player1Indexes = newIndexes;
+            infoContainer.player1Sprites = newSprites;
+        }
+        else
+        {
+            infoContainer.player2Indexes = newIndexes;
+            infoContainer.player2Sprites = newSprites;
+        }
+    }
+
+    public void ResetPlayerInfo()
+    {
+        infoContainer.player1Sprites.Clear();
+        infoContainer.player2Sprites.Clear();
+
+        infoContainer.player1Indexes.Clear();
+        infoContainer.player2Indexes.Clear();
+
     }
     #endregion
 }
