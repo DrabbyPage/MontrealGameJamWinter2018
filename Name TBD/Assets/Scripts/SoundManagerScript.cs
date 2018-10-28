@@ -77,4 +77,18 @@ public class SoundManagerScript : MonoBehaviour {
         ASause.Play();
     }
 
+    public void PlayMenuSelect()
+    {
+        ASause.clip = MenuSelect;
+        //this actually players whatever clip is loaded into the source
+        ASause.Play();
+    }
+
+    public void PlayMenuHover()
+    {
+        ASause.clip = MenuHover;
+        //this actually players whatever clip is loaded into the source
+        ASause.Play();
+    }
+
 }
