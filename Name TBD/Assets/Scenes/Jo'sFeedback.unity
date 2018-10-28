@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114511815153017322, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
       propertyPath: charType
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114364628932701586, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
@@ -349,7 +349,7 @@ Prefab:
     - target: {fileID: 114511815153017322, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
       propertyPath: charType
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114511815153017322, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
@@ -500,6 +500,9 @@ MonoBehaviour:
   ReadyClip: {fileID: 8300000, guid: 1c2a22705485b664c9449c96f9f16801, type: 3}
   CoolDownClip: {fileID: 8300000, guid: bac1c32bc3cb3344ca105ee8a7f8223f, type: 3}
   Hit_snd: {fileID: 8300000, guid: 3175d93b91d68b149a8f1dd67fb7fa4c, type: 3}
+  PeaShoot: {fileID: 8300000, guid: 764487b44fdae8b45babf9eb59c8dcca, type: 3}
+  SpearLand: {fileID: 8300000, guid: 79b668ff1e61f8d4aa72a84ac6c90e88, type: 3}
+  SpearThrow: {fileID: 8300000, guid: e0b15681e6abea2439c077d91d6e9d8b, type: 3}
   MenuSelect: {fileID: 0}
   MenuHover: {fileID: 0}
   Moo: {fileID: 8300000, guid: e0b15681e6abea2439c077d91d6e9d8b, type: 3}
@@ -510,8 +513,6 @@ MonoBehaviour:
   GotchaGetsUncommon: {fileID: 0}
   GotchaGetsUncommon2: {fileID: 0}
   HeartBeat: {fileID: 0}
-  SpearLand: {fileID: 0}
-  SpearThrow: {fileID: 0}
   TreeFightTheme: {fileID: 8300000, guid: 59ca91dc6bf526e44b87c3e378e0e430, type: 3}
   GotchaGetsBuildUp: {fileID: 8300000, guid: a33ca76f4b9798f4da3d7355bbb56634, type: 3}
   ASause: {fileID: 1832250286}

@@ -31,6 +31,15 @@ public class SpearHolderScript : MonoBehaviour
         {            
             spearChild.GetComponent<SpearScript>().SetMove(true);
 
+            if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.SpearThrowSoundPlay(true);
+            }
+            if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.SpearThrowSoundPlay(false);
+            }
+
             hasWeapon = false;
         }
     }
@@ -38,5 +47,15 @@ public class SpearHolderScript : MonoBehaviour
     public void SetHasWeapon(bool newBool)
     {
         hasWeapon = newBool;
+        /*
+        if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+        {
+            SoundManagerScript.instance.EndCoolDownSound(true);
+        }
+        if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+        {
+            SoundManagerScript.instance.EndCoolDownSound(false);
+        }
+        */
     }
 }

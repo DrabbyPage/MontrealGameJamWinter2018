@@ -84,15 +84,37 @@ public class SpearScript : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            if(col.gameObject != parObj)
+            
+            if (col.gameObject != parObj)
             {
                 Vector2 diff = parObj.transform.position - gameObject.transform.position;
                 col.gameObject.GetComponent<BoopScript>().Booped(-diff, boopForce);
 
                 gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                // this makes the hit sound when it hits an enemy
+                if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P2")
+                {
+                    SoundManagerScript.instance.PlayHitSound(true);
+                }
+                if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P1")
+                {
+                    SoundManagerScript.instance.PlayHitSound(false);
+                }
+
+
             }
             else
             {
+                if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P2")
+                {
+                    SoundManagerScript.instance.EndCoolDownSound(false);
+                }
+                if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P1")
+                {
+                    SoundManagerScript.instance.EndCoolDownSound(true);
+                }
+
+
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.magnitude < 0.2f)
                 {
                     isHeld = true;

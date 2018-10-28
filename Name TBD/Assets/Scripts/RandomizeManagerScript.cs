@@ -93,7 +93,7 @@ public class RandomizeManagerScript : MonoBehaviour
 
             randChar11Sprite = Resources.Load("Masks/WhiteSlow", typeof(Sprite)) as Sprite;
             randChar12Sprite = Resources.Load("Masks/WhiteMace", typeof(Sprite)) as Sprite;
-            randChar13Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite; // zeke and luther
+            randChar13Sprite = Resources.Load("Masks/RedZekeNLuther", typeof(Sprite)) as Sprite; // zeke and luther
             randChar14Sprite = Resources.Load("Masks/WhiteHow2", typeof(Sprite)) as Sprite;
             randChar15Sprite = Resources.Load("Masks/WhiteFox", typeof(Sprite)) as Sprite;
             randChar16Sprite = Resources.Load("Masks/WhiteMoon", typeof(Sprite)) as Sprite;
