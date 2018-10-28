@@ -43,7 +43,8 @@ public class TheoryMove : MonoBehaviour
         SLIME = 10,
         FLAIL = 11,
         ZEKE_AND_LUTHER = 12,
-        HOW_TO = 13
+        HOW_TO = 13,
+        FOX = 14
         
         // ETC.
     };
@@ -222,6 +223,11 @@ public class TheoryMove : MonoBehaviour
                 heldItem = transform.GetChild(13).gameObject;
                 heldItem.GetComponent<HowToScript>().FreezeConstraints(rb);
                 break;
+            case PLAYER_TYPE.FOX:
+                transform.GetChild(14).gameObject.SetActive(true);
+                heldItem = transform.GetChild(14).gameObject;
+                heldItem.GetComponent<FoxScript>().SetOwner(gameObject);
+                break;
         }
     }
 
@@ -229,7 +235,7 @@ public class TheoryMove : MonoBehaviour
     private void PerformAction()
     {
         // If the player can act and they input the action key
-        if (canAct && Input.GetAxis(p1_RT_Name) > 0.2f)
+        if (canAct && Input.GetAxis(p1_RT_Name) > 0.9f)
         {
             //   Debug.Log(charType);
 
@@ -274,6 +280,9 @@ public class TheoryMove : MonoBehaviour
                     break;
                 case PLAYER_TYPE.ZEKE_AND_LUTHER:
                     heldItem.GetComponent<ZLScript>().ZekeAndLutherCharge();
+                    break;
+                case PLAYER_TYPE.FOX:
+                    heldItem.GetComponent<FoxScript>().Trace();
                     break;
             }
         }
