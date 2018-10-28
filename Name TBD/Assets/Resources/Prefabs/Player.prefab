@@ -424,6 +424,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1799820238636014
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4361146299020970}
+  m_Layer: 0
+  m_Name: FlailHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1848084139378880
 GameObject:
   m_ObjectHideFlags: 1
@@ -618,11 +633,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758493883224540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.05, z: 0}
+  m_LocalPosition: {x: 0.056702692, y: 2.0924897, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 4820664361290312}
-  m_RootOrder: 1
+  m_Father: {fileID: 4361146299020970}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4112247295051166
 Transform:
@@ -630,12 +645,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799413845703688}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 1.9, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.056702692, y: 1.9424897, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 4820664361290312}
-  m_RootOrder: 2
+  m_Father: {fileID: 4361146299020970}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!4 &4119719005230790
 Transform:
@@ -757,6 +772,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4119719005230790}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4361146299020970
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799820238636014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4090759156746820}
+  - {fileID: 4112247295051166}
+  m_Father: {fileID: 4820664361290312}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4362631369463276
 Transform:
@@ -916,8 +946,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4980583008924918}
-  - {fileID: 4090759156746820}
-  - {fileID: 4112247295051166}
+  - {fileID: 4361146299020970}
   m_Father: {fileID: 4119719005230790}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1544,7 +1573,7 @@ MonoBehaviour:
     dashStopSpeed: 0
     dashDistance: 0
     dashCoolDownTime: 0
-  charType: 12
+  charType: 11
   moveSpeed: 80
   rotationSpeed: 15
   canAct: 1
@@ -1630,16 +1659,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1894760087749408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f7c9360e9b011641a427c19af0ce0fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 92ac1969449d1224ab5b39d4ed816622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoopForce: 100
+  BoopForce: 200
   fullRotation: 360
   rotationAngle: -10
   increasedSpeed: -5
   spinFaster: 0
-  cooldownTime: 60
-  allowedSpins: 4
+  cooldownTime: 90
+  timeSpinning: 90
+  allowedSpinFasters: 4
 --- !u!114 &114872322297825612
 MonoBehaviour:
   m_ObjectHideFlags: 1

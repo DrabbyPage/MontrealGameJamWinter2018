@@ -9,7 +9,7 @@ public class HowToScript : MonoBehaviour {
 
     public void FreezeConstraints(Rigidbody2D rb)
     {
-        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     void OnCollisionEnter2D(Collision2D col)
