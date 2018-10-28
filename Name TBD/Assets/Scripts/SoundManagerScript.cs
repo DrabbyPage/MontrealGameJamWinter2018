@@ -5,6 +5,22 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour {
     public static SoundManagerScript instance;
 
+    public static SoundManagerScript getInstance()
+    {
+        if (instance == null)
+        {
+            instance = GameObject.FindObjectOfType<SoundManagerScript>();
+
+            if (instance == null)
+            {
+                GameObject tmp = new GameObject("TmpManager");
+                instance = tmp.AddComponent<SoundManagerScript>();
+            }
+        }
+
+        return instance;
+    }
+
     [Header("AUDIO CLIPS")]
 
     [Header("character sounds")]
@@ -67,7 +83,7 @@ public class SoundManagerScript : MonoBehaviour {
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
     // Use this for initialization
