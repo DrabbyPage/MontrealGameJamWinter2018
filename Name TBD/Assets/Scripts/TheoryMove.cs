@@ -42,7 +42,10 @@ public class TheoryMove : MonoBehaviour
         MAGNET = 9,
         SLIME = 10,
         FLAIL = 11,
-        ZEKE_AND_LUTHER = 12
+        ZEKE_AND_LUTHER = 12,
+        HOW_TO = 13,
+        FOX = 14,
+        MOON = 15
         
         // ETC.
     };
@@ -215,6 +218,20 @@ public class TheoryMove : MonoBehaviour
                 heldItem = transform.GetChild(12).gameObject;
                 heldItem.GetComponent<ZLScript>().SetPlayerValues(this.gameObject, rb);
                 break;
+            case PLAYER_TYPE.HOW_TO:
+                transform.GetChild(13).gameObject.SetActive(true);
+                heldItem = transform.GetChild(13).gameObject;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                break;
+            case PLAYER_TYPE.FOX:
+                transform.GetChild(14).gameObject.SetActive(true);
+                heldItem = transform.GetChild(14).gameObject;
+                heldItem.GetComponent<FoxScript>().SetOwner(gameObject);
+                break;
+            case PLAYER_TYPE.MOON:
+                transform.GetChild(15).gameObject.SetActive(true);
+                heldItem = transform.GetChild(15).gameObject;
+                break;
         }
     }
 
@@ -222,7 +239,7 @@ public class TheoryMove : MonoBehaviour
     private void PerformAction()
     {
         // If the player can act and they input the action key
-        if (canAct && Input.GetAxis(p1_RT_Name) > 0.2f)
+        if (canAct && Input.GetAxis(p1_RT_Name) > 0.9f)
         {
             //   Debug.Log(charType);
 
@@ -268,6 +285,12 @@ public class TheoryMove : MonoBehaviour
                 case PLAYER_TYPE.ZEKE_AND_LUTHER:
                     heldItem.GetComponent<ZLScript>().ZekeAndLutherCharge();
                     break;
+                case PLAYER_TYPE.FOX:
+                    heldItem.GetComponent<FoxScript>().Trace();
+                    break;
+                case PLAYER_TYPE.MOON:
+                    heldItem.GetComponent<PeaShooterScript>().Shoot();
+                    break;
             }
         }
     }
@@ -275,7 +298,7 @@ public class TheoryMove : MonoBehaviour
     // Performs any rotations
     private void RotatePlayer()
     {
-        if (charType != PLAYER_TYPE.BIG_POLE && charType != PLAYER_TYPE.SPIN)
+        if (charType != PLAYER_TYPE.BIG_POLE && charType != PLAYER_TYPE.SPIN && charType != PLAYER_TYPE.FLAIL && charType != PLAYER_TYPE.SMALL_KNIFE && charType != PLAYER_TYPE.HOW_TO)
         {
             float xRotate = Input.GetAxis(p1_RSH_Name);
             float yRotate = Input.GetAxis(p1_RSV_Name);

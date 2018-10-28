@@ -152,25 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114188854989472660, guid: 0590152534344534d8bb22c995d7800f,
-        type: 2}
-      propertyPath: slowTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114188854989472660, guid: 0590152534344534d8bb22c995d7800f,
-        type: 2}
-      propertyPath: slimeCooldown
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114188854989472660, guid: 0590152534344534d8bb22c995d7800f,
-        type: 2}
-      propertyPath: slimeSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423658633244468, guid: 0590152534344534d8bb22c995d7800f, type: 2}
-      propertyPath: m_Name
-      value: SmallBooper
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0590152534344534d8bb22c995d7800f, type: 2}
   m_IsPrefabAsset: 0

@@ -13,6 +13,9 @@ public class PeaShooterScript : MonoBehaviour
     float fireTime = 0.1f;
 
     [SerializeField]
+    bool peashooter = true;
+
+    [SerializeField]
     float peaBoopForce = 100.0f;
 
     bool canFire;
@@ -28,7 +31,15 @@ public class PeaShooterScript : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        bullet = Resources.Load("Prefabs/Pea") as GameObject;
+        if (peashooter)
+        {
+            bullet = Resources.Load("Prefabs/Pea") as GameObject;
+        }
+
+        else
+        {
+            bullet = Resources.Load("Prefabs/Star") as GameObject;
+        }
 
         time = fireTime;
 	}
@@ -48,13 +59,25 @@ public class PeaShooterScript : MonoBehaviour
         {
             newBullet = Instantiate(bullet) as GameObject;
 
-            newBullet.GetComponent<PeaScript>().SetParentObject(gameObject.transform.parent.gameObject);
+            if (peashooter)
+            {
+                newBullet.GetComponent<PeaScript>().SetParentObject(gameObject.transform.parent.gameObject);
 
-            newBullet.transform.eulerAngles = gameObject.transform.eulerAngles;
+                newBullet.transform.eulerAngles = gameObject.transform.eulerAngles;
 
-            newBullet.transform.position = gameObject.transform.position + gameObject.transform.up;
+                newBullet.transform.position = gameObject.transform.position + gameObject.transform.up;
 
-            newBullet.GetComponent<PeaScript>().SetBoopForce(peaBoopForce);
+                newBullet.GetComponent<PeaScript>().SetBoopForce(peaBoopForce);
+            }
+
+            else
+            {
+                newBullet.GetComponent<StarScript>().SetParentObject(gameObject.transform.parent.gameObject);
+
+                newBullet.transform.eulerAngles = gameObject.transform.eulerAngles;
+
+                newBullet.transform.position = gameObject.transform.position + gameObject.transform.up;
+            }
 
             shotCounter++;
             canFire = false;
