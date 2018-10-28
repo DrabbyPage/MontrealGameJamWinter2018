@@ -11,12 +11,15 @@ public class RandomizeManagerScript : MonoBehaviour
 
     int numOfChar = 18;
 
+    float animLength = 0;
+
     List<int> player1Types;
     List<int> player2Types;
 
     List<Sprite> player1Sprites;
     List<Sprite> player2Sprites;
 
+    #region Sprite containers
     Sprite randChar1Sprite;
     Sprite randChar2Sprite;
     Sprite randChar3Sprite;
@@ -38,6 +41,7 @@ public class RandomizeManagerScript : MonoBehaviour
     Sprite randChar16Sprite;
     Sprite randChar17Sprite;
     Sprite randChar18Sprite;
+    #endregion
 
     // Use this for initialization
     void Start()
@@ -48,27 +52,29 @@ public class RandomizeManagerScript : MonoBehaviour
         player1Sprites = new List<Sprite>();
         player2Sprites = new List<Sprite>();
 
-        //Assets / Resources / Masks / HammerWhite.png for each path
-        randChar1Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite;
-        randChar2Sprite = Resources.Load("Masks/WhiteBull", typeof(Sprite)) as Sprite;
-        randChar3Sprite = Resources.Load("Masks/WhitePShooter", typeof(Sprite)) as Sprite;
-        randChar4Sprite = Resources.Load("Masks/WhiteSpear", typeof(Sprite)) as Sprite;
-        randChar5Sprite = Resources.Load("Masks/WhiteMines", typeof(Sprite)) as Sprite;
+        {
+            //Assets / Resources / Masks / HammerWhite.png for each path
+            randChar1Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite;
+            randChar2Sprite = Resources.Load("Masks/WhiteBull", typeof(Sprite)) as Sprite;
+            randChar3Sprite = Resources.Load("Masks/WhitePShooter", typeof(Sprite)) as Sprite;
+            randChar4Sprite = Resources.Load("Masks/WhiteSpear", typeof(Sprite)) as Sprite;
+            randChar5Sprite = Resources.Load("Masks/WhiteMines", typeof(Sprite)) as Sprite;
 
-        randChar6Sprite = Resources.Load("Masks/WhiteTelefrag", typeof(Sprite)) as Sprite;
-        randChar7Sprite = Resources.Load("Masks/WhitePlank", typeof(Sprite)) as Sprite;
-        randChar8Sprite = Resources.Load("Masks/WhiteBig", typeof(Sprite)) as Sprite;
-        randChar9Sprite = Resources.Load("Masks/WhiteIce", typeof(Sprite)) as Sprite;
-        randChar10Sprite = Resources.Load("Masks/WhiteMagnet", typeof(Sprite)) as Sprite;
+            randChar6Sprite = Resources.Load("Masks/WhiteTelefrag", typeof(Sprite)) as Sprite;
+            randChar7Sprite = Resources.Load("Masks/WhitePlank", typeof(Sprite)) as Sprite;
+            randChar8Sprite = Resources.Load("Masks/WhiteBig", typeof(Sprite)) as Sprite;
+            randChar9Sprite = Resources.Load("Masks/WhiteIce", typeof(Sprite)) as Sprite;
+            randChar10Sprite = Resources.Load("Masks/WhiteMagnet", typeof(Sprite)) as Sprite;
 
-        randChar11Sprite = Resources.Load("Masks/WhiteSlow", typeof(Sprite)) as Sprite;
-        randChar12Sprite = Resources.Load("Masks/WhiteMace", typeof(Sprite)) as Sprite;
-        randChar13Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite; // zeke and luther
-        randChar14Sprite = Resources.Load("Masks/WhiteHow2", typeof(Sprite)) as Sprite;
-        randChar15Sprite = Resources.Load("Masks/WhiteFox", typeof(Sprite)) as Sprite;
-        randChar16Sprite = Resources.Load("Masks/WhiteMoon", typeof(Sprite)) as Sprite;
-        randChar17Sprite = Resources.Load("Masks/BlueJoe", typeof(Sprite)) as Sprite; // Joe Siehl
-        randChar18Sprite = Resources.Load("Masks/RedJoe", typeof(Sprite)) as Sprite; // Joe Siehl
+            randChar11Sprite = Resources.Load("Masks/WhiteSlow", typeof(Sprite)) as Sprite;
+            randChar12Sprite = Resources.Load("Masks/WhiteMace", typeof(Sprite)) as Sprite;
+            randChar13Sprite = Resources.Load("Masks/HammerWhite", typeof(Sprite)) as Sprite; // zeke and luther
+            randChar14Sprite = Resources.Load("Masks/WhiteHow2", typeof(Sprite)) as Sprite;
+            randChar15Sprite = Resources.Load("Masks/WhiteFox", typeof(Sprite)) as Sprite;
+            randChar16Sprite = Resources.Load("Masks/WhiteMoon", typeof(Sprite)) as Sprite;
+            randChar17Sprite = Resources.Load("Masks/BlueJoe", typeof(Sprite)) as Sprite; // Joe Siehl
+            randChar18Sprite = Resources.Load("Masks/RedJoe", typeof(Sprite)) as Sprite; // Joe Siehl
+        }
 
         // check for null sprites
         {
@@ -279,5 +285,10 @@ public class RandomizeManagerScript : MonoBehaviour
             player2Sprites.Add(newSprite);
         }
 
+    }
+
+    IEnumerator WaitForAnimation()
+    {
+        yield return new WaitForSeconds(animLength);
     }
 }
