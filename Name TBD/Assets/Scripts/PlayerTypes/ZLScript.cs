@@ -32,6 +32,21 @@ public class ZLScript : MonoBehaviour
 
     private bool noVelocity = false;
 
+    private void Start()
+    {
+        //SoundManagerScript.instance.ChangeTheBanger();
+    }
+
+
+
+    void Update()
+    {
+        if (SoundManagerScript.instance.GodIsAlive==true)
+        {
+            SoundManagerScript.instance.ChangeTheBanger();
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -41,6 +56,7 @@ public class ZLScript : MonoBehaviour
         {
             playerRB.AddForce(new Vector2(increasedSpeed.x, increasedSpeed.y));
         }
+        
     }
 
     public void SetPlayerValues(GameObject player, Rigidbody2D rb)
@@ -58,13 +74,26 @@ public class ZLScript : MonoBehaviour
         if (chargeCounter == allowedCharges)
         {
             cooldownCounter++;
-
+            GetComponentInParent<SpriteRenderer>().color = Color.grey;
             // If the player's cooldown is at max, allow the player to act again
             if (cooldownCounter >= cooldownTime)
             {
                 cooldownCounter = 0;
                 chargeCounter = 0;
                 isIncreasingSpeed = false;
+                //set the skin color back to normal
+                GetComponentInParent<SpriteRenderer>().color = Color.white;
+
+                //plays the ready clip from the sound manager
+                if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+                {
+                    SoundManagerScript.instance.EndCoolDownSound(true);
+                }
+
+                if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+                {
+                    SoundManagerScript.instance.EndCoolDownSound(false);
+                }
             }
         }
     }

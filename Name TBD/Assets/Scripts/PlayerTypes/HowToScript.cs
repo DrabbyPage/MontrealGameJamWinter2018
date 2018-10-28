@@ -15,6 +15,15 @@ public class HowToScript : MonoBehaviour {
 
             Vector2 difference = col.gameObject.transform.position - gameObject.transform.position;
             col.gameObject.GetComponent<BoopScript>().Booped(difference, boopForce);
+            //get the player that's being collided and determin which sound suarce is played out of
+            if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.PlayHitSound(true);
+            }
+            if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.PlayHitSound(false);
+            }
         }
     }
 }

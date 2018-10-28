@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114511815153017322, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
       propertyPath: charType
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114364628932701586, guid: 0590152534344534d8bb22c995d7800f,
         type: 2}
@@ -497,6 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9752342035bc80f42a183ec8487ff2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GodIsAlive: 0
   ReadyClip: {fileID: 8300000, guid: 1c2a22705485b664c9449c96f9f16801, type: 3}
   CoolDownClip: {fileID: 8300000, guid: bac1c32bc3cb3344ca105ee8a7f8223f, type: 3}
   Hit_snd: {fileID: 8300000, guid: 3175d93b91d68b149a8f1dd67fb7fa4c, type: 3}
@@ -515,6 +516,8 @@ MonoBehaviour:
   HeartBeat: {fileID: 0}
   TreeFightTheme: {fileID: 8300000, guid: 59ca91dc6bf526e44b87c3e378e0e430, type: 3}
   GotchaGetsBuildUp: {fileID: 8300000, guid: a33ca76f4b9798f4da3d7355bbb56634, type: 3}
+  GodIsDedNWeHavKilHim: {fileID: 8300000, guid: c0c54ee4dde8a0a4c82870325155ae64,
+    type: 3}
   ASause: {fileID: 1832250286}
   Player1Walking: {fileID: 1832250293}
   Player1Hits: {fileID: 1832250292}

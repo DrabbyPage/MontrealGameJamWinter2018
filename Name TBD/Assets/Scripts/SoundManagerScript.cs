@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour {
     public static SoundManagerScript instance;
-
+    public bool GodIsAlive;
     public static SoundManagerScript getInstance()
     {
         if (instance == null)
@@ -62,6 +62,7 @@ public class SoundManagerScript : MonoBehaviour {
     [Header("Music Clips")]
     public AudioClip TreeFightTheme;
     public AudioClip GotchaGetsBuildUp;
+    public AudioClip GodIsDedNWeHavKilHim;
 
 
     [Header("RECORD PLAYERS")]
@@ -106,13 +107,14 @@ public class SoundManagerScript : MonoBehaviour {
         MusicRecordPlayer.clip = TreeFightTheme;
         MusicRecordPlayer.Play();
         instance = this;
+        GodIsAlive = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         TestFromBull();
 	}
-
+    
     public void TestFromBull()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -234,6 +236,14 @@ public class SoundManagerScript : MonoBehaviour {
             Player2Hits.clip = Hit_snd;
             Player2Hits.Play();
         }
+    }
+    //**************GOD IS DEAD TIME*************
+    //these are the 5 lines of code that seperate me from being a man and an unfeeling ghost
+    public void ChangeTheBanger()
+    {
+        MusicRecordPlayer.clip = GodIsDedNWeHavKilHim;
+        MusicRecordPlayer.Play();
+        GodIsAlive = false;
     }
 
 }

@@ -17,6 +17,15 @@ public class ZLColliderScript : MonoBehaviour {
         {
             //col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce);//, ForceMode2D.Force);
             col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
+            //get the player that's being collided and determin which sound suarce is played out of
+            if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.PlayHitSound(true);
+            }
+            if (col.gameObject.GetComponent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.PlayHitSound(false);
+            }
         }
     }
 }
