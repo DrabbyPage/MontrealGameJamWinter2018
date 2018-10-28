@@ -44,7 +44,8 @@ public class TheoryMove : MonoBehaviour
         FLAIL = 11,
         ZEKE_AND_LUTHER = 12,
         HOW_TO = 13,
-        FOX = 14
+        FOX = 14,
+        MOON = 15
         
         // ETC.
     };
@@ -228,6 +229,10 @@ public class TheoryMove : MonoBehaviour
                 heldItem = transform.GetChild(14).gameObject;
                 heldItem.GetComponent<FoxScript>().SetOwner(gameObject);
                 break;
+            case PLAYER_TYPE.MOON:
+                transform.GetChild(15).gameObject.SetActive(true);
+                heldItem = transform.GetChild(15).gameObject;
+                break;
         }
     }
 
@@ -283,6 +288,9 @@ public class TheoryMove : MonoBehaviour
                     break;
                 case PLAYER_TYPE.FOX:
                     heldItem.GetComponent<FoxScript>().Trace();
+                    break;
+                case PLAYER_TYPE.MOON:
+                    heldItem.GetComponent<PeaShooterScript>().Shoot();
                     break;
             }
         }
