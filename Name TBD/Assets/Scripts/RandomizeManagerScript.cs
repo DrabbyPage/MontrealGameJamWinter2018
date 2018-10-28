@@ -148,16 +148,16 @@ public class RandomizeManagerScript : MonoBehaviour
         if(play1Selected)
         {
             p1Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
-            
-            p1Acorn.GetComponent<Animator>().SetBool("IsFalling", acornFalling);
-            p1Acorn.GetComponent<Animator>().SetBool("IsOpening", acornOpen);
+
+            //p1Acorn.GetComponent<Animator>().SetBool("IsFalling", acornFalling);
+            //p1Acorn.GetComponent<Animator>().SetBool("IsOpening", acornOpen);
         }
         else
         {
             p2Heart.GetComponent<Animator>().SetBool("NewCharacter", heartPump);
 
-            p2Acorn.GetComponent<Animator>().SetBool("IsFalling", acornFalling);
-            p2Acorn.GetComponent<Animator>().SetBool("IsOpening", acornOpen);
+            //p2Acorn.GetComponent<Animator>().SetBool("IsFalling", acornFalling);
+            //p2Acorn.GetComponent<Animator>().SetBool("IsOpening", acornOpen);
         }
     }
 
@@ -195,6 +195,7 @@ public class RandomizeManagerScript : MonoBehaviour
             }
             else if (play2Selected && player2Types.Count < 3)
             {
+
                 heartPump = true;
                 acornOpen = true;
                 player2Types.Add(newRand);
@@ -342,6 +343,17 @@ public class RandomizeManagerScript : MonoBehaviour
 
         heartPump = false;
 
+        if(play1Selected)
+        {
+            p1Acorn.GetComponent<Animator>().SetBool("IsFalling", true);
+            p1Acorn.GetComponent<Animator>().SetBool("IsOpening", true);
+        }
+        else
+        {
+            p2Acorn.GetComponent<Animator>().SetBool("IsFalling", true);
+            p2Acorn.GetComponent<Animator>().SetBool("IsOpening", true);
+        }
+
         StartCoroutine(WaitForAcorn(randNum));
     }
 
@@ -350,22 +362,41 @@ public class RandomizeManagerScript : MonoBehaviour
         acornFalling = true;
 
         yield return new WaitForSeconds(acornFallLength);
+        
+        if (play1Selected)
+        {
+            p1Acorn.GetComponent<Animator>().SetBool("IsFalling", false);
+        }
+        else
+        {
+            p2Acorn.GetComponent<Animator>().SetBool("IsFalling", false);
+        }
 
+        acornFalling = false;
         acornOpen = true;
 
         yield return new WaitForSeconds(acornOpenLength);
 
         Debug.Log("acorn is done");
 
-        acornFalling = false;
         acornOpen = false;
 
-        if (play1Selected && player1Types.Count < 3)
+
+        if (play1Selected)
+        {
+            p1Acorn.GetComponent<Animator>().SetBool("IsOpening", false);
+        }
+        else
+        {
+            p1Acorn.GetComponent<Animator>().SetBool("IsOpening", false);
+        }
+
+        if (play1Selected)// && player1Types.Count < 3)
         {
             MakeImageChar(player1Types.Count, randNum);
             SwitchPlayers();
         }
-        else if (play2Selected && player2Types.Count < 3)
+        else if (play2Selected)// && player2Types.Count < 3)
         {
             MakeImageChar(player2Types.Count, randNum);
             SwitchPlayers();
