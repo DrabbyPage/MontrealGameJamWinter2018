@@ -54,7 +54,7 @@ public class ArenaBehavior : MonoBehaviour {
     private IEnumerator Wait(int ringToDrop)
     {
         yield return new WaitForSeconds(ringFlashTime);
-        Debug.Log("arena fell");
+        //Debug.Log("arena fell");
         GameManager.getInstance().SetArenaFell(true);
         arenaRings[ringToDrop].SetActive(false);
 

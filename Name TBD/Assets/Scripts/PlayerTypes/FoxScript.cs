@@ -60,9 +60,9 @@ public class FoxScript : MonoBehaviour {
         }
     }
 
-    public void SetOwner(GameObject ob)
+    public void SetOwner(GameObject obj)
     {
-        owner = ob;
+        owner = obj;
     }
 
 }

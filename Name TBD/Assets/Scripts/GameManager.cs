@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     MatchData matchData;
 
-    int p1DeadCounter, p2DeadCounter;
+    int p1DeadCounter=0, p2DeadCounter=0;
     float countDown;
 
     bool roundStart = true, newRound, matchOver, updateArena;
@@ -74,46 +74,87 @@ public class GameManager : MonoBehaviour {
 
     //SceneManagerScript mSceneManager;
 
+    bool containerFilled = false;
+
     [SerializeField]
     PlayerInfo infoContainer;
 
     private void Awake()
     {
-
         infoContainer.player1Indexes = new List<int>();
         infoContainer.player2Indexes = new List<int>();
 
         infoContainer.player1Sprites = new List<Sprite>();
         infoContainer.player2Sprites = new List<Sprite>();
 
-        DontDestroyOnLoad(gameObject);
        //mSceneManager = gameObject.GetComponent<SceneManagerScript>();
     }
 
     void Start () {
+        if(playerData.player1 !=null)
+        {
+            //Debug.Log(playerData.player1.name);
+        }
+        if (playerData.player2 != null)
+        {
+            //Debug.Log(playerData.player2.name);
+        }
         countDown = 4;
 	}
 
     // Update is called once per frame
     void Update()
     {
-       // ArenaUpdate();
-       // RoundUpdate();
+        if (!containerFilled)
+            SetCharValue();
+        else
+            SetPlayerValues();
+
+        ArenaUpdate();
+        RoundUpdate();
+
+    }
+
+    void SetCharValue()
+    {
+        infoContainer.player1Indexes = InfoHolder.getInstance().holdersHolder.player1Indexes;
+        infoContainer.player2Indexes = InfoHolder.getInstance().holdersHolder.player1Indexes;
+
+        infoContainer.player1Sprites = InfoHolder.getInstance().holdersHolder.player1Sprites;
+        infoContainer.player2Sprites = InfoHolder.getInstance().holdersHolder.player2Sprites;
+
+        float p1IndexCount = infoContainer.player1Indexes.Count;
+        float p2IndexCount = infoContainer.player2Indexes.Count;
+        float p1SpriteCount = infoContainer.player1Sprites.Count;
+        float p2SpriteCount = infoContainer.player2Sprites.Count;
+
+        if(p1IndexCount == 3 && p1SpriteCount == 3 && p1SpriteCount == 3 && p2SpriteCount == 3)
+        {
+            containerFilled = true;
+        }
+    }
+
+    void SetPlayerValues()
+    {
+        // setting the type for the players
+        //Debug.Log(infoContainer.player1Indexes.Count);
+        //Debug.Log(infoContainer.player1Sprites.Count);
+        if (playerData.player1 != null)
+        {
+            playerData.player1.GetComponent<TheoryMove>().SetPlayerType(InfoHolder.getInstance().holdersHolder.player1Indexes[p1DeadCounter]);
+            playerData.player1.GetComponent<SpriteRenderer>().sprite = InfoHolder.getInstance().holdersHolder.player1Sprites[p1DeadCounter];
+        }
+        if (playerData.player1 != null)
+        {
+            playerData.player2.GetComponent<TheoryMove>().SetPlayerType(InfoHolder.getInstance().holdersHolder.player2Indexes[p2DeadCounter]);
+            playerData.player2.GetComponent<SpriteRenderer>().sprite = InfoHolder.getInstance().holdersHolder.player2Sprites[p2DeadCounter];
+        }
     }
 
     #region Round Code
     void RoundUpdate()
     {
         RoundStart();
-
-        if (playerData.player1Dead)
-        {
-            p1DeadCounter++;
-        }
-        if (playerData.player2Dead)
-        {
-            p2DeadCounter++;
-        }
 
         CheckForWinner();
 
@@ -173,7 +214,7 @@ public class GameManager : MonoBehaviour {
         if (playerData.player2Wins > playerData.player1Wins)
             winText = "PLAYER 2 WINS";
         else
-            winText = "PLAYER 2 WINS";
+            winText = "PLAYER 1 WINS";
 
         matchData.roundPanel.SetActive(false);
         matchData.matchPanel.SetActive(true);
@@ -223,25 +264,27 @@ public class GameManager : MonoBehaviour {
         {
             if (playerData.player1Dead || playerData.player2Dead)
             {
-                if (p1DeadCounter < p2DeadCounter)
+                if (playerData.player1Dead)
                 {
                     newRoundStarted = false;
 
                     Debug.Log("P2 win");
                     playerData.player2Wins++;
                     matchData.p2WinMarks[playerData.player2Wins - 1].color = Color.red;
+                    //p1DeadCounter++;
                     winText = "PLAYER 2 WINS ROUND";
                 }
-                else if (p1DeadCounter > p2DeadCounter)
+                else if (playerData.player2Dead)
                 {
                     newRoundStarted = false;
 
                     Debug.Log("P1 win");
                     playerData.player1Wins++;
                     matchData.p2WinMarks[playerData.player1Wins - 1].color = Color.red;
+                    //p2DeadCounter++;
                     winText = "PLAYER 1 WINS ROUND";
                 }
-                else
+                else if(playerData.player1Dead && playerData.player2Dead)
                 {
                     newRoundStarted = false;
 
@@ -251,8 +294,8 @@ public class GameManager : MonoBehaviour {
 
                 playerData.player1Dead = false;
                 playerData.player2Dead = false;
-                p1DeadCounter = 0;
-                p2DeadCounter = 0;
+                //p1DeadCounter = 0;
+                //p2DeadCounter = 0;
 
 
                 newRound = true;
@@ -279,7 +322,8 @@ public class GameManager : MonoBehaviour {
             if (!InsideArena(playerData.player1))
             {
                 //Debug.Log("u gon di");
-                playerData.player2Dead = true;
+                playerData.player1Dead = true;
+                p1DeadCounter++;
                 checkArenaState = false;
        //         StartCoroutine(TurnAroundAndDie(playerData.deathDelay, playerData.player1));
             }
@@ -288,7 +332,8 @@ public class GameManager : MonoBehaviour {
                 checkArenaState = false;
                 //Debug.Log("u gon di2");
                 checkArenaState = false;
-                playerData.player1Dead = true;
+                playerData.player2Dead = true;
+                p2DeadCounter++;
                // StartCoroutine(TurnAroundAndDie(playerData.deathDelay, playerData.player2));
             }
         }
@@ -296,7 +341,19 @@ public class GameManager : MonoBehaviour {
 
     private bool InsideArena(GameObject player)
     {
-        return currentEdge.GetComponent<CircleCollider2D>().bounds.Contains(new Vector3(player.transform.position.x, player.transform.position.y, currentEdge.transform.position.z));
+        if(player != null)
+        {
+            Vector3 playerPos = player.transform.position;
+            Vector3 newPos = new Vector3(playerPos.x, playerPos.y, currentEdge.transform.position.z);
+
+            bool withinBounds = currentEdge.GetComponent<CircleCollider2D>().bounds.Contains(newPos);
+            return withinBounds;
+        }
+        else
+        {
+            return true;// only temperary
+        }
+
     }
 
     private IEnumerator TurnAroundAndDie(float waitTime, GameObject player)
@@ -359,15 +416,22 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    public bool GetFilledList()
+    public Sprite GetPlayersSprite(int playerNum)
     {
-        if(infoContainer.player1Indexes.Count == 3 && infoContainer.player2Indexes.Count == 3)
+        //Debug.Log("P1 deaths: " + p1DeadCounter);
+        //Debug.Log("P2 deaths: " + p2DeadCounter);
+
+        if (playerNum == 1)
         {
-            return true;
+            return InfoHolder.getInstance().holdersHolder.player1Sprites[p1DeadCounter];
+        }
+        else if(playerNum == 2)
+        {
+            return InfoHolder.getInstance().holdersHolder.player2Sprites[p2DeadCounter];
         }
         else
         {
-            return false;
+            return null;
         }
     }
 

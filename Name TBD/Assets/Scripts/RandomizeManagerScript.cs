@@ -108,8 +108,8 @@ public class RandomizeManagerScript : MonoBehaviour
             if(!hasGiven)
             {
                 //Debug.Log("giving player data to manager");
-                GameManager.getInstance().SetPlayerInfo(1, player1Types, player1Sprites);
-                GameManager.getInstance().SetPlayerInfo(2, player2Types, player2Sprites);
+                InfoHolder.getInstance().SetPlayerInfo(1, player1Types, player1Sprites);
+                InfoHolder.getInstance().SetPlayerInfo(2, player2Types, player2Sprites);
                 hasGiven = true;
             }
         }
@@ -248,17 +248,17 @@ public class RandomizeManagerScript : MonoBehaviour
             }
             else if (charVal == 16)
             {
-                charImage.GetComponent<Image>().sprite = randChar15Sprite;
+                charImage.GetComponent<Image>().sprite = randChar16Sprite;
                 AddSprite(randChar16Sprite);
             }
             else if (charVal == 17)
             {
-                charImage.GetComponent<Image>().sprite = randChar15Sprite;
+                charImage.GetComponent<Image>().sprite = randChar17Sprite;
                 AddSprite(randChar17Sprite);
             }
             else if (charVal == 18)
             {
-                charImage.GetComponent<Image>().sprite = randChar15Sprite;
+                charImage.GetComponent<Image>().sprite = randChar18Sprite;
                 AddSprite(randChar18Sprite);
             }
         }

@@ -102,8 +102,18 @@ public class TheoryMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        CheckSprite();
+        CheckHeldObject();
         CheckForInput();
         RotatePlayer();
+    }
+
+    void CheckSprite()
+    {
+        if (currentPlayer == "P1")
+            gameObject.GetComponent<SpriteRenderer>().sprite = GameManager.getInstance().GetPlayersSprite(1);
+        else if (currentPlayer == "P2")
+            gameObject.GetComponent<SpriteRenderer>().sprite = GameManager.getInstance().GetPlayersSprite(2);
     }
 
     // checking for movement input
@@ -230,6 +240,7 @@ public class TheoryMove : MonoBehaviour
         if (canAct && Input.GetAxis(p1_RT_Name) > 0.9f)
         {
             //   Debug.Log(charType);
+            //Debug.Log(heldItem);
 
             switch (charType)
             {
@@ -310,5 +321,10 @@ public class TheoryMove : MonoBehaviour
     {
         moveSpeed += speedUp;
         gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * moveSpeed);
+    }
+
+    public void SetPlayerType(int newType)
+    {
+        charType = (PLAYER_TYPE)newType;
     }
 }
