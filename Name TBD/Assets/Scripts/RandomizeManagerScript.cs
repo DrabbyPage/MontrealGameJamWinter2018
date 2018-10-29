@@ -8,7 +8,12 @@ public class RandomizeManagerScript : MonoBehaviour
     [SerializeField]
     GameObject p1AcornTop, p1AcornBottom, p2AcornTop, p2AcornBottom;
     [SerializeField]
-    Sprite commonTop, commonBottom, uncommonTop, uncommonBottom, rareTop, rareBottom, legendaryTop, legendaryBottom; 
+    Sprite commonTop, commonBottom, uncommonTop, uncommonBottom, rareTop, rareBottom, legendaryTop, legendaryBottom;
+    // 1 = common
+    //2 = uncommon
+    //3 = rare
+    //4= leg
+    public int Rarity;
 
     bool play1Selected = true;
     bool play2Selected = false;
@@ -193,7 +198,7 @@ public class RandomizeManagerScript : MonoBehaviour
             if (randomPool > 0 && randomPool < 50)
             {
                 Debug.Log("Common Role");
-
+                SoundManagerScript.instance.PlayCommon();
                 p1AcornTop.GetComponent<Image>().sprite = commonTop;
                 p1AcornBottom.GetComponent<Image>().sprite = commonBottom;
                 p2AcornTop.GetComponent<Image>().sprite = commonTop;
@@ -213,7 +218,7 @@ public class RandomizeManagerScript : MonoBehaviour
             else if (randomPool >= 50 && randomPool < 85)
             {
                 Debug.Log("Uncommon Role");
-
+                SoundManagerScript.instance.PlayUncommon();
                 p1AcornTop.GetComponent<Image>().sprite = uncommonTop;
                 p1AcornBottom.GetComponent<Image>().sprite = uncommonBottom;
                 p2AcornTop.GetComponent<Image>().sprite = uncommonTop;
@@ -233,6 +238,7 @@ public class RandomizeManagerScript : MonoBehaviour
             else if (randomPool >= 85 && randomPool <= 99)
             {
                 Debug.Log("Rare Role");
+                SoundManagerScript.instance.PlayRare();
                 p1AcornTop.GetComponent<Image>().sprite = rareTop;
                 p1AcornBottom.GetComponent<Image>().sprite = rareBottom;
                 p2AcornTop.GetComponent<Image>().sprite = rareTop;
@@ -252,6 +258,7 @@ public class RandomizeManagerScript : MonoBehaviour
             else
             {
                 Debug.Log("Legendary Role");
+                SoundManagerScript.instance.PlayLegendary();
                 p1AcornTop.GetComponent<Image>().sprite = legendaryTop;
                 p1AcornBottom.GetComponent<Image>().sprite = legendaryBottom;
                 p2AcornTop.GetComponent<Image>().sprite = legendaryTop;
@@ -455,6 +462,7 @@ public class RandomizeManagerScript : MonoBehaviour
         yield return new WaitForSeconds(acornOpenLength);
 
         Debug.Log("acorn is done");
+
 
         acornOpen = false;
 
