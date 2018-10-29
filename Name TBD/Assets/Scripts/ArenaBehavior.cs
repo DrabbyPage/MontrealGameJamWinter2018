@@ -12,12 +12,16 @@ public class ArenaBehavior : MonoBehaviour {
 
     int ringToDrop;
     float timer;
+    bool canCheckRingDrop = false;
+
+    float dropTimer;
 
     bool roundStarted = false;
 
     private void Awake()
     {
         timer = 0;
+        dropTimer = 0;
         ringToDrop = arenaRings.Count - 1;
         SetArenaBounds();
     }
@@ -31,7 +35,7 @@ public class ArenaBehavior : MonoBehaviour {
 
         roundStarted = GameManager.getInstance().newRoundStarted;
 
-        if(roundStarted)
+        if(roundStarted && !canCheckRingDrop)
         {
             if (ringToDrop > 0)
             {
@@ -42,15 +46,22 @@ public class ArenaBehavior : MonoBehaviour {
                     timer = 0;
 
                     arenaRings[ringToDrop].GetComponent<ArenaFall>().Fall();
-                    StartCoroutine(Wait(ringToDrop));
-                    ringToDrop = ringToDrop - 1; ;
+                    canCheckRingDrop = true;
+                    //StartCoroutine(Wait(ringToDrop));
+                    //ringToDrop = ringToDrop - 1; ;
                 }
             }
         }
 
-
+        
+        if(canCheckRingDrop)
+        {
+            DropTimer();
+        }
+        
     }
 
+    
     private IEnumerator Wait(int ringToDrop)
     {
         yield return new WaitForSeconds(ringFlashTime);
@@ -61,16 +72,36 @@ public class ArenaBehavior : MonoBehaviour {
         SetArenaBounds();
 
     }
+    
+    void DropTimer()
+    {
+        if (ringToDrop > 0)
+        {
+            dropTimer += Time.deltaTime;
+
+            if (dropTimer > 1.0f && ringToDrop >= 0) //timer for rings falling
+            {
+                dropTimer = 0;
+                canCheckRingDrop = false;
+
+                GameManager.getInstance().SetArenaFell(true);
+                arenaRings[ringToDrop].SetActive(false);
+                ringToDrop = ringToDrop - 1;
+                SetArenaBounds();
+            }
+        }
+    }
 
 
     void ResetArena()
     {
         timer = 0;
         ringToDrop = arenaRings.Count - 1;
+        dropTimer = 0;
+        canCheckRingDrop = false;
 
         for (int i = 0; i < arenaRings.Count; i++)
         {
-            timer = 0;
             arenaRings[i].GetComponent<ArenaFall>().Reset();
             arenaRings[i].SetActive(true);
             SetArenaBounds();
