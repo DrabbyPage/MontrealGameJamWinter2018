@@ -30,10 +30,25 @@ public class FoxScript : MonoBehaviour {
         {
             timer -= Time.deltaTime;
             Debug.Log("cool");
+            // change player color grey to indicate cool down
+            GetComponentInParent<SpriteRenderer>().color = Color.grey;
             if (timer < 0)
             {
                 Debug.Log("down");
                 timer = 0;
+                GetComponentInParent<SpriteRenderer>().color = Color.white;
+                //plays the ready clip from the sound manager
+                if (SoundManagerScript.instance != null)
+                {
+                    if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+                    {
+                        SoundManagerScript.instance.EndCoolDownSound(true);
+                    }
+                    if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+                    {
+                        SoundManagerScript.instance.EndCoolDownSound(false);
+                    }
+                }
             }
         }
     }
@@ -48,6 +63,7 @@ public class FoxScript : MonoBehaviour {
             tracerObj = Instantiate(tracer) as GameObject;
             tracerObj.transform.position = owner.transform.position;
             timer = foxCooldown;
+            
         }
         else if(hasTracerSpawned && timer <= 0)
         {
@@ -57,6 +73,17 @@ public class FoxScript : MonoBehaviour {
             Debug.Log(tracerObj.name);
             timer = foxCooldown;
             Destroy(tracerObj);
+            //tel sound
+            if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.PlayerTeliportSound(true);
+            }
+
+            if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.PlayerTeliportSound(false);
+            }
+
         }
     }
 
@@ -71,7 +98,20 @@ public class FoxScript : MonoBehaviour {
         {
             //col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce);//, ForceMode2D.Force);
             col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
+
+            if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.PlayHitSound(true);
+            }
+
+            if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.PlayHitSound(false);
+            }
+
+
         }
+
 
     }
 

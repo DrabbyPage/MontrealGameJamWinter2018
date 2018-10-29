@@ -218,7 +218,21 @@ public class SoundManagerScript : MonoBehaviour {
             Player2GeneralSource.Play();
         }
     }
+    //******************** Fox sounds***********
 
+    public void PlayerTeliportSound(bool isPlayer1)
+    {
+        if (isPlayer1)
+        {
+            ASause.clip = Dash0Snd;
+            ASause.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2GeneralSource.clip = Dash0Snd;
+            Player2GeneralSource.Play();
+        }
+    }
 
     public void PlayOnButtonMove()
     {
