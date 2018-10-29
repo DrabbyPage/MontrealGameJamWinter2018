@@ -256,10 +256,43 @@ public class SoundManagerScript : MonoBehaviour {
         ASause.Play();
         ASause.volume = orgVolume;
     }
+    //*************************GOTCHA GET SOUNDS PLAY*********************
+
+    public void PlayCommon()
+    {
+        // basically the tape in the player
+        ASause.clip = GotchaGetsCommon;
+        //this actually players whatever clip is loaded into the source
+        ASause.Play();
+    }
+
+    public void PlayUncommon()
+    {
+        // basically the tape in the player
+        ASause.clip = GotchaGetsUncommon;
+        //this actually players whatever clip is loaded into the source
+        ASause.Play();
+    }
+
+    public void PlayRare()
+    {
+        // basically the tape in the player
+        ASause.clip = GotchaGetsRare;
+        //this actually players whatever clip is loaded into the source
+        ASause.Play();
+    }
+
+    public void PlayLegendary()
+    {
+        // basically the tape in the player
+        ASause.clip = GotchaGetsBuildUp;
+        //this actually players whatever clip is loaded into the source
+        ASause.Play();
+    }
 
 
-// this function determins which player is being hit and then which record player plays the sound
-public void PlayHitSound(bool isPlayer1)
+    // this function determins which player is being hit and then which record player plays the sound
+    public void PlayHitSound(bool isPlayer1)
     {
         if (isPlayer1)
         {

@@ -79,7 +79,7 @@ public class ArenaBehavior : MonoBehaviour {
         {
             dropTimer += Time.deltaTime;
 
-            if (dropTimer > 1.5f && ringToDrop >= 0) //timer for rings falling
+            if (dropTimer > 1.0f && ringToDrop >= 0) //timer for rings falling
             {
                 dropTimer = 0;
                 canCheckRingDrop = false;
