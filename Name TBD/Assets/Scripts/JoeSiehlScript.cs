@@ -14,6 +14,15 @@ public class JoeSiehlScript : MonoBehaviour {
             //col.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * BoopForce);//, ForceMode2D.Force);
             
             col.gameObject.GetComponent<BoopScript>().Booped(gameObject.transform.up, boopForce);
+            if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P1")
+            {
+                SoundManagerScript.instance.PlayHitSound(true);
+            }
+
+            if (gameObject.GetComponentInParent<TheoryMove>().currentPlayer == "P2")
+            {
+                SoundManagerScript.instance.PlayHitSound(false);
+            }
         }
     }
 }
