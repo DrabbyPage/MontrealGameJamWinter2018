@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour {
     public static SoundManagerScript instance;
-
+    public bool GodIsAlive;
     public static SoundManagerScript getInstance()
     {
         if (instance == null)
@@ -49,19 +49,24 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioClip Dash0Snd;
 
     
-    public AudioClip GotchaGetsCommon;
-    public AudioClip GotchaGetsRare;
 
-    public AudioClip GotchaGetsUncommon;
-    public AudioClip GotchaGetsUncommon2;
-    public AudioClip HeartBeat;
 
 
     
+    
+    public AudioClip HeartBeat;
+
+    [Header("gotchagets")]
+    public AudioClip GotchaGetsCommon;
+    public AudioClip GotchaGetsBuildUp;
+    public AudioClip GotchaGetsUncommon;
+    public AudioClip GotchaGetsUncommon2;
+    public AudioClip GotchaGetsRare;
 
     [Header("Music Clips")]
     public AudioClip TreeFightTheme;
-    public AudioClip GotchaGetsBuildUp;
+    
+    public AudioClip GodIsDedNWeHavKilHim;
 
 
     [Header("RECORD PLAYERS")]
@@ -106,13 +111,14 @@ public class SoundManagerScript : MonoBehaviour {
         MusicRecordPlayer.clip = TreeFightTheme;
         MusicRecordPlayer.Play();
         instance = this;
+        GodIsAlive = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         TestFromBull();
 	}
-
+    
     public void TestFromBull()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -216,7 +222,21 @@ public class SoundManagerScript : MonoBehaviour {
             Player2GeneralSource.Play();
         }
     }
+    //******************** Fox sounds***********
 
+    public void PlayerTeliportSound(bool isPlayer1)
+    {
+        if (isPlayer1)
+        {
+            ASause.clip = Dash0Snd;
+            ASause.Play();
+        }
+        if (!isPlayer1)
+        {
+            Player2GeneralSource.clip = Dash0Snd;
+            Player2GeneralSource.Play();
+        }
+    }
 
     public void PlayOnButtonMove()
     {
@@ -250,6 +270,14 @@ public void PlayHitSound(bool isPlayer1)
             Player2Hits.clip = Hit_snd;
             Player2Hits.Play();
         }
+    }
+    //**************GOD IS DEAD TIME*************
+    //these are the 5 lines of code that seperate me from being a man and an unfeeling ghost
+    public void ChangeTheBanger()
+    {
+        MusicRecordPlayer.clip = GodIsDedNWeHavKilHim;
+        MusicRecordPlayer.Play();
+        GodIsAlive = false;
     }
 
 }

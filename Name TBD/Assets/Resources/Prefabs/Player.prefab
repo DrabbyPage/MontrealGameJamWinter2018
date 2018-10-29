@@ -188,9 +188,9 @@ GameObject:
   - component: {fileID: 58612444056878060}
   - component: {fileID: 114511815153017322}
   - component: {fileID: 114973054512491934}
-  - component: {fileID: 199465641228549946}
-  - component: {fileID: 198200899478566732}
   - component: {fileID: 95671876857212942}
+  - component: {fileID: 199832740977417870}
+  - component: {fileID: 198534474501908066}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -882,7 +882,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317886554337126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.056702692, y: 0.042489823, z: 0}
+  m_LocalPosition: {x: 4.13, y: 0.47, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4969373438224534}
@@ -1943,7 +1943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foxCooldown: 1
-  boopForce: 0
+  boopForce: 300
 --- !u!114 &114496500178711530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1994,7 +1994,7 @@ MonoBehaviour:
     dashStopSpeed: 0
     dashDistance: 0
     dashCoolDownTime: 0
-  charType: 3
+  charType: 17
   moveSpeed: 80
   rotationSpeed: 15
   canAct: 1
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08abe1f8307bf7648af8e492c2e10e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!198 &198200899478566732
+--- !u!198 &198534474501908066
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6670,7 +6670,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &199465641228549946
+--- !u!199 &199832740977417870
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 1
