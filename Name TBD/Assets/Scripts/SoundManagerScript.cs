@@ -108,6 +108,7 @@ public class SoundManagerScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         ASause = gameObject.GetComponent<AudioSource>();
+        Debug.Log(ASause);
         MusicRecordPlayer.clip = TreeFightTheme;
         MusicRecordPlayer.Play();
         instance = this;

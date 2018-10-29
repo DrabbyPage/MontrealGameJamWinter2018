@@ -294,6 +294,48 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbff9adba188a6d4ea8528c41de24d74, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &402476755
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4779024610329566, guid: 8f62b9f2e26656545a0056ec0a6ce384, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.598699
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779024610329566, guid: 8f62b9f2e26656545a0056ec0a6ce384, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 7.1891937
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779024610329566, guid: 8f62b9f2e26656545a0056ec0a6ce384, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.19510254
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779024610329566, guid: 8f62b9f2e26656545a0056ec0a6ce384, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779024610329566, guid: 8f62b9f2e26656545a0056ec0a6ce384, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779024610329566, guid: 8f62b9f2e26656545a0056ec0a6ce384, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779024610329566, guid: 8f62b9f2e26656545a0056ec0a6ce384, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779024610329566, guid: 8f62b9f2e26656545a0056ec0a6ce384, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f62b9f2e26656545a0056ec0a6ce384, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &637996306
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,11 +450,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4534524072757820, guid: 3c4278808c79c9b47ba8d5550a49a06c, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c4278808c79c9b47ba8d5550a49a06c, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &853798552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114425396993663190, guid: 8f62b9f2e26656545a0056ec0a6ce384,
+    type: 2}
+  m_PrefabInternal: {fileID: 402476755}
+  m_Script: {fileID: 11500000, guid: 9752342035bc80f42a183ec8487ff2e6, type: 3}
 --- !u!1 &901128214
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,8 +515,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
-            type: 2}
+        - m_Target: {fileID: 853798552}
           m_MethodName: PlayOnButtonMove
           m_Mode: 1
           m_Arguments:
@@ -534,7 +581,7 @@ MonoBehaviour:
           m_StringArgument: Gallery
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+      - m_Target: {fileID: 114425396993663190, guid: 8f62b9f2e26656545a0056ec0a6ce384,
           type: 2}
         m_MethodName: PlayOnButtonSelect
         m_Mode: 1
@@ -748,6 +795,7 @@ RectTransform:
   - {fileID: 901128215}
   - {fileID: 1849362366}
   - {fileID: 2009877380}
+  - {fileID: 1803811385}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -846,7 +894,7 @@ MonoBehaviour:
           m_StringArgument: HowTo
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
+      - m_Target: {fileID: 114425396993663190, guid: 8f62b9f2e26656545a0056ec0a6ce384,
           type: 2}
         m_MethodName: PlayOnButtonSelect
         m_Mode: 1
@@ -910,8 +958,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
-            type: 2}
+        - m_Target: {fileID: 853798552}
           m_MethodName: PlayOnButtonMove
           m_Mode: 1
           m_Arguments:
@@ -993,6 +1040,91 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1653943306}
+  m_CullTransparentMesh: 0
+--- !u!1 &1803811384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1803811385}
+  - component: {fileID: 1803811387}
+  - component: {fileID: 1803811386}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1803811385
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1803811384}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1479441757}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -327.79, y: -168.95}
+  m_SizeDelta: {x: 144.33, y: 111.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1803811386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1803811384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 3fe81228f13dc144ba01d84d9ca65d01, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Dakota Williams
+
+    Walter Hill
+
+    Jo Forchhiemmer
+
+    Cameron Belcher
+
+    Jonathan Vogt
+
+    Joe Siehl'
+--- !u!222 &1803811387
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1803811384}
   m_CullTransparentMesh: 0
 --- !u!1 &1817063442
 GameObject:
@@ -1159,8 +1291,7 @@ MonoBehaviour:
           m_StringArgument: QuitScene
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
-          type: 2}
+      - m_Target: {fileID: 853798552}
         m_MethodName: PlayOnButtonSelect
         m_Mode: 1
         m_Arguments:
@@ -1223,8 +1354,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
-            type: 2}
+        - m_Target: {fileID: 853798552}
           m_MethodName: PlayOnButtonMove
           m_Mode: 1
           m_Arguments:
@@ -1328,8 +1458,7 @@ MonoBehaviour:
           m_StringArgument: CharacterSelectScene
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
-          type: 2}
+      - m_Target: {fileID: 853798552}
         m_MethodName: PlayOnButtonSelect
         m_Mode: 1
         m_Arguments:
@@ -1392,8 +1521,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114365795225268492, guid: 0fff9e92dd41b944d9c9fffa1a1ae876,
-            type: 2}
+        - m_Target: {fileID: 853798552}
           m_MethodName: PlayOnButtonMove
           m_Mode: 1
           m_Arguments:
@@ -1407,48 +1535,6 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!1001 &2007687029
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4433618651136682, guid: 0fff9e92dd41b944d9c9fffa1a1ae876, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -7.598699
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433618651136682, guid: 0fff9e92dd41b944d9c9fffa1a1ae876, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 7.1891937
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433618651136682, guid: 0fff9e92dd41b944d9c9fffa1a1ae876, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.19510254
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433618651136682, guid: 0fff9e92dd41b944d9c9fffa1a1ae876, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433618651136682, guid: 0fff9e92dd41b944d9c9fffa1a1ae876, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433618651136682, guid: 0fff9e92dd41b944d9c9fffa1a1ae876, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433618651136682, guid: 0fff9e92dd41b944d9c9fffa1a1ae876, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433618651136682, guid: 0fff9e92dd41b944d9c9fffa1a1ae876, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0fff9e92dd41b944d9c9fffa1a1ae876, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &2009877379
 GameObject:
   m_ObjectHideFlags: 0

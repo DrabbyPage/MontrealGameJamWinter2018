@@ -187,6 +187,7 @@ public class RandomizeManagerScript : MonoBehaviour
     {
         if (heartPump == false && acornOpen == false)
         {
+
             int newRand;
             int randomPool = Random.Range(1, 100);
 
@@ -237,9 +238,6 @@ public class RandomizeManagerScript : MonoBehaviour
                 p1AcornBottom.GetComponent<Image>().sprite = rareBottom;
                 p2AcornTop.GetComponent<Image>().sprite = rareTop;
                 p2AcornBottom.GetComponent<Image>().sprite = rareBottom;
-
-                p1AcornBottom.GetComponent<Animator>().enabled = true;
-                p2AcornBottom.GetComponent<Animator>().enabled = true;
 
                 List<int> playerTypes = new List<int>();
                 playerTypes.Add((int)PLAYER_TYPE.MAGNET);
@@ -453,7 +451,6 @@ public class RandomizeManagerScript : MonoBehaviour
         acornOpen = true;
 
         yield return new WaitForSeconds(acornOpenLength);
-
         Debug.Log("acorn is done");
 
         acornOpen = false;
