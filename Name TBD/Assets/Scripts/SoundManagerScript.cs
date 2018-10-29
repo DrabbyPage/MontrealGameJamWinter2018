@@ -49,19 +49,23 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioClip Dash0Snd;
 
     
-    public AudioClip GotchaGetsCommon;
-    public AudioClip GotchaGetsRare;
 
-    public AudioClip GotchaGetsUncommon;
-    public AudioClip GotchaGetsUncommon2;
-    public AudioClip HeartBeat;
 
 
     
+    
+    public AudioClip HeartBeat;
+
+    [Header("gotchagets")]
+    public AudioClip GotchaGetsCommon;
+    public AudioClip GotchaGetsBuildUp;
+    public AudioClip GotchaGetsUncommon;
+    public AudioClip GotchaGetsUncommon2;
+    public AudioClip GotchaGetsRare;
 
     [Header("Music Clips")]
     public AudioClip TreeFightTheme;
-    public AudioClip GotchaGetsBuildUp;
+    
     public AudioClip GodIsDedNWeHavKilHim;
 
 
